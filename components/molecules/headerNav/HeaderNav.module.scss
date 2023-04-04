@@ -1,0 +1,17 @@
+@import "/utils/utils";
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.menu-lists {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  .menu-list {
+    padding: 0.5rem;
+  }
+}
