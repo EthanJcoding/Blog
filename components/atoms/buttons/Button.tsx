@@ -1,5 +1,3 @@
-import styles from "./button.module.scss";
-import classNames from "classnames/bind";
 import React from "react";
 interface ButtonProps {
   children: JSX.Element | string;
@@ -12,10 +10,8 @@ const Button = ({
   theme = "primary",
   onClick = undefined,
 }: ButtonProps) => {
-  const cx = classNames.bind(styles);
-
   return (
-    <button className={cx("default-button", `${theme}`)} onClick={onClick}>
+    <button className="text-3xl font-bold underline" onClick={onClick}>
       {children}
     </button>
   );
