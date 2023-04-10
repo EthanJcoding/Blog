@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-weight: 400;
+  color: black;
+  font-family: "Pretendard";
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/blog/public/font/PretendardVariable.woff2") format("woff2");
+}
