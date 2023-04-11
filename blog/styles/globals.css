@@ -7,10 +7,15 @@
   padding: 0px;
   margin: 0px;
   font-weight: 400;
-  color: black;
   font-family: "Pretendard";
 }
 
+body {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
 @font-face {
   font-family: "Pretendard";
   src: url("/blog/public/font/PretendardVariable.woff2") format("woff2");
