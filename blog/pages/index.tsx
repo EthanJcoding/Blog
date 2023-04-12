@@ -6,7 +6,7 @@ export default function Home() {
       <main>
         <div>여기는 홈입니다</div>
       </main>
-      <Button size="default" variant="default">
+      <Button size="default" intent="default">
         any text gkgkgkgkgk
       </Button>
     </>

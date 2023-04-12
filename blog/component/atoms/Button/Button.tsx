@@ -6,8 +6,9 @@ const buttonStyles = cva(
   "active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium",
   {
     variants: {
-      variant: {
+      intent: {
         default: "bg-slate-900 text-white hover:bg-slate-700",
+        secondary: "bg-slate-700",
         outline: "bg-transparent border border-slate-200 hover:bg-slate-100",
       },
       size: {
@@ -16,7 +17,7 @@ const buttonStyles = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      intent: "default",
       size: "default",
     },
   }
@@ -27,11 +28,11 @@ interface ButtonProps
     VariantProps<typeof buttonStyles> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, size, variant, ...props }, ref) => {
+  ({ className, size, intent, ...props }, ref) => {
     return (
       <button
         ref={ref}
-        className={cn(buttonStyles({ variant, size, className }))}
+        className={cn(buttonStyles({ intent, size, className }))}
         {...props}
       />
     );

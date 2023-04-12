@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    variant: "default",
+    intent: "default",
     size: "default",
   },
 };
