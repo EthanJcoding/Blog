@@ -1,9 +1,9 @@
-import React, { ButtonHTMLAttributes, FC, forwardRef } from "react";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/utils/twMerge";
+import { cn } from "../../../utils/twMerge";
 
 const buttonStyles = cva(
-  "active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium",
+  "active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium w-full",
   {
     variants: {
       intent: {
