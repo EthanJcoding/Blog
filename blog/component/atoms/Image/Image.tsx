@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "@/utils/twMerge";
+import { cn } from "../../../utils/twMerge";
 
 const imageStyles = cva(
   "active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium",
