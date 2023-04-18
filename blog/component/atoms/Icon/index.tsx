@@ -1,4 +1,4 @@
-import { FaSearch, FaReact, FaTools } from "react-icons/fa";
+import { FaSearch, FaReact, FaTools, FaGithubSquare } from "react-icons/fa";
 import { RxComponent1 } from "react-icons/rx";
 import { MdTipsAndUpdates } from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
@@ -8,6 +8,7 @@ import { BsWindowPlus } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 
 export {
+  FaGithubSquare,
   TiTabsOutline,
   BsWindowPlus,
   AiFillAlert,

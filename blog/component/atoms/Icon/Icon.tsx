@@ -1,18 +1,22 @@
 import * as icons from "./index";
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { cva, VariantProps } from "class-variance-authority";
+import { cn } from "../../../utils/twMerge";
 
 interface IconProps {
   icon: keyof typeof icons;
-  size?: "xl" | "l" | "m" | "s" | "xs";
-  color?: "black" | "gray" | "green" | "lightgray" | "red" | "white";
+  size?: string;
+  color?: string;
 }
 
-const Icon = ({ icon, size = "m", color = "black" }: IconProps) => {
+const Icon = ({ icon, size, color }: IconProps) => {
   const SVG = icons[icon];
+
+  size === "m" ? (size = "48") : (size = "15");
 
   return (
     <span className={"icon-container"}>
-      <SVG />
+      <SVG size={size} />
     </span>
   );
 };
