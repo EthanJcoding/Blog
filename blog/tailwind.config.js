@@ -1,3 +1,5 @@
+const { colors } = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,7 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
+      colors: {
+        ...colors,
+        githubFollow: "#30363D",
+        githubFollowText: "#C9D1D9"
 
       },
     },
