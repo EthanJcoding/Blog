@@ -27,3 +27,12 @@ export const Secondary: Story = {
     children: "Button",
   },
 };
+
+export const IconButton: Story = {
+  args: {
+    intent: "iconButton",
+    size: "iconButton",
+    children: "Button",
+    icon: "FaGithubSquare",
+  },
+};
