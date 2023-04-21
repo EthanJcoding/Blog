@@ -1,19 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Icon } from "./Icon";
+import { IconButton } from "./IconButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
-const meta: Meta<typeof Icon> = {
-  title: "Atoms/Icon",
-  component: Icon,
+const meta: Meta<typeof IconButton> = {
+  title: "Molecules/IconButton",
+  component: IconButton,
   tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Icon>;
+type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
   args: {
-    icon: "FaSearch",
+    size: "default",
+    children: "IconButton",
   },
 };

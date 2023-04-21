@@ -12,17 +12,9 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     intent: "default",
-    size: "default",
-    children: "Button",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    intent: "secondary",
     size: "default",
     children: "Button",
   },

@@ -6,9 +6,9 @@ import { RxLetterCaseLowercase, RxAvatar } from "react-icons/rx";
 import { AiOutlineForm, AiFillAlert } from "react-icons/ai";
 import { BsWindowPlus } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
+import { SiVelog } from "react-icons/si";
 
-export {
-  FaGithubSquare,
+export const icons = {
   TiTabsOutline,
   BsWindowPlus,
   AiFillAlert,
@@ -22,3 +22,5 @@ export {
   MdTipsAndUpdates,
   RxLetterCaseLowercase,
 };
+
+export const widgets = { FaGithubSquare, SiVelog };

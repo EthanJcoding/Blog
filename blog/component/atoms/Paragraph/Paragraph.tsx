@@ -5,8 +5,9 @@ import { cn } from "../../../utils/twMerge";
 const paragraphVariants = cva("max-w-prose", {
   variants: {
     size: {
-      default: "text-base sm:text-lg",
-      sm: "text-sm sm:text-base",
+      default: "text-xl sm:text-lg",
+      sm: "sm:text-xl ",
+      highlight: "sm:text-4xl",
     },
   },
   defaultVariants: {
