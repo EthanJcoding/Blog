@@ -1,24 +1,37 @@
-import * as icons from "./index";
-import React, { useRef, useEffect } from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "../../../utils/twMerge";
+import { icons, widgets } from "./index";
+import React from "react";
 
 interface IconProps {
-  icon: keyof typeof icons;
+  icon?: keyof typeof icons;
+  widget?: keyof typeof widgets;
   size?: string;
   color?: string;
 }
 
-const Icon = ({ icon, size, color }: IconProps) => {
-  const SVG = icons[icon];
+const Icon = ({ icon, widget, size, color }: IconProps) => {
+  const computedSize = size === "m" ? "48" : "15";
 
-  size === "m" ? (size = "48") : (size = "15");
+  if (icon) {
+    const SVG = icons[icon];
 
-  return (
-    <span className={"icon-container"}>
-      <SVG size={size} />
-    </span>
-  );
+    return (
+      <span className={"icon-container"}>
+        <SVG size={computedSize} />
+      </span>
+    );
+  }
+
+  if (widget) {
+    const Widget = widgets[widget];
+
+    return (
+      <span className={"icon-container"}>
+        <Widget size={computedSize} />
+      </span>
+    );
+  }
+
+  return null;
 };
 
-export default React.memo(Icon);
+export { Icon };
