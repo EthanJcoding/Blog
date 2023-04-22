@@ -16,7 +16,7 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
 
     return (
       <span className={"icon-container"}>
-        <SVG size={computedSize} />
+        <SVG size={computedSize} color={color} />
       </span>
     );
   }
@@ -26,7 +26,7 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
 
     return (
       <span className={"icon-container"}>
-        <Widget size={computedSize} />
+        <Widget size={computedSize} color={color} />
       </span>
     );
   }

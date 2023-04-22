@@ -20,10 +20,10 @@ export const Default: Story = {
   },
 };
 
-export const IconButton: Story = {
+export const Hi: Story = {
   args: {
-    intent: "iconButton",
-    size: "iconButton",
+    intent: "default",
+    size: "default",
     children: "Button",
     icon: "FaGithubSquare",
   },

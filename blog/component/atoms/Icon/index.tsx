@@ -1,4 +1,10 @@
-import { FaSearch, FaReact, FaTools, FaGithubSquare } from "react-icons/fa";
+import {
+  FaSearch,
+  FaReact,
+  FaTools,
+  FaGithubSquare,
+  FaInstagramSquare,
+} from "react-icons/fa";
 import { RxComponent1 } from "react-icons/rx";
 import { MdTipsAndUpdates } from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
@@ -23,4 +29,4 @@ export const icons = {
   RxLetterCaseLowercase,
 };
 
-export const widgets = { FaGithubSquare, SiVelog };
+export const widgets = { FaGithubSquare, SiVelog, FaInstagramSquare };
