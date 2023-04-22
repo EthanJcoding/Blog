@@ -4,7 +4,7 @@ import profile from "../../../public/profile.jpg";
 
 const Profile = () => {
   return (
-    <div className="flex">
+    <div className="flex mb-10">
       <ImageLayout alt="profile" src={profile}></ImageLayout>
       <div className="flex flex-col h-40 justify-around p-4 pl-8">
         <Paragraph className="font-bold" size="sm">
