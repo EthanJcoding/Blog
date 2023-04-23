@@ -6,8 +6,8 @@ const paragraphVariants = cva("max-w-prose", {
   variants: {
     size: {
       default: "text-xl sm:text-lg",
-      sm: "sm:text-xl ",
-      highlight: "sm:text-4xl",
+      sm: "xsm:text-lg text-2xl ",
+      highlight: "text-4xl",
     },
   },
   defaultVariants: {

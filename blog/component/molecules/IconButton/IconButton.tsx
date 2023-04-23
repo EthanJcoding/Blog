@@ -10,7 +10,7 @@ const IconButton = ({}) => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
 
   return (
-    <div className="grid grid-cols-2 gap-4 w-full">
+    <div className="grid grid-cols-2 gap-4 xlg:w-[51.25rem] content-center">
       {widgetArray.map((el, idx) => (
         <div
           key={idx}
