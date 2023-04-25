@@ -9,18 +9,21 @@ interface IconButtonProps {}
 const IconButton = ({}) => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
 
+  const IconColorDistribute = (widget: widget): string => {
+    if (widget === "FaGithubSquare") return "black";
+    if (widget === "FaInstagramSquare") return "pink";
+    if (widget === "SiVelog") return "1EBF8F";
+    else return "black";
+  };
+
   return (
-    <div className="grid grid-cols-2 gap-4 xlg:w-[51.25rem] content-center">
+    <div className="grid grid-cols-2 gap-10">
       {widgetArray.map((el, idx) => (
         <div
           key={idx}
-          className="flex-col justify-start active:scale-95 inline-flex items-center rounded-md text-sm font-medium w-40 h-40 p-5 border"
+          className="flex-col justify-start active:scale-95 inline-flex rounded-3xl shadow-md text-sm font-medium w-40 h-40 p-5 border"
         >
-          <Icon
-            widget={el}
-            size="m"
-            color={el === "SiVelog" ? "1EBF8F" : "black"}
-          />
+          <Icon widget={el} size="m" color={IconColorDistribute(el)} />
           <div className="flex items-start my-2 font-semibold">
             EthanJcoding
           </div>

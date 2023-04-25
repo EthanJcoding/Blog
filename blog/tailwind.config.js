@@ -20,7 +20,8 @@ module.exports = {
       },
       screens: {
         ...screens,
-        'xsm': { 'max': '420px' }
+        'xsm': { 'max': '420px' },
+        '2xsm': { 'max': '366px' }
       }
 
     },
