@@ -5,13 +5,12 @@ import { cn } from "../../../utils/twMerge";
 const paragraphVariants = cva("max-w-prose", {
   variants: {
     size: {
-      default: "text-xl sm:text-lg",
-      sm: "xsm:text-lg text-2xl ",
-      highlight: "text-4xl",
+      title: "text-xl xl:text-3xl xsm:text-lg",
+      name: "text-3xl xl:text-5xl 2xsm:text-lg",
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "title",
   },
 });
 

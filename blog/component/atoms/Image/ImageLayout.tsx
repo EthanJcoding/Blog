@@ -5,7 +5,7 @@ import { cva, VariantProps } from "class-variance-authority";
 const ImageLayoutStyles = cva("flex", {
   variants: {
     size: {
-      rounded: "rounded-full w-40 h-40",
+      rounded: "rounded-full xl:w-40 xl:h-40 w-32 h-32",
       squared: "w-40 h-40",
     },
   },
