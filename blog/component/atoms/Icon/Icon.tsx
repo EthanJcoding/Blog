@@ -23,8 +23,14 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
 
   if (widget) {
     const Widget = widgets[widget];
-
-    return (
+    return color === "instagram" ? (
+      <span className={"icon-container"}>
+        <Widget
+          size={computedSize}
+          className="text-transparent bg-gradient-to-tr from-red-800 via-purple-400 to-violet-700"
+        />
+      </span>
+    ) : (
       <span className={"icon-container"}>
         <Widget size={computedSize} color={color} />
       </span>

@@ -29,4 +29,9 @@ export const icons = {
   RxLetterCaseLowercase,
 };
 
-export const widgets = { FaGithubSquare, SiVelog, FaInstagramSquare };
+export const widgets = {
+  FaGithubSquare,
+  SiVelog,
+  FaInstagramSquare,
+  RxComponent1,
+};
