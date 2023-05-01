@@ -11,7 +11,7 @@ const IconButton = ({}) => {
 
   const IconColorDistribute = (widget: widget): string => {
     if (widget === "FaGithubSquare") return "black";
-    if (widget === "FaInstagramSquare") return "instagram";
+    if (widget === "BsInstagram") return "instagram";
     if (widget === "SiVelog") return "1EBF8F";
     else return "black";
   };
