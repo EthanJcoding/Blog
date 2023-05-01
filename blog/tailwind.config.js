@@ -13,7 +13,9 @@ module.exports = {
         ...colors,
         githubFollow: "#30363D",
         githubFollowText: "#C9D1D9",
-        hover: "#FBFBFB"
+        hover: "#FBFBFB",
+        contentText: "#3F3F4A",
+        linkText: "#12b886"
       },
       width: {
         ...width,

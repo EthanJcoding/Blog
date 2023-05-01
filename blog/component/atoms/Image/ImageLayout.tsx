@@ -2,7 +2,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { cva, VariantProps } from "class-variance-authority";
 
-const ImageLayoutStyles = cva("flex", {
+const ImageLayoutStyles = cva("flex object-cover", {
   variants: {
     size: {
       rounded: "rounded-full xl:w-40 xl:h-40 w-32 h-32",
