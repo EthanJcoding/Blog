@@ -20,11 +20,10 @@ export const Default: Story = {
   },
 };
 
-export const Hi: Story = {
+export const Grid: Story = {
   args: {
-    intent: "default",
-    size: "default",
-    children: "Button",
-    icon: "FaGithubSquare",
+    intent: "grid",
+    widgetType: "BsInstagram",
+    size: "grid_size",
   },
 };

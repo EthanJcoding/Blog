@@ -23,8 +23,23 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
 
   if (widget) {
     const Widget = widgets[widget];
-
-    return (
+    return color === "instagram" ? (
+      <div
+        style={{
+          padding: "6px",
+          width: "48px",
+          height: "48px",
+          background:
+            "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)",
+          borderRadius: "10%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Widget style={{ color: "white", fontSize: "42px" }} />
+      </div>
+    ) : (
       <span className={"icon-container"}>
         <Widget size={computedSize} color={color} />
       </span>

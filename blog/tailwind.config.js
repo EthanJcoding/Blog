@@ -12,7 +12,10 @@ module.exports = {
       colors: {
         ...colors,
         githubFollow: "#30363D",
-        githubFollowText: "#C9D1D9"
+        githubFollowText: "#C9D1D9",
+        hover: "#FBFBFB",
+        contentText: "#3F3F4A",
+        linkText: "#12b886"
       },
       width: {
         ...width,
@@ -21,7 +24,8 @@ module.exports = {
       screens: {
         ...screens,
         'xsm': { 'max': '420px' },
-        '2xsm': { 'max': '366px' }
+        '2xsm': { 'max': '366px' },
+        'xlg': { 'min': '1280px' }
       }
 
     },
