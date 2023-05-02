@@ -13,10 +13,10 @@ const Profile = () => {
           <Paragraph className="font-bold" size="name">
             Junil Jeong
           </Paragraph>
-          <Paragraph size="content" className="text-contentText mt-4">
+          <Paragraph size="content" className="text-contentText mt-4 ">
             I am a <b>frontend developer</b> equipped with skills of typescript
             and react.js. Looking forward to achieve efficiency and productivity
-            for teams.
+            for your teams.
           </Paragraph>
           <Paragraph size="content" className="text-contentText mt-4">
             I have recently completed Software Engineering Bootcamp in

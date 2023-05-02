@@ -37,7 +37,7 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
           alignItems: "center",
         }}
       >
-        <Widget style={{ color: "white", fontSize: "42px" }} />
+        <Widget style={{ color: "white", fontSize: "48px" }} />
       </div>
     ) : (
       <span className={"icon-container"}>
