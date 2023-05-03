@@ -3,6 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../../utils/twMerge";
 import { icons, widgets } from "../Icon/index";
 import { Icon } from "../Icon/Icon";
+import { Paragraph } from "../Paragraph/Paragraph";
 
 type widget = keyof typeof widgets;
 
@@ -48,18 +49,28 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       else return "black";
     };
 
+    const IconDetailDistribute = (widget: widget): string => {
+      if (widget === "FaGithubSquare") return "EthanJcoding";
+      if (widget === "BsInstagram") return "@_junilJ";
+      if (widget === "SiVelog") return "ethan_world.log";
+      else return "Archive";
+    };
+
     if (intent === "grid") {
       return (
         <button className={cn(buttonStyles({ intent, size }))}>
-          <div className="h-full flex flex-col justify-between">
+          <div className="h-full flex flex-col">
             <Icon
               widget={widgetType}
               size="m"
               color={IconColorDistribute(widgetType)}
             />
-            <div className="flex items-start my-2 font-semibold">
-              EthanJcoding
-            </div>
+            <Paragraph
+              size="small_content"
+              className="flex items-start mt-4 font-semibold"
+            >
+              {IconDetailDistribute(widgetType)}
+            </Paragraph>
           </div>
         </button>
       );
