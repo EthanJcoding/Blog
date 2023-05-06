@@ -2,6 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['img.shields.io'],
+  }
   // webpack: {
   //   resolve: {
   //     fallback: {
