@@ -8,6 +8,7 @@ const paragraphVariants = cva("max-w-prose", {
       title: "text-xl xl:text-3xl xsm:text-lg",
       name: "text-3xl xl:text-5xl 2xsm:text-lg",
       content: "text-lg xl:text-xl xsm:text-lg",
+      small_content: "text-md",
     },
   },
   defaultVariants: {

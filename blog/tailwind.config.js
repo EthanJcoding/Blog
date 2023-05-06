@@ -15,7 +15,10 @@ module.exports = {
         githubFollowText: "#C9D1D9",
         hover: "#FBFBFB",
         contentText: "#3F3F4A",
-        linkText: "#12b886"
+        linkText: "#12b886",
+        goms_grid: "#FFFDFC",
+        codeTech_grid: "#F4F4F5"
+
       },
       width: {
         ...width,

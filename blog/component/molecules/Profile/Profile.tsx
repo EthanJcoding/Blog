@@ -22,23 +22,6 @@ const Profile = () => {
             I have recently completed Software Engineering Bootcamp in
             CodeStates and currently studying Next.js 😁
           </Paragraph>
-          <Paragraph size="content" className="text-linkText mt-4">
-            <a
-              target="_blank"
-              href="http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/"
-              rel="noopener noreferrer"
-            >
-              🎼 악보의 정원 Garden of Music Sheet
-            </a>
-            <br />
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://codetech.nworld.dev/"
-            >
-              💻 코드테크 CodeTech
-            </a>
-          </Paragraph>
         </div>
       </div>
     </div>

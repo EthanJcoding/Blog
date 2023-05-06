@@ -24,6 +24,6 @@ export const Grid: Story = {
   args: {
     intent: "grid",
     widgetType: "BsInstagram",
-    size: "grid_size",
+    size: "grid_md",
   },
 };

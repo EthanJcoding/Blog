@@ -14,14 +14,14 @@ type Story = StoryObj<typeof Paragraph>;
 
 export const Primary: Story = {
   args: {
-    size: "default",
+    size: "name",
     children: "Paragraph",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    size: "default",
+    size: "title",
     children: "Paragraph",
   },
 };
