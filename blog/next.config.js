@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['img.shields.io'],
+    domains: ['img.shields.io', 'ghchart.rshah.org'],
   }
   // webpack: {
   //   resolve: {

@@ -4,6 +4,7 @@ import { cn } from "../../../utils/twMerge";
 import { widgets } from "../Icon/index";
 import { Icon } from "../Icon/Icon";
 import { Paragraph } from "../Paragraph/Paragraph";
+import Link from "next/link";
 
 type widget = keyof typeof widgets;
 
@@ -70,8 +71,8 @@ const IconDetailDistribute = (
     default:
       return {
         color: "black",
-        detail: "Archive",
-        link: "",
+        detail: "archive",
+        link: "/archive",
       };
   }
 };
@@ -93,17 +94,31 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
       return (
         <button className={cn(buttonStyles({ intent, size }))}>
-          <a href={link} target="_blank">
-            <div className="h-full flex flex-col">
-              <Icon widget={widgetType} size="m" color={color} />
-              <Paragraph
-                size="small_content"
-                className="flex items-start mt-4 font-semibold"
-              >
-                {detail}
-              </Paragraph>
-            </div>
-          </a>
+          {detail === "archive" && link ? (
+            <Link href={link}>
+              <div className="h-full flex flex-col">
+                <Icon widget={widgetType} size="m" color={color} />
+                <Paragraph
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                >
+                  {detail}
+                </Paragraph>
+              </div>
+            </Link>
+          ) : (
+            <a href={link} target="_blank">
+              <div className="h-full flex flex-col">
+                <Icon widget={widgetType} size="m" color={color} />
+                <Paragraph
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                >
+                  {detail}
+                </Paragraph>
+              </div>
+            </a>
+          )}
         </button>
       );
     }
