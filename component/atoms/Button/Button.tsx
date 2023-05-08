@@ -18,8 +18,8 @@ const buttonStyles = cva(
         outline: "bg-transparent border border-slate-200 hover:bg-slate-100",
         iconButton: "border rounded-3xl flex-col p-6",
         github_Follow: "bg-gray-200 ",
-        grid: "flex-col justify-start rounded-3xl shadow-md border  ",
-        big_grid: "col-span-2 row-span-1 border rounded-3xl p-5 shadow-md ",
+        grid: "flex-col justify-start rounded-3xl shadow-md border",
+        big_grid: "col-span-2 row-span-1 border rounded-3xl p-5 shadow-md",
       },
       size: {
         default: "h-10 py-2 px-4",
@@ -32,8 +32,8 @@ const buttonStyles = cva(
       },
     },
     defaultVariants: {
-      intent: "default",
-      size: "default",
+      intent: "big_grid",
+      size: "grid_lg",
     },
   }
 );
@@ -92,34 +92,34 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     if (intent === "grid") {
       const { color, detail, link } = IconDetailDistribute(widgetType);
 
-      return (
-        <button className={cn(buttonStyles({ intent, size }))}>
-          {detail === "archive" && link ? (
-            <Link href={link}>
-              <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
-                <Paragraph
-                  size="small_content"
-                  className="flex items-start mt-4 font-semibold"
-                >
-                  {detail}
-                </Paragraph>
-              </div>
-            </Link>
-          ) : (
-            <a href={link} target="_blank">
-              <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
-                <Paragraph
-                  size="small_content"
-                  className="flex items-start mt-4 font-semibold"
-                >
-                  {detail}
-                </Paragraph>
-              </div>
-            </a>
-          )}
-        </button>
+      return detail === "archive" && link ? (
+        <Link href={link}>
+          <button className={cn(buttonStyles({ intent, size }))}>
+            <div className="h-full flex flex-col">
+              <Icon widget={widgetType} size="m" color={color} />
+              <Paragraph
+                size="small_content"
+                className="flex items-start mt-4 font-semibold"
+              >
+                {detail}
+              </Paragraph>
+            </div>
+          </button>
+        </Link>
+      ) : (
+        <a href={link} target="_blank">
+          <button className={cn(buttonStyles({ intent, size }))}>
+            <div className="h-full flex flex-col">
+              <Icon widget={widgetType} size="m" color={color} />
+              <Paragraph
+                size="small_content"
+                className="flex items-start mt-4 font-semibold"
+              >
+                {detail}
+              </Paragraph>
+            </div>
+          </button>
+        </a>
       );
     }
 
