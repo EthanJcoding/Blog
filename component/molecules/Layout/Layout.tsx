@@ -18,7 +18,7 @@ const Layout = ({
   return (
     <>
       <Head>
-        <title>{title ?? "Junto-portpolio"}</title>
+        <title>{title ?? "Junto-portfolio"}</title>
         <meta
           name="description"
           content={description ?? "프론트엔드 개발자 정준일의 포트폴리오"}
