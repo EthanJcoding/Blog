@@ -21,7 +21,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
         target="_blank"
         className={buttonStyles({ intent: "big_grid", size: "grid_lg" })}
       >
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
             <Image src={codeTechLogo} alt="코드테크 로고" className="w-36" />
           </div>
@@ -38,7 +38,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
         target="_blank"
         className={buttonStyles({ intent: "big_grid", size: "grid_lg" })}
       >
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-goms_grid">
             <Image src={gomsLogo} alt="악보의정원 로고" className="w-5" />
             <div
