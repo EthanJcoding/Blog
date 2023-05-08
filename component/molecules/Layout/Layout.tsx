@@ -18,13 +18,16 @@ const Layout = ({
   return (
     <>
       <Head>
-        <title>{title ?? "Junto-portpolio"}</title>
+        <title>{title ?? "Junto-portfolio"}</title>
         <meta
           name="description"
           content={description ?? "프론트엔드 개발자 정준일의 포트폴리오"}
         />
         <meta property="og:image" content={image ?? "/default-image.jpg"} />
-        <meta property="og:url" content={url ?? "https://example.com"} />
+        <meta
+          property="og:url"
+          content={url ?? "https://junil-portfolio.vercel.app/"}
+        />
         <meta name="author" content="Junil Jeong" />
         <meta
           name="keywords"
