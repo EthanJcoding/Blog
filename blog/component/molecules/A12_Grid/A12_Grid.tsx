@@ -2,8 +2,8 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import gomsLogo from "../../../public/gomsLogo.png";
 import codeTechLogo from "../../../public/codeTechLogo.png";
-import { Button } from "../Button/Button";
-
+import { Button } from "../../atoms/Button/Button";
+import { StackIcon } from "../../atoms/StackIcon/StackIcon";
 const goms_font = localFont({
   src: "../../../public/font/designhouseOTFLight00.woff",
 });
@@ -14,21 +14,6 @@ interface A12_GridProps {
 }
 
 const A12_Grid = ({ stacks, project }: A12_GridProps) => {
-  const StackIcon = ({ ...props }) => {
-    return (
-      <div {...props}>
-        {stacks.map((el, idx) => (
-          <div key={idx}>
-            <img
-              alt="스택 아이콘"
-              src={`https://img.shields.io/badge/${el.stack}-${el.color}?style=for-the-badge&logo=${el.stack}&logoColor=white`}
-            />
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   if (project === "코드테크") {
     return (
       <Button intent="big_grid" size="grid_lg">
@@ -38,7 +23,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
               <Image src={codeTechLogo} alt="코드테크 로고" className="w-36" />
             </div>
             <div className="">
-              <StackIcon className="mb-2 flex" />
+              <StackIcon stacks={stacks} />
             </div>
           </div>
         </a>
@@ -61,7 +46,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
               </div>
             </div>
             <div className="">
-              <StackIcon className="mb-2 flex" />
+              <StackIcon stacks={stacks} />
             </div>
           </div>
         </a>
