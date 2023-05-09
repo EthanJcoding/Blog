@@ -31,7 +31,6 @@ const MainGrid = ({}) => {
         { stack: "tailwindcss", color: "06B6D4" },
       ],
     },
-    // Add more projects as needed
   ];
 
   const GridHeader = () => {
