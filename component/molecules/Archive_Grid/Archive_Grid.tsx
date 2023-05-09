@@ -10,21 +10,12 @@ interface Article {
 
 interface ArchiveGridProps {
   article: Article;
-  key: string;
 }
 
-const Archive_Grid = ({ article, key }: ArchiveGridProps) => {
+const Archive_Grid = ({ article }: ArchiveGridProps) => {
   const { tags } = article;
 
-  console.log(tags);
-
-  const stacks = tags.map((tag) => {
-    stack: tag;
-  });
-
-  console.log(stacks);
-
-  return <div key={key}></div>;
+  return <div></div>;
 };
 
 export { Archive_Grid };

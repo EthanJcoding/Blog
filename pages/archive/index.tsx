@@ -66,8 +66,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 export default function Archive({ data }: Props) {
   return (
     <section>
-      {data.map((article) => (
-        <Archive_Grid key={article.id} article={article} />
+      {data.map((article, idx) => (
+        <div key={idx}>{/* <Archive_Grid article={article} /> */}</div>
       ))}
     </section>
   );
