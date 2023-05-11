@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        '8': 'repeat(8, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
+      },
       colors: {
         ...colors,
         githubFollow: "#30363D",
