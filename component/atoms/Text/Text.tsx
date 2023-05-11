@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, HTMLAttributes } from "react";
 import { cn } from "../../../utils/twMerge";
 
-const paragraphVariants = cva("max-w-prose", {
+const textVariants = cva("max-w-prose", {
   variants: {
     size: {
       title: "text-xl xl:text-3xl xsm:text-lg",
@@ -16,22 +16,18 @@ const paragraphVariants = cva("max-w-prose", {
   },
 });
 
-interface ParagraphProps
+interface TextProps
   extends HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof paragraphVariants> {}
+    VariantProps<typeof textVariants> {}
 
-const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
+const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ className, size, children, ...props }, ref) => {
     return (
-      <p
-        ref={ref}
-        {...props}
-        className={cn(paragraphVariants({ size, className }))}
-      >
+      <p ref={ref} {...props} className={cn(textVariants({ size, className }))}>
         {children}
       </p>
     );
   }
 );
 
-export { Paragraph, paragraphVariants };
+export { Text, textVariants };
