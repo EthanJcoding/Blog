@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import axios from "axios";
+
 import {
   useFetchNotionData,
   NotionDataItem,

@@ -18,7 +18,7 @@ interface Result {
   created_time: string;
 }
 
-interface DataItem {
+export interface NotionDataItem {
   id: string;
   name: string;
   tags: string[];
@@ -38,7 +38,7 @@ const useFetchNotionData = async () => {
       }
     );
 
-    const data: DataItem[] = res.data.results.map((item: Result) => ({
+    const data: NotionDataItem[] = res.data.results.map((item: Result) => ({
       id: item.id,
       name: item.properties.Name.title[0].plain_text,
       tags: item.properties.Tags.multi_select.map((tag) => tag.name),
