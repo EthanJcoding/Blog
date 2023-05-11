@@ -19,7 +19,7 @@ const gridStyles = cva(
       },
       size: {
         grid_md:
-          "xl:w-44 xl:h-44 w-[9.375rem] h-36 min-w-[9.375rem] min-h-[9.375rem] text-sm font-medium p-5",
+          "xl:w-44 xl:h-44 sm:w-[10.625rem] sm:h-[10.625rem] min-w-[9.375rem] min-h-[9.375rem] text-sm font-medium p-5",
         grid_lg: "w-full h-full min-w-[21.375rem] min-h-[9.375rem]",
       },
     },
