@@ -19,11 +19,3 @@ export const Default: Story = {
     children: "Button",
   },
 };
-
-export const Grid: Story = {
-  args: {
-    intent: "grid",
-    widgetType: "BsInstagram",
-    size: "grid_md",
-  },
-};

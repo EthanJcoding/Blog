@@ -1,5 +1,5 @@
 import { widgets } from "../../atoms/Icon/index";
-import { Button } from "../../atoms/Button/Button";
+import { Grid } from "../Grid/Grid";
 import { A12_Grid } from "../A12_Grid/A12_Grid";
 type widget = keyof typeof widgets;
 
@@ -33,26 +33,23 @@ const MainGrid = ({}) => {
     },
   ];
 
-  const GridHeader = () => {
-    return (
-      <>
-        {widgetArray.map((el, idx) => (
-          <Button widgetType={el} key={idx} intent="grid" size="grid_md" />
-        ))}
-        {projects.map((project, idx) => (
-          <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
-        ))}
-      </>
-    );
-  };
-
   return (
     <>
-      <div className="relative flex-1 xl:w-[820px] xl:flex-none">
-        <div className="grid grid-cols-2 grid-rows-4 xlg:grid-cols-4 xlg:grid-rows-2 gap-10 place-items-center">
-          <GridHeader />
-        </div>
+      {widgetArray.map((el, idx) => (
+        <Grid widgetType={el} key={idx} intent="grid" size="grid_md" />
+      ))}
+      <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
+        Projects 💻
       </div>
+      {projects.map((project, idx) => (
+        <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
+      ))}
+      <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
+        Writings ✏️
+      </div>
+      {projects.map((project, idx) => (
+        <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
+      ))}
     </>
   );
 };
