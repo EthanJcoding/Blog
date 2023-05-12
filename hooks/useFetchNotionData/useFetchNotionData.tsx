@@ -16,13 +16,19 @@ interface Result {
     Tags: Property;
   };
   created_time: string;
+  cover: {
+    file: {
+      url: string;
+    };
+  };
 }
 
 export interface NotionDataItem {
   id: string;
   name: string;
-  tags: string[];
+  tags: { stack: string; color: string }[];
   created_at: string;
+  thumbnail: string;
 }
 
 const useFetchNotionData = async () => {
@@ -38,12 +44,21 @@ const useFetchNotionData = async () => {
       }
     );
 
-    const data: NotionDataItem[] = res.data.results.map((item: Result) => ({
-      id: item.id,
-      name: item.properties.Name.title[0].plain_text,
-      tags: item.properties.Tags.multi_select.map((tag) => tag.name),
-      created_at: item.created_time,
-    }));
+    const data: NotionDataItem[] = res.data.results.map((item: Result) => {
+      const thumbnail = item.cover?.file?.url || ""; // Get the thumbnail URL
+
+      return {
+        type: "blog",
+        id: item.id,
+        thumbnail, // Assign the thumbnail URL to the "thumbnail" property
+        name: item.properties.Name.title[0].plain_text,
+        tags: item.properties.Tags.multi_select.map((tag) => ({
+          stack: tag.name,
+          color: "149ECA",
+        })),
+        created_at: item.created_time,
+      };
+    });
 
     return {
       props: {

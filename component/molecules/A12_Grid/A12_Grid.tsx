@@ -2,7 +2,6 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import gomsLogo from "../../../public/gomsLogo.png";
 import codeTechLogo from "../../../public/codeTechLogo.png";
-import { buttonStyles } from "../../atoms/Button/Button";
 import { StackIcon } from "../../atoms/StackIcon/StackIcon";
 import { gridStyles } from "../Grid/Grid";
 const goms_font = localFont({

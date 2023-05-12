@@ -74,7 +74,7 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  ({ className, size, intent, icon, widgetType, ...props }) => {
+  ({ className, size, intent, icon, widgetType, ...props }, ref) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
 
     if (detail === "archive" && link) {
