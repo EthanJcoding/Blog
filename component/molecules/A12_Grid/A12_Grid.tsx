@@ -19,7 +19,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
       <a
         href="https://codetech.nworld.dev/"
         target="_blank"
-        className={gridStyles({ intent: "big_grid", size: "grid_lg" })}
+        className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
       >
         <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
@@ -36,7 +36,7 @@ const A12_Grid = ({ stacks, project }: A12_GridProps) => {
       <a
         href="http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/"
         target="_blank"
-        className={gridStyles({ intent: "big_grid", size: "grid_lg" })}
+        className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
       >
         <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-goms_grid">
