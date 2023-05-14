@@ -14,8 +14,10 @@ const gridStyles = cva(
     variants: {
       intent: {
         grid: "flex-col justify-start rounded-3xl shadow-md border",
-        big_grid:
+        A21_grid:
           "col-span-2 xlg:col-span-4 xlg:row-span-2 border rounded-3xl p-5 shadow-md",
+        A22_grid:
+          "col-span-2 xlg:col-span-4 xlg:row-span-4 border rounded-3xl p-5 shadow-md",
       },
       size: {
         grid_md:
@@ -24,7 +26,7 @@ const gridStyles = cva(
       },
     },
     defaultVariants: {
-      intent: "big_grid",
+      intent: "grid",
       size: "grid_lg",
     },
   }
