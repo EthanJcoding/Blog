@@ -14,17 +14,19 @@ const gridStyles = cva(
     variants: {
       intent: {
         grid: "flex-col justify-start rounded-3xl shadow-md border",
-        big_grid:
+        A21_grid:
           "col-span-2 xlg:col-span-4 xlg:row-span-2 border rounded-3xl p-5 shadow-md",
+        A22_grid:
+          "col-span-2 xlg:col-span-4 xlg:row-span-4 border rounded-3xl p-5 shadow-md",
       },
       size: {
         grid_md:
-          "xl:w-44 xl:h-44 w-[9.375rem] h-36 min-w-[9.375rem] min-h-[9.375rem] text-sm font-medium p-5",
+          "xl:w-44 xl:h-44 sm:w-[10.625rem] sm:h-[10.625rem] min-w-[9.375rem] min-h-[9.375rem] text-sm font-medium p-5",
         grid_lg: "w-full h-full min-w-[21.375rem] min-h-[9.375rem]",
       },
     },
     defaultVariants: {
-      intent: "big_grid",
+      intent: "grid",
       size: "grid_lg",
     },
   }
@@ -74,7 +76,7 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  ({ className, size, intent, icon, widgetType, ...props }) => {
+  ({ className, size, intent, icon, widgetType, ...props }, ref) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
 
     if (detail === "archive" && link) {
