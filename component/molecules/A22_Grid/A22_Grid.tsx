@@ -12,16 +12,12 @@ interface A22_GridProps {
 }
 
 const A22_Grid = ({ tags, name, createdAt, cover }: A22_GridProps) => {
-  console.log(cover);
   return (
-    <Link
-      href="/"
-      className={gridStyles({ intent: "A22_grid", size: "grid_lg" })}
-    >
+    <div className={gridStyles({ intent: "A22_grid", size: "grid_lg" })}>
       <div className="flex flex-col justify-between h-full min-h-[108px]">
-        <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-goms_grid">
-          <div className="w-10">
-            <img src={cover} />
+        <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-52 bg-goms_grid">
+          <div className="w-full h-full">
+            <img src={cover} className="w-full h-full object-none" />
           </div>
         </div>
         <div className="flex">
@@ -32,7 +28,7 @@ const A22_Grid = ({ tags, name, createdAt, cover }: A22_GridProps) => {
           <StackIcon stacks={tags} />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
