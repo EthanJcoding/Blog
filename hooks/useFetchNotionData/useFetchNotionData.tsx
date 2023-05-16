@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNotionToMd } from "../useNotionToMd/useNotionToMd";
 
 interface Property {
   title: {
@@ -29,6 +30,7 @@ export interface NotionDataItem {
   tags: { stack: string; color: string }[];
   created_at: string;
   thumbnail: string;
+  article: string;
 }
 
 const useFetchNotionData = async () => {
@@ -44,21 +46,26 @@ const useFetchNotionData = async () => {
       }
     );
 
-    const data: NotionDataItem[] = res.data.results.map((item: Result) => {
-      const thumbnail = item.cover?.file?.url || ""; // Get the thumbnail URL
+    const data: NotionDataItem[] = await Promise.all(
+      res.data.results.map(async (item: Result) => {
+        const thumbnail = item.cover?.file?.url || "";
+        const id = item.id;
+        const article = await useNotionToMd(id);
 
-      return {
-        type: "blog",
-        id: item.id,
-        thumbnail, // Assign the thumbnail URL to the "thumbnail" property
-        name: item.properties.Name.title[0].plain_text,
-        tags: item.properties.Tags.multi_select.map((tag) => ({
-          stack: tag.name,
-          color: "149ECA",
-        })),
-        created_at: item.created_time,
-      };
-    });
+        return {
+          id,
+          type: "blog",
+          article: article.parent,
+          thumbnail,
+          name: item.properties.Name.title[0].plain_text,
+          tags: item.properties.Tags.multi_select.map((tag) => ({
+            stack: tag.name,
+            color: "149ECA",
+          })),
+          created_at: item.created_time,
+        };
+      })
+    );
 
     return {
       props: {
