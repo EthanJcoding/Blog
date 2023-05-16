@@ -1,13 +1,35 @@
 import { ImageLayout } from "../../atoms/Image/ImageLayout";
 import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
+import { Button } from "@/component/atoms/Button/Button";
+import { useState } from "react";
 
-const Profile = () => {
+interface ProfileProps {
+  isOpen: boolean;
+  toggleState: () => void;
+}
+
+const Profile = ({ isOpen, toggleState }: ProfileProps) => {
+  const [fadeOut, setFadeOut] = useState(false);
+
+  const onClick = () => {
+    setFadeOut(true);
+    toggleState();
+  };
+
   return (
-    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0 ">
+    <div
+      className={`mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0 transition-opacity ease-in-out`}
+    >
       <div className="xl:sticky xl:top-16">
-        <div className="s-[120px] xl:s-[184px]">
-          <ImageLayout alt="profile" src={profile}></ImageLayout>
+        <div className="s-[120px] xl:s-[184px] flex justify-between">
+          <ImageLayout alt="profile" src={profile} />
+          <Button
+            icon="RiMenuFoldLine"
+            intent="transparent"
+            size="sm"
+            onClick={onClick}
+          ></Button>
         </div>
         <div className="ml-2 w-full max-w-[min(500px,100%)] mt-8">
           <Text className="font-bold" size="name">

@@ -1,10 +1,4 @@
-import {
-  FaSearch,
-  FaReact,
-  FaTools,
-  FaGithubSquare,
-  FaInstagramSquare,
-} from "react-icons/fa";
+import { FaSearch, FaReact, FaTools, FaGithubSquare } from "react-icons/fa";
 import { RxComponent1 } from "react-icons/rx";
 import { MdTipsAndUpdates } from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
@@ -13,8 +7,10 @@ import { AiOutlineForm, AiFillAlert } from "react-icons/ai";
 import { BsWindowPlus, BsInstagram } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
+import { RiMenuFoldLine, RiMenuUnfoldLine } from "react-icons/ri";
 
 export const icons = {
+  RiMenuUnfoldLine,
   TiTabsOutline,
   BsWindowPlus,
   AiFillAlert,
@@ -27,6 +23,7 @@ export const icons = {
   FaTools,
   MdTipsAndUpdates,
   RxLetterCaseLowercase,
+  RiMenuFoldLine,
 };
 
 export const widgets = {
