@@ -6,16 +6,17 @@ interface IconProps {
   widget?: keyof typeof widgets;
   size?: string;
   color?: string;
+  as?: any;
 }
 
-const Icon = ({ icon, widget, size, color }: IconProps) => {
-  const computedSize = size === "m" ? "48" : "15";
+const Icon = ({ icon, widget, size, color, ...props }: IconProps) => {
+  const computedSize = size === "m" ? "48" : "36";
 
   if (icon) {
     const SVG = icons[icon];
 
     return (
-      <span className={"icon-container"}>
+      <span className={"icon-container"} {...props}>
         <SVG size={computedSize} color={color} />
       </span>
     );
@@ -36,11 +37,12 @@ const Icon = ({ icon, widget, size, color }: IconProps) => {
           justifyContent: "center",
           alignItems: "center",
         }}
+        {...props}
       >
         <Widget style={{ color: "white", fontSize: "48px" }} />
       </div>
     ) : (
-      <span className={"icon-container"}>
+      <span className={"icon-container"} {...props}>
         <Widget size={computedSize} color={color} />
       </span>
     );
