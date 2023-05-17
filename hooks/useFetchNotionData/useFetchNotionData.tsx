@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useNotionToMd } from "../useNotionToMd/useNotionToMd";
+import { Client } from "@notionhq/client";
 
 interface Property {
   title: {
@@ -9,7 +8,6 @@ interface Property {
     name: string;
   }[];
 }
-
 interface Result {
   id: string;
   properties: {
@@ -22,58 +20,44 @@ interface Result {
       url: string;
     };
   };
-}
-
-export interface NotionDataItem {
-  id: string;
-  name: string;
-  tags: { stack: string; color: string }[];
-  created_at: string;
-  thumbnail: string;
-  article: string;
+  url: string;
 }
 
 const useFetchNotionData = async () => {
-  try {
-    const res = await axios.post(
-      `https://api.notion.com/v1/databases/${process.env.NEXT_PUBLIC_NOTION_ID}/query`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTION_SECRET}`,
-          "Notion-Version": "2022-06-28",
-        },
-      }
-    );
+  const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_SECRET });
 
-    const data: NotionDataItem[] = await Promise.all(
-      res.data.results.map(async (item: Result) => {
-        const thumbnail = item.cover?.file?.url || "";
-        const id = item.id;
-        const article = await useNotionToMd(id);
+  try {
+    if (process.env.NEXT_PUBLIC_NOTION_ID) {
+      const response = await notion.databases.query({
+        database_id: process.env.NEXT_PUBLIC_NOTION_ID,
+      });
+
+      const { results } = response;
+
+      const data = results.map((el: Result) => {
+        const thumbnail = el.cover?.file?.url || "";
 
         return {
-          id,
+          id: el.id,
           type: "blog",
-          article: article.parent,
           thumbnail,
-          name: item.properties.Name.title[0].plain_text,
-          tags: item.properties.Tags.multi_select.map((tag) => ({
+          name: el.properties.Name.title[0].plain_text,
+          tags: el.properties.Tags.multi_select.map((tag) => ({
             stack: tag.name,
             color: "149ECA",
           })),
-          created_at: item.created_time,
+          created_at: el.created_time,
+          url: el.url,
         };
-      })
-    );
-
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (err: any) {
-    console.log(err.response);
+      });
+      return {
+        props: {
+          data,
+        },
+      };
+    }
+  } catch (err) {
+    console.log(err);
     return {
       props: {
         data: [],
