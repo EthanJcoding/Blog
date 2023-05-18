@@ -40,9 +40,9 @@ const Layout = ({
       </Head>
       <main className="min-full-screen flex flex-col items-center justify-center">
         <div className="min-full-screen flex w-full max-w-[1728px] flex-col">
-          <div className="flex flex-1 min-h-screen w-full flex-col items-center">
+          <div className="flex min-h-screen w-full flex-col items-center">
             <div
-              className={`flex flex-1 h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16`}
+              className={`flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16`}
             >
               {isOpen ? (
                 <NavBar isOpen={isOpen} toggleState={toggleState} />

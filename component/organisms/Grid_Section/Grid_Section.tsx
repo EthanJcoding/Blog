@@ -1,10 +1,15 @@
+import { Git_Status } from "@/component/atoms/Git_Status/Git_Status";
+import { useRouter } from "next/router";
+
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
-  // 1256 rows 6
-  // 1040 rows 5
-  // 824 rows 4
+  const router = useRouter();
+  const query = router.pathname;
+  const shouldHideGitStatus = query === "/" ? false : true;
+
   return (
     <>
-      <div className="relative flex-1 xl:w-[820px] xl:flex-none ">
+      <div className="relative xl:w-[820px] xl:flex-none ">
+        {!shouldHideGitStatus && <Git_Status />}
         <div className="grid grid-cols-2 grid-rows-8 xlg:grid-cols-8 xlg:grid-rows-8 gap-10 place-items-center min-h-[784px] ">
           {children}
         </div>

@@ -1,22 +1,37 @@
-import { GetStaticProps } from "next";
 import { Grid_Section } from "@/component/organisms/Grid_Section/Grid_Section";
-import { useFetchNotionData, NotionDataItem } from "@/hooks";
 import { Archive_Grid } from "@/component/molecules/Archive_Grid/Archive_Grid";
+import { useFetchNotionData } from "@/hooks";
 
 interface Props {
-  data: NotionDataItem[];
+  data:
+    | {
+        id: any;
+        type: string;
+        thumbnail: any;
+        name: any;
+        tags: any;
+        created_at: any;
+        url: any;
+      }[]
+    | undefined;
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  return await useFetchNotionData();
+export const getStaticProps = async (): Promise<{ props: Props }> => {
+  const data = await useFetchNotionData();
+  return {
+    props: {
+      data: data,
+    },
+  };
 };
 
 export default function Archive({ data }: Props) {
-  return (
-    <section>
-      <Grid_Section>
-        <Archive_Grid article={data} />
-      </Grid_Section>
-    </section>
-  );
+  if (data)
+    return (
+      <section>
+        <Grid_Section>
+          <Archive_Grid article={data} />
+        </Grid_Section>
+      </section>
+    );
 }
