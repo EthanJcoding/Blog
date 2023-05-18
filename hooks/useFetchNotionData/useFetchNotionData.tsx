@@ -34,7 +34,7 @@ const useFetchNotionData = async () => {
 
       const { results } = response;
 
-      const data = results.map((el: Result) => {
+      const data = results.map((el: any) => {
         const thumbnail = el.cover?.file?.url || "";
 
         return {
@@ -42,7 +42,7 @@ const useFetchNotionData = async () => {
           type: "blog",
           thumbnail,
           name: el.properties.Name.title[0].plain_text,
-          tags: el.properties.Tags.multi_select.map((tag) => ({
+          tags: el.properties.Tags.multi_select.map((tag: any) => ({
             stack: tag.name,
             color: "149ECA",
           })),
