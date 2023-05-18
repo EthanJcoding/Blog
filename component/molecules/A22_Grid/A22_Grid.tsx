@@ -28,6 +28,7 @@ const A22_Grid = ({ tags, name, createdAt, cover, url }: A22_GridProps) => {
               className="w-full h-full object-none py-2"
               width={200}
               height={100}
+              priority={true}
             />
           ) : null}
         </div>
