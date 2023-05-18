@@ -1,8 +1,14 @@
-import { NotionDataItem } from "@/hooks/useFetchNotionData/useFetchNotionData";
 import { A22_Grid } from "../A22_Grid/A22_Grid";
 
 interface ArchiveGridProps {
-  article: NotionDataItem[];
+  article: {
+    id: string;
+    tags: { stack: string; color: string }[];
+    name: string;
+    created_at: string;
+    thumbnail: string;
+    url: string;
+  }[];
 }
 
 const Archive_Grid = ({ article }: ArchiveGridProps) => {
@@ -15,7 +21,7 @@ const Archive_Grid = ({ article }: ArchiveGridProps) => {
           name={el.name}
           createdAt={el.created_at}
           cover={el.thumbnail}
-          article={el.article}
+          url={el.url}
         ></A22_Grid>
       ))}
     </>

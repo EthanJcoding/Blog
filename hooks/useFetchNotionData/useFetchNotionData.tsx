@@ -1,28 +1,5 @@
 import { Client } from "@notionhq/client";
 
-interface Property {
-  title: {
-    plain_text: string;
-  }[];
-  multi_select: {
-    name: string;
-  }[];
-}
-interface Result {
-  id: string;
-  properties: {
-    Name: Property;
-    Tags: Property;
-  };
-  created_time: string;
-  cover: {
-    file: {
-      url: string;
-    };
-  };
-  url: string;
-}
-
 const useFetchNotionData = async () => {
   const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_SECRET });
 
@@ -50,19 +27,12 @@ const useFetchNotionData = async () => {
           url: el.url,
         };
       });
-      return {
-        props: {
-          data,
-        },
-      };
+
+      return data;
     }
   } catch (err) {
     console.log(err);
-    return {
-      props: {
-        data: [],
-      },
-    };
+    return [];
   }
 };
 
