@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
-import { useToggleState } from "@/hooks";
 import { NavBar } from "../NavBar/NavBar";
 
 interface LayoutProps {
@@ -17,8 +16,6 @@ const Layout = ({
   image,
   url,
 }: React.PropsWithChildren<LayoutProps>) => {
-  const { isOpen, toggleState } = useToggleState();
-
   return (
     <>
       <Head>
@@ -44,11 +41,7 @@ const Layout = ({
             <div
               className={`flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16`}
             >
-              {isOpen ? (
-                <NavBar isOpen={isOpen} toggleState={toggleState} />
-              ) : (
-                <Profile isOpen={isOpen} toggleState={toggleState} />
-              )}
+              <Profile />
               {children}
             </div>
           </div>
