@@ -1,27 +1,49 @@
 import { ImageLayout } from "../../atoms/Image/ImageLayout";
-import { Paragraph } from "../../atoms/Paragraph/Paragraph";
+import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
+import { Button } from "@/component/atoms/Button/Button";
+import { useState } from "react";
 
-const Profile = () => {
+interface ProfileProps {
+  isOpen: boolean;
+  toggleState: () => void;
+}
+
+const Profile = ({ isOpen, toggleState }: ProfileProps) => {
+  const [fadeOut, setFadeOut] = useState(false);
+
+  const onClick = () => {
+    setFadeOut(true);
+    toggleState();
+  };
+
   return (
-    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0 ">
+    <div
+      className={`mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0 transition-opacity ease-in-out`}
+    >
       <div className="xl:sticky xl:top-16">
-        <div className="s-[120px] xl:s-[184px]">
-          <ImageLayout alt="profile" src={profile}></ImageLayout>
+        <div className="s-[120px] xl:s-[184px] flex justify-between">
+          <ImageLayout alt="profile" src={profile} />
+          <Button
+            icon="RiMenuFoldLine"
+            intent="transparent"
+            size="sm"
+            onClick={onClick}
+          ></Button>
         </div>
         <div className="ml-2 w-full max-w-[min(500px,100%)] mt-8">
-          <Paragraph className="font-bold" size="name">
+          <Text className="font-bold" size="name">
             Junil Jeong
-          </Paragraph>
-          <Paragraph size="content" className="text-contentText mt-4 ">
+          </Text>
+          <Text size="content" className="text-contentText mt-4 ">
             I am a <b>frontend developer</b> equipped with skills of typescript
             and react.js. Looking forward to achieve efficiency and productivity
             for your teams.
-          </Paragraph>
-          <Paragraph size="content" className="text-contentText mt-4">
+          </Text>
+          <Text size="content" className="text-contentText mt-4">
             I have recently completed Software Engineering Bootcamp in
             CodeStates and currently studying Next.js 😁
-          </Paragraph>
+          </Text>
         </div>
       </div>
     </div>

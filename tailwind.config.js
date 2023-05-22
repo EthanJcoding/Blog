@@ -9,6 +9,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
+      gridTemplateRows: {
+        '8': 'repeat(8, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
+      },
       colors: {
         ...colors,
         githubFollow: "#30363D",
