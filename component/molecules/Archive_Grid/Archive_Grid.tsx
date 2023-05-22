@@ -22,7 +22,7 @@ const Archive_Grid = ({ article }: ArchiveGridProps) => {
           createdAt={el.created_at}
           cover={el.thumbnail}
           url={el.url}
-        ></A22_Grid>
+        />
       ))}
     </>
   );
