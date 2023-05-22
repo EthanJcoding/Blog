@@ -4,7 +4,7 @@ interface StackIconProps {
 
 const StackIcon = ({ stacks }: StackIconProps) => {
   return (
-    <div className="mb-2 flex">
+    <div className="flex items-center">
       {stacks.map((el, idx) => (
         <div key={idx}>
           <img
