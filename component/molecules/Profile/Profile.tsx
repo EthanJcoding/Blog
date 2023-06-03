@@ -1,14 +1,23 @@
 import { ImageLayout } from "../../atoms/Image/ImageLayout";
 import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
+import { Weather } from "../Weather/Weather";
 
-const Profile = () => {
+interface ProfileProps {
+  weatherDescription?: string;
+}
+
+const Profile = ({ weatherDescription }: ProfileProps) => {
+  function weatherDistribution(weatherDescription: string) {
+    if (weatherDescription === "clear sky") {
+      return "bg-";
+    }
+  }
+
   return (
-    <div
-      className={`mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0 transition-opacity ease-in-out`}
-    >
-      <div className="xl:sticky xl:top-16">
-        <div className="s-[120px] xl:s-[184px] flex">
+    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:p-0">
+      <div className="xl:sticky xl:top-16 ">
+        <div className="flex s-[120px] xl:s-[184px] xl:flex-col">
           <ImageLayout alt="profile" src={profile} />
         </div>
         <div className="ml-2 w-full max-w-[min(500px,100%)] mt-8">
