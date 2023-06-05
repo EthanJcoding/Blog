@@ -1,4 +1,5 @@
 import { Git_Status } from "@/component/atoms/Git_Status/Git_Status";
+import { Icon } from "@/component/atoms/Icon/Icon";
 import { useRouter } from "next/router";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
