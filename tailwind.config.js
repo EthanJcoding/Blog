@@ -31,7 +31,8 @@ module.exports = {
         contentText: "#3F3F4A",
         linkText: "#12b886",
         goms_grid: "#FFFDFC",
-        codeTech_grid: "#F4F4F5"
+        codeTech_grid: "#F4F4F5",
+
 
       },
       width: {
