@@ -9,6 +9,11 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   return (
     <>
       <div className="relative xl:w-[820px] xl:flex-none ">
+        <div className="h-full w-full">
+          <div className="h-full w-full bg-blue-500">hi</div>
+          <div className="h-full w-full bg-blue-500">hi</div>
+          <div className="h-full w-full bg-blue-500">hi</div>
+        </div>
         {!shouldHideGitStatus && <Git_Status />}
         <div className="grid grid-cols-2 grid-rows-8 xlg:grid-cols-8 xlg:grid-rows-8 gap-10 place-items-center min-h-[784px] ">
           {children}

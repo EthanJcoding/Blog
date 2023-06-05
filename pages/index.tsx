@@ -25,7 +25,7 @@ export default function Home({ data }: any) {
   return (
     <Layout>
       <>
-        <Profile weatherDescription={weatherDescription} />
+        <Profile />
         <section className="">
           <Grid_Section>
             <MainGrid />
