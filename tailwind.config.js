@@ -18,19 +18,11 @@ module.exports = {
           "0%": {
             left: "0"
           },
-          "50%": {
-            left: "-800px"
-          },
-          "100": {
-            left: "0"
+          "100%": {
+            left: "-780px"
           }
         }
 
-      },
-      backgroundImage: {
-        wave: {
-
-        }
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
@@ -49,8 +41,6 @@ module.exports = {
         linkText: "#12b886",
         goms_grid: "#FFFDFC",
         codeTech_grid: "#F4F4F5",
-
-
       },
       width: {
         ...width,
