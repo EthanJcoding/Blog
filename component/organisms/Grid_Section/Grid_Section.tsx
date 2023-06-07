@@ -18,6 +18,9 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
       {!shouldHideGitStatus && (
         <>
           <div className="h-40 mb-10"></div>
+          <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end mb-16">
+            Welcome 👋
+          </div>
           <Git_Status />
         </>
       )}

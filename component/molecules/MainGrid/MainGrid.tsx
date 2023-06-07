@@ -45,7 +45,7 @@ const MainGrid = ({}) => {
         <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
-        Writings ✏️
+        Good code I define ✏️
       </div>
       {projects.map((project, idx) => (
         <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
