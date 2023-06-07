@@ -22,6 +22,9 @@ const Profile = () => {
             I have recently completed Software Engineering Bootcamp in
             CodeStates and currently studying Next.js 😁
           </Text>
+          <Text size="content" className="text-contentText mt-8">
+            📍 Incheon, Korea
+          </Text>
         </div>
       </div>
     </div>

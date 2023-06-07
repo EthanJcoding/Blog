@@ -13,11 +13,20 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+        wave: {
+          "0%": {
+            left: "0"
+          },
+          "100%": {
+            left: "-780px"
+          }
         }
 
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
+        wave: "wave 4s linear infinite"
       },
       gridTemplateRows: {
         '8': 'repeat(8, minmax(0, 1fr))',
@@ -32,8 +41,6 @@ module.exports = {
         linkText: "#12b886",
         goms_grid: "#FFFDFC",
         codeTech_grid: "#F4F4F5",
-
-
       },
       width: {
         ...width,
