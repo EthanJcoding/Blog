@@ -16,3 +16,22 @@ body {
   height: 100%;
   background-color: white;
 }
+
+.wave {
+  background-image: url("../public/img-wave.svg");
+  width: 1600px;
+  height: 160px;
+  display: block;
+  background-repeat: no-repeat;
+  animation-duration: 6s;
+}
+
+.wave2 {
+  background-image: url("../public/img-wave2.svg");
+  width: 1600px;
+  height: 160px;
+  display: block;
+  background-repeat: no-repeat;
+  animation-duration: 4s;
+  animation-direction: reverse;
+}
