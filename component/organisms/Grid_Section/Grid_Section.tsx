@@ -1,4 +1,4 @@
-import { Git_Status } from "@/component/atoms/Git_Status/Git_Status";
+import { Git_Status } from "@/component/molecules/Git_Status/Git_Status";
 import { useRouter } from "next/router";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
@@ -24,7 +24,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
           <Git_Status />
         </>
       )}
-      <div className="grid grid-cols-2 grid-rows-8 xlg:grid-cols-8 xlg:grid-rows-8 gap-10 place-items-center min-h-[784px] ">
+      <div className="grid grid-cols-2 grid-rows-8 xlg:grid-cols-8 xlg:grid-rows-10 gap-10 place-items-center min-h-[784px] ">
         {children}
       </div>
     </div>

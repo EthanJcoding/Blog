@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../../../utils/twMerge";
-import { widgets } from "../../atoms/Icon/index";
+import { widgets, icons } from "../../atoms/Icon/index";
 import { Icon } from "../../atoms/Icon/Icon";
 import { Text } from "../../atoms/Text/Text";
 import Link from "next/link";
@@ -27,10 +27,15 @@ const gridStyles = cva(
         grid_xlg:
           "w-full h-full min-w-[21.375rem] min-h-[9.375rem] font-medium text-md p-5",
       },
+      theme: {
+        default: "",
+        content: "bg-cyan-700",
+      },
     },
     defaultVariants: {
       intent: "grid",
       size: "grid_lg",
+      theme: "default",
     },
   }
 );
@@ -38,7 +43,7 @@ const gridStyles = cva(
 interface GridProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof gridStyles> {
-  icon?: keyof typeof widgets;
+  icon?: keyof typeof widgets | keyof typeof icons;
   idx?: number;
   widgetType?: widget;
 }
@@ -79,7 +84,7 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  ({ className, size, intent, icon, widgetType, ...props }, ref) => {
+  ({ className, size, intent, icon, widgetType, children, ...props }, ref) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
 
     if (detail === "archive" && link) {
