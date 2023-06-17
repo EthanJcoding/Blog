@@ -1,4 +1,3 @@
-import { Grid } from "@/component/molecules/Grid/Grid";
 import GitHubCalendar from "react-github-calendar";
 
 interface Activity {
@@ -30,7 +29,6 @@ const Git_Status = () => {
           fontSize={12}
         />
       </div>
-      <Grid intent="grid" size="grid_md"></Grid>
     </div>
   );
 };

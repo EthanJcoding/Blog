@@ -33,6 +33,14 @@ const MainGrid = ({}) => {
     },
   ];
 
+  const contentsGoodCode = [
+    {
+      title: "유연한 코드",
+      content: "",
+    },
+    {},
+  ];
+
   return (
     <>
       {widgetArray.map((el, idx) => (
@@ -42,13 +50,23 @@ const MainGrid = ({}) => {
         Projects 💻
       </div>
       {projects.map((project, idx) => (
-        <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
+        <A12_Grid
+          key={idx}
+          stacks={project.stacks}
+          project={project.name}
+          thumbnail={true}
+        />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
       </div>
-      {projects.map((project, idx) => (
-        <A12_Grid key={idx} stacks={project.stacks} project={project.name} />
+      {contentsGoodCode.map((content, idx) => (
+        <A12_Grid
+          key={idx}
+          thumbnail={false}
+          content={content.content}
+          title={content.title}
+        />
       ))}
     </>
   );

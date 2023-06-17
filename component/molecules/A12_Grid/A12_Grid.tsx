@@ -9,49 +9,73 @@ const goms_font = localFont({
 });
 
 interface A12_GridProps {
-  stacks: { stack: string; color: string }[];
-  project: string;
+  stacks?: { stack: string; color: string }[];
+  project?: string;
+  thumbnail?: boolean;
+  content?: string;
+  title?: string;
 }
 
-const A12_Grid = ({ stacks, project }: A12_GridProps) => {
-  if (project === "코드테크") {
-    return (
-      <a
-        href="https://codetech.nworld.dev/"
-        target="_blank"
-        className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
-      >
-        <div className="flex flex-col justify-between h-full min-h-[108px]">
-          <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
-            <Image src={codeTechLogo} alt="코드테크 로고" className="w-36" />
-          </div>
-          <div className="">
-            <StackIcon stacks={stacks} />
-          </div>
-        </div>
-      </a>
-    );
-  } else
-    return (
-      <a
-        href="http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/"
-        target="_blank"
-        className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
-      >
-        <div className="flex flex-col justify-between h-full min-h-[108px]">
-          <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-goms_grid">
-            <Image src={gomsLogo} alt="악보의정원 로고" className="w-5" />
-            <div
-              className={`${goms_font.className} text-green-600 text-2xl xlg:text-4xl`}
-            >
-              {project}
+const A12_Grid = ({
+  stacks,
+  project,
+  thumbnail,
+  content,
+  title,
+}: A12_GridProps) => {
+  if (thumbnail && project && stacks) {
+    if (project === "코드테크") {
+      return (
+        <a
+          href="https://codetech.nworld.dev/"
+          target="_blank"
+          className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
+        >
+          <div className="flex flex-col justify-between h-full min-h-[108px]">
+            <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
+              <Image src={codeTechLogo} alt="코드테크 로고" className="w-36" />
+            </div>
+            <div className="">
+              <StackIcon stacks={stacks} />
             </div>
           </div>
-          <div className="">
-            <StackIcon stacks={stacks} />
+        </a>
+      );
+    } else
+      return (
+        <a
+          href="http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/"
+          target="_blank"
+          className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
+        >
+          <div className="flex flex-col justify-between h-full min-h-[108px]">
+            <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-goms_grid">
+              <Image src={gomsLogo} alt="악보의정원 로고" className="w-5" />
+              <div
+                className={`${goms_font.className} text-green-600 text-2xl xlg:text-4xl`}
+              >
+                {project}
+              </div>
+            </div>
+            <div className="">
+              <StackIcon stacks={stacks} />
+            </div>
           </div>
+        </a>
+      );
+  } else
+    return (
+      <div
+        className={gridStyles({
+          intent: "A21_grid",
+          size: "grid_lg",
+          theme: "content",
+        })}
+      >
+        <div className="flex flex-col justify -between h-full min-h-[108px]">
+          <div>{title}</div>
         </div>
-      </a>
+      </div>
     );
 };
 
