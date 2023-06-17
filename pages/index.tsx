@@ -35,3 +35,20 @@ export default function Home({ data }: any) {
     </Layout>
   );
 }
+
+function solution(n, t, m, p) {
+  let arr = [];
+  let ans = "";
+
+  for (let i = 0; i <= t; i++) {
+    arr.push(i.toString(n));
+  }
+
+  for (let j = 0; j <= arr.join("").length; j++) {
+    if (j % 2 === 0) {
+      ans += arr.join("")[j];
+    }
+  }
+
+  return ans.substring(0, t);
+}
