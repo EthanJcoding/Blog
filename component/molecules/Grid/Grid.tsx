@@ -29,7 +29,7 @@ const gridStyles = cva(
       },
       theme: {
         default: "",
-        content: "bg-cyan-700",
+        content: "bg-cyan-300",
       },
     },
     defaultVariants: {
