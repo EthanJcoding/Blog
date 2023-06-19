@@ -1,6 +1,7 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
 import { A12_Grid } from "../A12_Grid/A12_Grid";
+import { A22_Grid } from "../A22_Grid/A22_Grid";
 type widget = keyof typeof widgets;
 
 interface Project {
@@ -67,6 +68,9 @@ const MainGrid = ({}) => {
           content={content.content}
           title={content.title}
         />
+      ))}
+      {contentsGoodCode.map((content, idx) => (
+        <A22_Grid key={idx} />
       ))}
     </>
   );
