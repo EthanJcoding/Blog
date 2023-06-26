@@ -29,7 +29,7 @@ const gridStyles = cva(
       },
       theme: {
         default: "",
-        content: "bg-cyan-300",
+        content: "bg-cyan-700",
       },
     },
     defaultVariants: {
@@ -46,6 +46,9 @@ interface GridProps
   icon?: keyof typeof widgets | keyof typeof icons;
   idx?: number;
   widgetType?: widget;
+  hasThumbnail: boolean;
+  gridType: "default" | "A12" | "A22";
+  project?: { stack: string; color: string }[];
 }
 
 const IconDetailDistribute = (
@@ -53,7 +56,7 @@ const IconDetailDistribute = (
 ): {
   color: string;
   detail: string;
-  link?: string;
+  link: string;
 } => {
   switch (widget) {
     case "FaGithubSquare":
@@ -84,42 +87,160 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  ({ className, size, intent, icon, widgetType, children, ...props }, ref) => {
+  (
+    {
+      size,
+      intent,
+      icon,
+      widgetType,
+      children,
+      hasThumbnail,
+      gridType,
+      project,
+      ...props
+    },
+    ref
+  ) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
 
-    if (detail === "archive" && link) {
-      return (
-        <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
-          <button className={cn(gridStyles({ intent, size }))}>
-            <div className="h-full flex flex-col">
-              <Icon widget={widgetType} size="m" color={color} />
-              <Text
-                size="small_content"
-                className="flex items-start mt-4 font-semibold"
-              >
-                {detail}
-              </Text>
-            </div>
-          </button>
-        </Link>
-      );
-    }
-
-    return (
-      <a href={link} target="_blank" className="xlg:col-span-2 xlg:row-span-2">
-        <button className={cn(gridStyles({ intent, size }))}>
-          <div className="h-full flex flex-col">
-            <Icon widget={widgetType} size="m" color={color} />
-            <Text
-              size="small_content"
-              className="flex items-start mt-4 font-semibold"
+    switch (gridType) {
+      case "default":
+        if (hasThumbnail) {
+          return (
+            <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
+              <button className={cn(gridStyles({ intent, size }))}>
+                <div className="h-full flex flex-col">
+                  <Icon widget={widgetType} size="m" color={color} />
+                  <Text
+                    size="small_content"
+                    className="flex items-start mt-4 font-semibold"
+                  >
+                    {detail}
+                  </Text>
+                </div>
+              </button>
+            </Link>
+          );
+        } else
+          return (
+            <a
+              href={link}
+              target="_blank"
+              className="xlg:col-span-2 xlg:row-span-2"
             >
-              {detail}
-            </Text>
-          </div>
-        </button>
-      </a>
-    );
+              <button className={cn(gridStyles({ intent, size }))}>
+                <div className="h-full flex flex-col">
+                  <Icon widget={widgetType} size="m" color={color} />
+                  <Text
+                    size="small_content"
+                    className="flex items-start mt-4 font-semibold"
+                  >
+                    {detail}
+                  </Text>
+                </div>
+              </button>
+            </a>
+          );
+      case "A12":
+        if (hasThumbnail) {
+          return (
+            <a
+              href="https://codetech.nworld.dev/"
+              target="_blank"
+              className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
+            >
+              <div className="flex flex-col justify-between h-full min-h-[108px]">
+                <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
+                  <Image
+                    src={codeTechLogo}
+                    alt="코드테크 로고"
+                    className="w-36"
+                  />
+                </div>
+                <div className="">
+                  <StackIcon stacks={stacks} />
+                </div>
+              </div>
+            </a>
+          );
+        } else
+          return (
+            <a
+              href={link}
+              target="_blank"
+              className="xlg:col-span-2 xlg:row-span-2"
+            >
+              <button className={cn(gridStyles({ intent, size }))}>
+                <div className="h-full flex flex-col">
+                  <Icon widget={widgetType} size="m" color={color} />
+                  <Text
+                    size="small_content"
+                    className="flex items-start mt-4 font-semibold"
+                  >
+                    {detail}
+                  </Text>
+                </div>
+              </button>
+            </a>
+          );
+      case "A22":
+        if (hasThumbnail) {
+          return (
+            <a
+              href={link}
+              target="_blank"
+              className="xlg:col-span-2 xlg:row-span-2"
+            >
+              <button className={cn(gridStyles({ intent, size }))}>
+                <div className="h-full flex flex-col">
+                  <Icon widget={widgetType} size="m" color={color} />
+                  <Text
+                    size="small_content"
+                    className="flex items-start mt-4 font-semibold"
+                  >
+                    {detail}
+                  </Text>
+                </div>
+              </button>
+            </a>
+          );
+        } else
+          return (
+            <a
+              href={link}
+              target="_blank"
+              className="xlg:col-span-2 xlg:row-span-2"
+            >
+              <button className={cn(gridStyles({ intent, size }))}>
+                <div className="h-full flex flex-col">
+                  <Icon widget={widgetType} size="m" color={color} />
+                  <Text
+                    size="small_content"
+                    className="flex items-start mt-4 font-semibold"
+                  >
+                    {detail}
+                  </Text>
+                </div>
+              </button>
+            </a>
+          );
+      default:
+        return (
+          <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
+            <button className={cn(gridStyles({ intent, size }))}>
+              <div className="h-full flex flex-col">
+                <Icon widget={widgetType} size="m" color={color} />
+                <Text
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                >
+                  {detail}
+                </Text>
+              </div>
+            </button>
+          </Link>
+        );
+    }
   }
 );
 

@@ -45,18 +45,19 @@ const MainGrid = ({}) => {
   return (
     <>
       {widgetArray.map((el, idx) => (
-        <Grid widgetType={el} key={idx} intent="grid" size="grid_md" />
+        <Grid
+          widgetType={el}
+          key={idx}
+          intent="grid"
+          size="grid_md"
+          hasThumbnail={false}
+        />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
         Projects 💻
       </div>
       {projects.map((project, idx) => (
-        <A12_Grid
-          key={idx}
-          stacks={project.stacks}
-          project={project.name}
-          thumbnail={true}
-        />
+        <Grid key={idx} project={project} hasThumbnail={true} gridType="A12" />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
