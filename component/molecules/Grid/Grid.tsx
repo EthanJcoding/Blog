@@ -5,6 +5,10 @@ import { Icon } from "../../atoms/Icon/Icon";
 import { Text } from "../../atoms/Text/Text";
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
+import gomsLogo from "../../../public/gomsLogo.png";
+import codeTechLogo from "../../../public/codeTechLogo.png";
+import Image from "next/image";
+import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
 
 type widget = keyof typeof widgets;
 
@@ -49,6 +53,7 @@ interface GridProps
   hasThumbnail: boolean;
   gridType: "default" | "A12" | "A22";
   project?: { stack: string; color: string }[];
+  contents?: any;
 }
 
 const IconDetailDistribute = (
@@ -97,6 +102,7 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
       hasThumbnail,
       gridType,
       project,
+      contents,
       ...props
     },
     ref
@@ -158,7 +164,7 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
                   />
                 </div>
                 <div className="">
-                  <StackIcon stacks={stacks} />
+                  <StackIcon stacks={contents.stacks} />
                 </div>
               </div>
             </a>

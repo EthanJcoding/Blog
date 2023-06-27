@@ -1,7 +1,5 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
-import { A12_Grid } from "../A12_Grid/A12_Grid";
-import { A22_Grid } from "../A22_Grid/A22_Grid";
 type widget = keyof typeof widgets;
 
 interface Project {
@@ -51,27 +49,29 @@ const MainGrid = ({}) => {
           intent="grid"
           size="grid_md"
           hasThumbnail={false}
+          gridType="default"
         />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
         Projects 💻
       </div>
       {projects.map((project, idx) => (
-        <Grid key={idx} project={project} hasThumbnail={true} gridType="A12" />
+        <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
       ))}
       <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
       </div>
       {contentsGoodCode.map((content, idx) => (
-        <A12_Grid
+        <Grid
           key={idx}
-          thumbnail={false}
+          hasThumbnail={false}
           content={content.content}
           title={content.title}
+          gridType="A12"
         />
       ))}
       {contentsGoodCode.map((content, idx) => (
-        <A22_Grid key={idx} />
+        <Grid key={idx} gridType="A22" hasThumbnail={false} />
       ))}
     </>
   );
