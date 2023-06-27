@@ -103,7 +103,6 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
       gridType,
       project,
       contents,
-      ...props
     },
     ref
   ) => {
