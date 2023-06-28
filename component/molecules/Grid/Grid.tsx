@@ -17,11 +17,11 @@ const gridStyles = cva(
   {
     variants: {
       intent: {
-        grid: "flex-col justify-start rounded-3xl shadow-md border",
-        A21_grid:
-          "col-span-2 xlg:col-span-4 xlg:row-span-2 border rounded-3xl p-5 shadow-md",
+        grid: "justify-start rounded-3xl shadow-md border",
+        A12_grid:
+          "col-span-2 xlg:col-span-2 xlg:row-span-1 shadow-md border rounded-3xl p-5 ",
         A22_grid:
-          "col-span-2 row-span-2 xlg:col-span-4 xlg:row-span-4 border rounded-3xl p-5 shadow-md",
+          "col-span-2 row-span-2 xlg:col-span-2 xlg:row-span-2 shadow-md border rounded-3xl p-5 ",
       },
       size: {
         grid_md:
@@ -29,7 +29,7 @@ const gridStyles = cva(
         grid_lg:
           "w-full h-full min-w-[21.375rem] min-h-[9.375rem] font-medium text-md p-5",
         grid_xlg:
-          "w-full h-full min-w-[21.375rem] min-h-[9.375rem] font-medium text-md p-5",
+          "w-full h-full min-w-[23.25rem] min-h-[23.25rem] font-medium text-md p-5",
       },
       theme: {
         default: "",
@@ -112,7 +112,7 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
       case "default":
         if (hasThumbnail) {
           return (
-            <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
+            <Link href={link} className="xlg:col-span-1 xlg:row-span-1">
               <button className={cn(gridStyles({ intent, size }))}>
                 <div className="h-full flex flex-col">
                   <Icon widget={widgetType} size="m" color={color} />
@@ -152,7 +152,7 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             <a
               href="https://codetech.nworld.dev/"
               target="_blank"
-              className={gridStyles({ intent: "A21_grid", size: "grid_lg" })}
+              className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
             >
               <div className="flex flex-col justify-between h-full min-h-[108px]">
                 <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
@@ -194,9 +194,9 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             <a
               href={link}
               target="_blank"
-              className="xlg:col-span-2 xlg:row-span-2"
+              className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
             >
-              <button className={cn(gridStyles({ intent, size }))}>
+              <button>
                 <div className="h-full flex flex-col">
                   <Icon widget={widgetType} size="m" color={color} />
                   <Text
@@ -214,9 +214,9 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             <a
               href={link}
               target="_blank"
-              className="xlg:col-span-2 xlg:row-span-2"
+              className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
             >
-              <button className={cn(gridStyles({ intent, size }))}>
+              <button>
                 <div className="h-full flex flex-col">
                   <Icon widget={widgetType} size="m" color={color} />
                   <Text

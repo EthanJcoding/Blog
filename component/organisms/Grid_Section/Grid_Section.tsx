@@ -24,9 +24,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
           <Git_Status />
         </>
       )}
-      <div className="grid gap-10 place-items-center min-h-[784px] ">
-        {children}
-      </div>
+      <div className="grid gap-10 place-items-center ">{children}</div>
     </div>
   );
 };

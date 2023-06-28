@@ -48,17 +48,17 @@ const MainGrid = ({}) => {
           key={idx}
           intent="grid"
           size="grid_md"
-          hasThumbnail={false}
+          hasThumbnail={true}
           gridType="default"
         />
       ))}
-      <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
+      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Projects 💻
       </div>
       {projects.map((project, idx) => (
         <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
       ))}
-      <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end">
+      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
       </div>
       {contentsGoodCode.map((content, idx) => (
@@ -67,11 +67,8 @@ const MainGrid = ({}) => {
           hasThumbnail={false}
           content={content.content}
           title={content.title}
-          gridType="A12"
+          gridType="A22"
         />
-      ))}
-      {contentsGoodCode.map((content, idx) => (
-        <Grid key={idx} gridType="A22" hasThumbnail={false} />
       ))}
     </>
   );
