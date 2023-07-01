@@ -7,6 +7,7 @@ import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
+import { useRouter } from "next/router";
 
 type widget = keyof typeof widgets;
 
@@ -15,19 +16,16 @@ const gridStyles = cva(
   {
     variants: {
       intent: {
-        grid: "justify-start rounded-3xl shadow-md border",
-        A12_grid:
-          "col-span-2 xlg:col-span-2 xlg:row-span-1 shadow-md border rounded-3xl p-5 ",
-        A22_grid:
-          "col-span-2 row-span-2 xlg:col-span-2 xlg:row-span-2 shadow-md border rounded-3xl p-5 ",
+        grid: "shadow-md border rounded-3xl",
+        A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
+        A22_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
       },
       size: {
         grid_md:
-          "xl:w-44 xl:h-44 sm:w-[10.625rem] sm:h-[10.625rem] min-w-[9.375rem] min-h-[9.375rem] text-sm font-medium p-5",
-        grid_lg:
-          "w-full h-full min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
+          "xl:w-[11rem] xl:h-[11rem] min-w-[10.625rem] min-h-[10.625rem] text-sm font-medium p-5",
+        grid_lg: "min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
         grid_xlg:
-          "w-full h-full min-w-[23.25rem] min-h-[23.25rem] font-medium text-md p-5",
+          "xl:w-[24.5rem] xl:h-[24.5rem] min-w-[23.25rem] min-h-[23.25rem] font-medium text-md p-5",
       },
       theme: {
         default: "",
@@ -103,7 +101,10 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
     ref
   ) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
-    console.log(contents);
+
+    const router = useRouter();
+    const query = router.pathname;
+    const userInArchive = query === "/archive";
 
     switch (gridType) {
       case "default":
@@ -182,21 +183,29 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
         if (hasThumbnail) {
           return (
             <a
-              href={link}
+              href={contents.url}
               target="_blank"
               className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
             >
-              <button>
-                <div className="h-full flex flex-col">
-                  <Icon widget={widgetType} size="m" color={color} />
-                  <Text
-                    size="small_content"
-                    className="flex items-start mt-4 font-semibold"
-                  >
-                    {detail}
+              <div className="flex flex-col justify-evenly h-full min-h-[342px]">
+                <div className="flex justify-center items-center rounded-3xl w-full h-52">
+                  {contents.thumbnail ? (
+                    <Image
+                      alt={`${contents.name} 이미지`}
+                      src={contents.thumbnail}
+                      className="w-full h-full object-none p-2"
+                      width={200}
+                      height={100}
+                      priority={true}
+                    />
+                  ) : null}
+                </div>
+                <div className="flex flex-col my-4">
+                  <Text size="content" font="semi_bold" textColor="content">
+                    {contents.name}
                   </Text>
                 </div>
-              </button>
+              </div>
             </a>
           );
         } else
