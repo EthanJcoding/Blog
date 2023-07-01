@@ -1,10 +1,15 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
+import gomsLogo from "../../../public/gomsLogo.png";
+import codeTechLogo from "../../../public/codeTechLogo.png";
+import { StaticImageData } from "next/image";
 type widget = keyof typeof widgets;
 
 interface Project {
   name: string;
   stacks: { stack: string; color: string }[];
+  href: string;
+  image: StaticImageData;
 }
 
 const MainGrid = ({}) => {
@@ -13,6 +18,8 @@ const MainGrid = ({}) => {
   const projects: Project[] = [
     {
       name: "악보의 정원",
+      href: "http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/",
+      image: gomsLogo,
       stacks: [
         { stack: "react", color: "149ECA" },
         { stack: "typescript", color: "3178C6" },
@@ -23,6 +30,8 @@ const MainGrid = ({}) => {
     },
     {
       name: "코드테크",
+      href: "https://codetech.nworld.dev/",
+      image: codeTechLogo,
       stacks: [
         { stack: "react", color: "149ECA" },
         { stack: "typescript", color: "3178C6" },

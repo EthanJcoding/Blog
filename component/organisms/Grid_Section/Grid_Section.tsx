@@ -7,7 +7,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const shouldHideGitStatus = query === "/" ? false : true;
 
   return (
-    <div className="relative xl:w-[820px] xl:flex-none ">
+    <div className="relative xl:w-[824px] xl:flex-none ">
       {!shouldHideGitStatus && (
         <div className="h-40 w-full xl:w-[820px] absolute overflow-hidden rounded-t-3xl">
           <div className="wave2 animate-wave absolute opacity-90"></div>
@@ -24,7 +24,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
           <Git_Status />
         </>
       )}
-      <div className="grid gap-10 place-items-center ">{children}</div>
+      <div className="grid gap-10 place-items-center">{children}</div>
     </div>
   );
 };

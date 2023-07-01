@@ -1,4 +1,4 @@
-import { A22_Grid } from "../A22_Grid/A22_Grid";
+import { Grid } from "../Grid/Grid";
 
 interface ArchiveGridProps {
   article: {
@@ -15,7 +15,9 @@ const Archive_Grid = ({ article }: ArchiveGridProps) => {
   return (
     <>
       {article.map((el) => (
-        <A22_Grid
+        <Grid
+          gridType="A22"
+          hasThumbnail={true}
           key={el.id}
           tags={el.tags}
           name={el.name}
