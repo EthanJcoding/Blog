@@ -74,7 +74,7 @@ const MainGrid = ({}) => {
         <Grid
           key={idx}
           hasThumbnail={false}
-          content={content.content}
+          contents={content.content}
           title={content.title}
           gridType="A22"
         />
