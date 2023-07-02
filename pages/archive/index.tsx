@@ -1,19 +1,19 @@
 import { Grid_Section } from "@/component/organisms/Grid_Section/Grid_Section";
-import { Archive_Grid } from "@/component/molecules/Archive_Grid/Archive_Grid";
 import { useFetchNotionData } from "@/hooks";
 import { Layout } from "@/component/molecules/Layout/Layout";
 import { Profile } from "@/component/molecules/Profile/Profile";
+import { Grid } from "@/component/molecules/Grid/Grid";
 
 interface Props {
   data:
     | {
-        id: any;
+        id: string;
         type: string;
-        thumbnail: any;
-        name: any;
+        thumbnail: string;
+        name: string;
         tags: any;
-        created_at: any;
-        url: any;
+        created_at: string;
+        url: string;
       }[]
     | undefined;
 }
@@ -35,7 +35,16 @@ export default function Archive({ data }: Props) {
           <Profile />
           <section>
             <Grid_Section>
-              <Archive_Grid article={data} />
+              <>
+                {data.map((el, idx) => (
+                  <Grid
+                    gridType="A22"
+                    hasThumbnail={true}
+                    contents={el}
+                    key={el.id}
+                  />
+                ))}
+              </>
             </Grid_Section>
           </section>
         </>
