@@ -1,13 +1,15 @@
 import { ImageLayout } from "../../atoms/Image/ImageLayout";
 import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
+import { Button } from "@/component/atoms/Button/Button";
 
 const Profile = () => {
   return (
     <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:p-0 ">
       <div className="xl:sticky xl:top-16 ">
-        <div className="flex s-[120px] xl:s-[184px] xl:flex-col">
+        <div className="flex s-[120px] xl:s-[184px] xl:flex-row justify-between">
           <ImageLayout alt="profile" src={profile} />
+          <Button icon="RiMenuFoldLine" intent="transparent" size="sm" />
         </div>
         <div className="ml-2 w-full max-w-[min(500px,100%)] mt-8">
           <Text className="font-bold" size="name">
