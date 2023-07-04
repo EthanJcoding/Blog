@@ -7,7 +7,6 @@ import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
-import { useRouter } from "next/router";
 
 type widget = keyof typeof widgets;
 
@@ -87,24 +86,8 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  (
-    {
-      size,
-      intent,
-      icon,
-      widgetType,
-      children,
-      hasThumbnail,
-      gridType,
-      contents,
-    },
-    ref
-  ) => {
+  ({ size, intent, widgetType, hasThumbnail, gridType, contents }, ref) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
-
-    const router = useRouter();
-    const query = router.pathname;
-    const userInArchive = query === "/archive";
 
     switch (gridType) {
       case "default":
@@ -217,33 +200,18 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             >
               <button>
                 <div className="h-full flex flex-col">
-                  <Icon widget={widgetType} size="m" color={color} />
                   <Text
                     size="small_content"
                     className="flex items-start mt-4 font-semibold"
                   >
-                    {detail}
+                    {contents.title}
                   </Text>
                 </div>
               </button>
             </a>
           );
       default:
-        return (
-          <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
-            <button className={cn(gridStyles({ intent, size }))}>
-              <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
-                <Text
-                  size="small_content"
-                  className="flex items-start mt-4 font-semibold"
-                >
-                  {detail}
-                </Text>
-              </div>
-            </button>
-          </Link>
-        );
+        return null;
     }
   }
 );
