@@ -9,7 +9,9 @@ const Profile = () => {
       <div className="xl:sticky xl:top-16 ">
         <div className="flex s-[120px] xl:s-[184px] xl:flex-row justify-between">
           <ImageLayout alt="profile" src={profile} />
-          <Button icon="RiMenuFoldLine" intent="transparent" size="sm" />
+          <div className="h-full hidden xlg:block">
+            <Button icon="BiArrowFromRight" intent="transparent" size="sm" />
+          </div>
         </div>
         <div className="ml-2 w-full max-w-[min(500px,100%)] mt-8">
           <Text className="font-bold" size="name">

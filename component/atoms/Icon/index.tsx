@@ -7,11 +7,12 @@ import { AiOutlineForm, AiFillAlert, AiFillCloud } from "react-icons/ai";
 import { BsWindowPlus, BsInstagram } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
-import { RiMenuFoldLine, RiMenuUnfoldLine } from "react-icons/ri";
+import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
 
 export const icons = {
+  BiArrowFromLeft,
+  BiArrowFromRight,
   AiFillCloud,
-  RiMenuUnfoldLine,
   TiTabsOutline,
   BsWindowPlus,
   AiFillAlert,
@@ -24,7 +25,6 @@ export const icons = {
   FaTools,
   MdTipsAndUpdates,
   RxLetterCaseLowercase,
-  RiMenuFoldLine,
 };
 
 export const widgets = {
