@@ -25,12 +25,9 @@ export default function Home({ data }: any) {
   return (
     <Layout>
       <>
-        <Profile />
-        <section className="">
-          <Grid_Section>
-            <MainGrid />
-          </Grid_Section>
-        </section>
+        <Grid_Section>
+          <MainGrid />
+        </Grid_Section>
       </>
     </Layout>
   );

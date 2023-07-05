@@ -44,7 +44,7 @@ const MainGrid = ({}) => {
   const contentsGoodCode = [
     {
       title: "유연한 코드",
-      content: "",
+      content: "안녕",
     },
     {},
   ];
@@ -74,8 +74,7 @@ const MainGrid = ({}) => {
         <Grid
           key={idx}
           hasThumbnail={false}
-          content={content.content}
-          title={content.title}
+          contents={content}
           gridType="A22"
         />
       ))}

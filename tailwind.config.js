@@ -19,7 +19,7 @@ module.exports = {
             left: "0"
           },
           "100%": {
-            left: "-780px"
+            left: "-1480px"
           }
         }
 
@@ -50,7 +50,8 @@ module.exports = {
         ...screens,
         'xsm': { 'max': '420px' },
         '2xsm': { 'max': '366px' },
-        'xlg': { 'min': '1280px' }
+        'xlg': { 'min': '1280px' },
+        '2xlg': { 'min': '1600px' }
       }
 
     },

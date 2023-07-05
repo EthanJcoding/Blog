@@ -7,7 +7,6 @@ import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
-import { useRouter } from "next/router";
 
 type widget = keyof typeof widgets;
 
@@ -21,11 +20,9 @@ const gridStyles = cva(
         A22_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
       },
       size: {
-        grid_md:
-          "xl:w-[11rem] xl:h-[11rem] min-w-[10.625rem] min-h-[10.625rem] text-sm font-medium p-5",
+        grid_md: "min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
         grid_lg: "min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
-        grid_xlg:
-          "xl:w-[24.5rem] xl:h-[24.5rem] min-w-[23.25rem] min-h-[23.25rem] font-medium text-md p-5",
+        grid_xlg: "min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
       },
       theme: {
         default: "",
@@ -87,24 +84,8 @@ const IconDetailDistribute = (
 };
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  (
-    {
-      size,
-      intent,
-      icon,
-      widgetType,
-      children,
-      hasThumbnail,
-      gridType,
-      contents,
-    },
-    ref
-  ) => {
+  ({ size, intent, widgetType, hasThumbnail, gridType, contents }, ref) => {
     const { color, detail, link } = IconDetailDistribute(widgetType);
-
-    const router = useRouter();
-    const query = router.pathname;
-    const userInArchive = query === "/archive";
 
     switch (gridType) {
       case "default":
@@ -217,33 +198,18 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             >
               <button>
                 <div className="h-full flex flex-col">
-                  <Icon widget={widgetType} size="m" color={color} />
                   <Text
                     size="small_content"
                     className="flex items-start mt-4 font-semibold"
                   >
-                    {detail}
+                    {contents.title}
                   </Text>
                 </div>
               </button>
             </a>
           );
       default:
-        return (
-          <Link href={link} className="xlg:col-span-2 xlg:row-span-2">
-            <button className={cn(gridStyles({ intent, size }))}>
-              <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
-                <Text
-                  size="small_content"
-                  className="flex items-start mt-4 font-semibold"
-                >
-                  {detail}
-                </Text>
-              </div>
-            </button>
-          </Link>
-        );
+        return null;
     }
   }
 );

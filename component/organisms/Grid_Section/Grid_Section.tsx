@@ -1,30 +1,45 @@
 import { Git_Status } from "@/component/molecules/Git_Status/Git_Status";
-import { useRouter } from "next/router";
+import { useGenerationStore } from "@/hooks";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
-  const router = useRouter();
-  const query = router.pathname;
-  const shouldHideGitStatus = query !== "/";
+  const { isFolded } = useGenerationStore();
 
   return (
-    <div className="relative xl:w-[824px] xl:flex-none">
-      {!shouldHideGitStatus && (
-        <div className="h-40 w-full xl:w-[820px] absolute overflow-hidden rounded-t-3xl">
-          <div className="wave2 animate-wave absolute opacity-90"></div>
-          <div className="wave animate-wave absolute opacity-80"></div>
-        </div>
-      )}
-
-      {!shouldHideGitStatus && (
+    <div className="">
+      {isFolded ? (
         <>
-          <div className="h-40 mb-10"></div>
-          <div className="col-span-2 xlg:col-span-8 h-full w-full text-xl flex flex-col justify-end mb-16">
-            Welcome 👋
+          <div className="h-40 w-full absolute overflow-hidden rounded-t-3xl">
+            <div className="wave2 animate-wave absolute opacity-90"></div>
+            <div className="wave animate-wave absolute opacity-80"></div>
           </div>
-          <Git_Status />
+
+          <>
+            <div className="h-40 mb-10"></div>
+            <div className="text-xl justify-end my-10 w-full">Welcome 👋</div>
+            <div className="flex flex-col xlg:flex-row w-full">
+              <div className="hidden w-full xlg:flex xlg:mr-10 flex-col">
+                <Git_Status />
+              </div>
+              <div className="grid gap-10">{children}</div>
+            </div>
+          </>
+        </>
+      ) : (
+        <>
+          <div className="h-40 w-full xl:w-[820px] absolute overflow-hidden rounded-t-3xl">
+            <div className="wave2 animate-wave absolute opacity-90"></div>
+            <div className="wave animate-wave absolute opacity-80"></div>
+          </div>
+
+          <>
+            <div className="h-40 mb-10"></div>
+            <div className="w-full text-xl justify-end mb-10">Welcome 👋</div>
+            <Git_Status />
+          </>
+
+          <div className="grid gap-10">{children}</div>
         </>
       )}
-      <div className="grid gap-10">{children}</div>
     </div>
   );
 };
