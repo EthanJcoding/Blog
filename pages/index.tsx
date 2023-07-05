@@ -3,7 +3,6 @@ import { MainGrid } from "@/component/molecules/MainGrid/MainGrid";
 import { GetStaticProps } from "next";
 import { Layout } from "@/component/molecules/Layout/Layout";
 import { Profile } from "@/component/molecules/Profile/Profile";
-import { useState } from "react";
 
 export const getStaticProps: GetStaticProps<any> = async () => {
   const res = await fetch(
@@ -23,20 +22,12 @@ export const getStaticProps: GetStaticProps<any> = async () => {
 export default function Home({ data }: any) {
   const weatherDescription = data[0].description;
 
-  const [isProfileOpened, setProfileOpenend] = useState(true);
-
   return (
     <Layout>
       <>
-        <Profile
-          setProfileOpenend={setProfileOpenend}
-          isProfileOpened={isProfileOpened}
-        />
-        <div className="relative xl:w-[824px]">
-          <Grid_Section>
-            <MainGrid />
-          </Grid_Section>
-        </div>
+        <Grid_Section>
+          <MainGrid />
+        </Grid_Section>
       </>
     </Layout>
   );

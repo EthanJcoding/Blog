@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { Profile } from "../Profile/Profile";
+import { useState } from "react";
 
 interface LayoutProps {
   title?: string;
@@ -14,6 +16,8 @@ const Layout = ({
   image,
   url,
 }: React.PropsWithChildren<LayoutProps>) => {
+  const [isFolded, setFolded] = useState(false);
+
   return (
     <>
       <Head>
@@ -33,16 +37,17 @@ const Layout = ({
           content="HTML, CSS, JavaScript, TypeScript, Next.js, React.js"
         />
       </Head>
-      <main className="min-full-screen flex flex-col items-center justify-center">
-        <div className="min-full-screen flex w-full max-w-[1728px] flex-col">
-          <div className="flex min-h-screen w-full flex-col items-center">
-            <div
-              className={`flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16`}
-            >
-              {children}
-            </div>
+      <main className="min-full-screen flex items-center justify-center">
+        {isFolded ? (
+          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+            <Profile />
+            {children}
           </div>
-        </div>
+        ) : (
+          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+            {children}
+          </div>
+        )}
       </main>
     </>
   );
