@@ -1,4 +1,5 @@
 import GitHubCalendar from "react-github-calendar";
+import { useGenerationStore } from "@/hooks";
 
 interface Activity {
   date: string;
@@ -7,6 +8,7 @@ interface Activity {
 }
 
 const Git_Status = () => {
+  const { isFolded } = useGenerationStore();
   const selectLastEightMonths = (contributions: Activity[]) => {
     const currentDate = new Date();
     currentDate.setMonth(currentDate.getMonth() - 8); // Subtract 8 months from the current date
@@ -18,12 +20,12 @@ const Git_Status = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="hidden mb-10 border p-5 rounded-3xl shadow-md xlg:flex justify-center w-[604px] mr-10 h-[176px]">
+    <div className="hidden w-full xlg:flex xlg:mr-10">
+      <div className="mb-10 border p-5 rounded-3xl shadow-md w-full xlg:flex justify-center h-[176px]">
         <GitHubCalendar
           username="ethanJcoding"
           hideColorLegend
-          transformData={selectLastEightMonths}
+          transformData={isFolded ? undefined : selectLastEightMonths}
           blockSize={10}
           colorScheme="light"
           fontSize={12}

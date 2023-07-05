@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
-import { useState } from "react";
+import { useGenerationStore } from "@/hooks/useGenerationStore/useGenerationStore";
+import { NavBar } from "../NavBar/NavBar";
 
 interface LayoutProps {
   title?: string;
@@ -16,7 +17,7 @@ const Layout = ({
   image,
   url,
 }: React.PropsWithChildren<LayoutProps>) => {
-  const [isFolded, setFolded] = useState(false);
+  const { isFolded } = useGenerationStore();
 
   return (
     <>
@@ -41,11 +42,12 @@ const Layout = ({
         {isFolded ? (
           <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
             <Profile />
-            {children}
+            <div className="relative xl:w-[824px]">{children}</div>
           </div>
         ) : (
           <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
-            {children}
+            <NavBar />
+            <div className="relative flex w-full">{children}</div>
           </div>
         )}
       </main>

@@ -19,19 +19,19 @@ body {
 
 .wave {
   background-image: url("../public/img-wave.svg");
-  width: 1600px;
+  width: 3000px;
   height: 160px;
   display: block;
   background-repeat: no-repeat;
-  animation-duration: 6s;
+  animation-duration: 12s;
 }
 
 .wave2 {
   background-image: url("../public/img-wave2.svg");
-  width: 1600px;
+  width: 3000px;
   height: 160px;
   display: block;
   background-repeat: no-repeat;
-  animation-duration: 4s;
+  animation-duration: 10s;
   animation-direction: reverse;
 }

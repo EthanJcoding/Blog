@@ -1,7 +1,18 @@
 import { Button } from "@/component/atoms/Button/Button";
+import { useGenerationStore } from "@/hooks";
 
 const NavBar = () => {
-  return <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:px-0"></div>;
+  const { isFolded, setFolded } = useGenerationStore();
+  return (
+    <div className="flex mr-10 h-full w-10">
+      <Button
+        icon="BiArrowFromLeft"
+        intent="transparent"
+        size="sm"
+        onClick={() => setFolded(!isFolded)}
+      />
+    </div>
+  );
 };
 
 export { NavBar };

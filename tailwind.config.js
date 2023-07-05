@@ -19,7 +19,7 @@ module.exports = {
             left: "0"
           },
           "100%": {
-            left: "-780px"
+            left: "-1480px"
           }
         }
 
