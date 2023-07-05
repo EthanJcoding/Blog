@@ -1,9 +1,17 @@
 import { Button } from "@/component/atoms/Button/Button";
+import { useGenerationStore } from "@/hooks";
 
 const NavBar = () => {
+  const { isFolded, setFolded } = useGenerationStore();
   return (
-    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:px-0">
-      <Button icon="RiMenuUnfoldLine" intent="transparent" size="sm"></Button>
+    <div className="flex-col mr-10 h-full">
+      <Button
+        className="hidden xlg:flex"
+        icon="BiArrowFromLeft"
+        intent="transparent"
+        size="sm"
+        onClick={() => setFolded(!isFolded)}
+      />
     </div>
   );
 };
