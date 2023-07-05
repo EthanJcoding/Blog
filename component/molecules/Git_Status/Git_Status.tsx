@@ -9,6 +9,16 @@ interface Activity {
 
 const Git_Status = () => {
   const { isFolded } = useGenerationStore();
+  const selectLastSixtMonths = (contributions: Activity[]) => {
+    const currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() - 4); // Subtract 8 months from the current date
+
+    return contributions.filter((activity) => {
+      const date = new Date(activity.date);
+      return date >= currentDate;
+    });
+  };
+
   const selectLastEightMonths = (contributions: Activity[]) => {
     const currentDate = new Date();
     currentDate.setMonth(currentDate.getMonth() - 8); // Subtract 8 months from the current date
@@ -20,8 +30,18 @@ const Git_Status = () => {
   };
 
   return (
-    <div className="hidden w-full xlg:flex xlg:mr-10">
-      <div className="mb-10 border p-5 rounded-3xl shadow-md w-full xlg:flex justify-center h-[176px]">
+    <div className="hidden w-full xlg:flex xlg:mr-10 flex-col">
+      <div className="hidden 2xlg:hidden mb-10 border p-5 rounded-3xl shadow-md w-full xlg:flex justify-center h-[176px]">
+        <GitHubCalendar
+          username="ethanJcoding"
+          hideColorLegend
+          transformData={isFolded ? undefined : selectLastSixtMonths}
+          blockSize={10}
+          colorScheme="light"
+          fontSize={12}
+        />
+      </div>
+      <div className="hidden mb-10 border p-5 rounded-3xl shadow-md w-full 2xlg:flex justify-center h-[176px]">
         <GitHubCalendar
           username="ethanJcoding"
           hideColorLegend

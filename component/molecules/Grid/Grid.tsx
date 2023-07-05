@@ -20,11 +20,9 @@ const gridStyles = cva(
         A22_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
       },
       size: {
-        grid_md:
-          "xl:w-[11rem] xl:h-[11rem] min-w-[10.625rem] min-h-[10.625rem] text-sm font-medium p-5",
+        grid_md: "min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
         grid_lg: "min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
-        grid_xlg:
-          "xl:w-[24.5rem] xl:h-[24.5rem] min-w-[23.25rem] min-h-[23.25rem] font-medium text-md p-5",
+        grid_xlg: "min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
       },
       theme: {
         default: "",
