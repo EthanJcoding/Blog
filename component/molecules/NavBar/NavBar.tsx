@@ -4,8 +4,9 @@ import { useGenerationStore } from "@/hooks";
 const NavBar = () => {
   const { isFolded, setFolded } = useGenerationStore();
   return (
-    <div className="flex mr-10 h-full w-10">
+    <div className="flex-col mr-10 h-full">
       <Button
+        className="hidden xlg:flex"
         icon="BiArrowFromLeft"
         intent="transparent"
         size="sm"
