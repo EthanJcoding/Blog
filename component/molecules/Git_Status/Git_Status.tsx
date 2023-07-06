@@ -23,7 +23,7 @@ const calculateMonthByWidth = (width: number) => {
     return 3;
   }
 
-  return 9;
+  return 6;
 };
 
 const Git_Status = () => {
