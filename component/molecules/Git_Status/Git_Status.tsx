@@ -24,7 +24,11 @@ const Git_Status = () => {
       return 4;
     }
 
-    return 3;
+    if (width < 1380 && width > 1280) {
+      return 3;
+    }
+
+    return 9;
   };
 
   const selectLastSixtMonths = (contributions: Activity[]) => {
