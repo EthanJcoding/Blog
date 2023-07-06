@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
-import { useGenerationStore } from "@/hooks/useGenerationStore/useGenerationStore";
+import { useGenerationStore, useWindowSize } from "@/hooks/";
 import { NavBar } from "../NavBar/NavBar";
+import { useEffect } from "react";
 
 interface LayoutProps {
   title?: string;
@@ -17,7 +18,13 @@ const Layout = ({
   image,
   url,
 }: React.PropsWithChildren<LayoutProps>) => {
-  const { isFolded } = useGenerationStore();
+  const { isFolded, setFolded } = useGenerationStore();
+  const { width } = useWindowSize();
+  useEffect(() => {
+    if (width < 1280) {
+      setFolded(false);
+    }
+  }, [width]);
 
   return (
     <>
@@ -47,7 +54,7 @@ const Layout = ({
         ) : (
           <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
             <Profile />
-            <div className="relative xl:w-[824px]">{children}</div>
+            <div className="relative xl:w-[824px] w-full">{children}</div>
           </div>
         )}
       </main>
