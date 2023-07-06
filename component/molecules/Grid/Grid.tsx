@@ -7,6 +7,7 @@ import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
+import localFont from "next/font/local";
 
 type widget = keyof typeof widgets;
 
@@ -15,14 +16,17 @@ const gridStyles = cva(
   {
     variants: {
       intent: {
-        grid: "shadow-md border rounded-3xl",
+        grid: "col-span-1 row-span-1 shadow-md border rounded-3xl",
         A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
         A22_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
       },
       size: {
-        grid_md: "min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
-        grid_lg: "min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
-        grid_xlg: "min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
+        grid_md:
+          "w-full h-full xsm:min-w-[9.438rem] xsm:min-h-[9.438rem] min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
+        grid_lg:
+          "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
+        grid_xlg:
+          "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
       },
       theme: {
         default: "",
@@ -82,6 +86,9 @@ const IconDetailDistribute = (
       };
   }
 };
+const goms_font = localFont({
+  src: "../../../public/font/designhouseOTFLight00.woff",
+});
 
 const Grid = forwardRef<HTMLButtonElement, GridProps>(
   ({ size, intent, widgetType, hasThumbnail, gridType, contents }, ref) => {
@@ -133,6 +140,13 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
               <div className="flex flex-col justify-between h-full min-h-[108px]">
                 <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
                   <Image src={contents.image} alt="project logo" />
+                  {contents.name === "악보의 정원" ? (
+                    <div
+                      className={`${goms_font.className} text-green-600 text-2xl xlg:text-4xl`}
+                    >
+                      {contents.name}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="">
                   <StackIcon stacks={contents.stacks} />

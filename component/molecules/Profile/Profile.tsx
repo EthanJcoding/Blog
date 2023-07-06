@@ -7,9 +7,9 @@ import { useGenerationStore } from "@/hooks/useGenerationStore/useGenerationStor
 const Profile = () => {
   const { isFolded, setFolded } = useGenerationStore();
   return (
-    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:p-0 ">
+    <div className="mb-10 px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:p-0">
       <div className="xl:sticky xl:top-16 ">
-        <div className="flex xlg:min-w-[184px] xl:flex-row justify-between">
+        <div className="flex xlg:min-w-[184px] xlg:max-w-[500px] xl:flex-row justify-between">
           <ImageLayout alt="profile" src={profile} />
           <div className="h-full hidden xlg:block">
             <Button
