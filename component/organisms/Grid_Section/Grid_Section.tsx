@@ -1,8 +1,18 @@
 import { Git_Status } from "@/component/molecules/Git_Status/Git_Status";
+import { Grid } from "@/component/molecules/Grid/Grid";
 import { useGenerationStore } from "@/hooks";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();
+  const contentsGoodCode = [
+    {
+      title: "유연한 코드",
+      content: "안녕",
+      thumbnail:
+        "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
+    },
+    {},
+  ];
 
   return (
     <div className="">
@@ -19,8 +29,22 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
             <div className="flex flex-col xlg:flex-row w-full">
               <div className="hidden w-full xlg:flex xlg:mr-10 flex-col">
                 <Git_Status />
+                <div className="grid gap-10">
+                  <div className="col-span-2 xlg:col-span-2 h-full w-full text-xl flex flex-col justify-end">
+                    Recent Writings ✏️
+                  </div>
+                  {contentsGoodCode.map((content, idx) => (
+                    <Grid
+                      key={idx}
+                      hasThumbnail={true}
+                      contents={content}
+                      gridType="A22"
+                      size="grid_flexible"
+                    />
+                  ))}
+                </div>
               </div>
-              <div className="grid gap-10">{children}</div>
+              <div className="grid gap-10 max-h-[960px]">{children}</div>
             </div>
           </>
         </>
