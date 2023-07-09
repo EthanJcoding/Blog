@@ -18,7 +18,8 @@ const gridStyles = cva(
       intent: {
         grid: "col-span-1 row-span-1 shadow-md border rounded-3xl",
         A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
-        A22_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
+        A22_grid:
+          "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2",
       },
       size: {
         grid_md:
@@ -27,6 +28,8 @@ const gridStyles = cva(
           "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
         grid_xlg:
           "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
+        grid_flexible:
+          "w-full h-full font-medium text-md p-5 2xlg:max-w-[250px]",
       },
       theme: {
         default: "",
@@ -180,7 +183,10 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
             <a
               href={contents.url}
               target="_blank"
-              className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
+              className={gridStyles({
+                intent: "A22_grid",
+                size,
+              })}
             >
               <div className="flex flex-col justify-evenly h-full min-h-[342px]">
                 <div className="flex justify-center items-center rounded-3xl w-full h-52">
@@ -195,9 +201,9 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
                     />
                   ) : null}
                 </div>
-                <div className="flex flex-col my-4">
+                <div className="flex flex-col my-4 text-center">
                   <Text size="content" font="semi_bold" textColor="content">
-                    {contents.name}
+                    {contents.title}
                   </Text>
                 </div>
               </div>
