@@ -60,6 +60,7 @@ const MainGrid = ({}) => {
               contents={content}
               gridType="A22"
               size="grid_xlg"
+              intent="A22_grid"
             />
           ))}
         </>

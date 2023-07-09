@@ -51,7 +51,8 @@ module.exports = {
         'xsm': { 'max': '420px' },
         '2xsm': { 'max': '366px' },
         'xlg': { 'min': '1280px' },
-        '2xlg': { 'min': '1400px' }
+        '2xlg': { 'min': '1400px' },
+        '3xlg': { "min": '1724px' }
       }
 
     },

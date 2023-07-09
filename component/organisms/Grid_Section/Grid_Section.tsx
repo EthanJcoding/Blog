@@ -40,6 +40,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
                       contents={content}
                       gridType="A22"
                       size="grid_flexible"
+                      intent="Flex_grid"
                     />
                   ))}
                 </div>
