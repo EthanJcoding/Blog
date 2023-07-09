@@ -46,17 +46,19 @@ const Layout = ({
         />
       </Head>
       <main className="min-full-screen flex items-center justify-center">
-        {isFolded ? (
-          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
-            <NavBar />
-            <div className="relative flex w-full">{children}</div>
-          </div>
-        ) : (
-          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
-            <Profile />
-            <div className="relative xl:w-[824px] w-full">{children}</div>
-          </div>
-        )}
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+          {isFolded ? (
+            <>
+              <NavBar />
+              <div className="relative flex w-full">{children}</div>
+            </>
+          ) : (
+            <>
+              <Profile />
+              <div className="relative xl:w-[824px] w-full">{children}</div>
+            </>
+          )}
+        </div>
       </main>
     </>
   );
