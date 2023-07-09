@@ -20,6 +20,8 @@ const gridStyles = cva(
         A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
         A22_grid:
           "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2",
+        Flex_grid:
+          "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 3xlg:col-span-1",
       },
       size: {
         grid_md:
@@ -29,7 +31,7 @@ const gridStyles = cva(
         grid_xlg:
           "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
         grid_flexible:
-          "w-full h-full font-medium text-md p-5 2xlg:max-w-[250px]",
+          "font-medium text-md p-5 3xlg:min-w-[302px] w-full h-full",
       },
       theme: {
         default: "",
@@ -184,7 +186,7 @@ const Grid = forwardRef<HTMLButtonElement, GridProps>(
               href={contents.url}
               target="_blank"
               className={gridStyles({
-                intent: "A22_grid",
+                intent,
                 size,
               })}
             >
