@@ -30,7 +30,7 @@ const Git_Status = () => {
   const { width } = useWindowSize();
   const { isFolded } = useGenerationStore();
 
-  const selectLastSixtMonths = (contributions: Activity[]) => {
+  const selectLastSixMonths = (contributions: Activity[]) => {
     const currentDate = new Date();
     const monthByWidth = calculateMonthByWidth(width);
     currentDate.setMonth(currentDate.getMonth() - monthByWidth);
@@ -46,7 +46,7 @@ const Git_Status = () => {
       <GitHubCalendar
         username="ethanJcoding"
         hideColorLegend
-        transformData={isFolded ? selectLastSixtMonths : undefined}
+        transformData={isFolded ? selectLastSixMonths : undefined}
         blockSize={10}
         colorScheme="light"
         fontSize={12}
@@ -54,5 +54,4 @@ const Git_Status = () => {
     </div>
   );
 };
-
-export { Git_Status };
+export default Git_Status;
