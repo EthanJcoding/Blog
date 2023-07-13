@@ -1,0 +1,19 @@
+---
+title: Coddee 인프라 설계 과정
+publishedAt: 2022-12-19
+description: 개발자 채팅방 Coddee의 인프라 설계 과정을 궁금해 하실 분들을 위해 이 글을 남겨봅니다.
+thumbnailUrl: "naver.com"
+keywords: Coddee, Supabase
+---
+
+개발자 채팅방 Coddee의 인프라 설계 과정을 궁금해 하실 분들을 위해 이 글을 남겨봅니다.
+
+Coddee의 경우도 그렇지만, 저는 사이드 프로젝트를 할 때 새로 매력적인 제품이 등장하지 않는 이상 항상 사용하는 기술과 플랫폼들이 있습니다. Frontend framework는 **Next.js**, CSS framework는 **TailwindCSS**, 클라우드 컴퓨팅 관련 플랫폼은 **Vercel**, 그리고 백엔드는 직접 구축하지 않고 오늘 다룰 주제인 **Supabase**를 사용합니다.
+
+## Supabase란
+
+Supabase는 Baas(Baekend as a service) 중 하나로, 구글의 유명한 Firebase에서 영감을 받아 대체제로서 역할을 하고자 시작된 오픈소스 프로젝트입니다.
+
+Firebase와 가장 두드러지는 차이점은 Firebase의 Database는 noSQL을 채택하지만 Supabase는 위의 홈 화면에서도 강조하듯이 Postgre를 전면에 내세운 관계형 데이터베이스를 사용한다는 점입니다.
+
+### 과거의 문제점
