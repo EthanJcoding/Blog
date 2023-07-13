@@ -1,22 +1,37 @@
-import { allContents, type Content } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+import { format, parseISO } from "date-fns";
+import { allContents } from "contentlayer/generated";
 
-// async function getDocFromParams(slug: string) {
-//   const doc = allDocuments.find((doc) => doc.slugAsParams === slug);
+export const generateStaticParams = async () =>
+  allContents.map((post) => ({ slug: post._raw.flattenedPath }));
 
-//   if (!doc) notFound();
-
-//   return doc;
-// }
-
-const Page = ({ content }: { content: Content[] }) => {
-  console.log(allContents);
-  return <div></div>;
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = allContents.find(
+    (post) => post._raw.flattenedPath === params.slug
+  );
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  return { title: post.title };
 };
 
-export default Page;
+const PostLayout = ({ params }: { params: { slug: string } }) => {
+  const post = allContents.find(
+    (post) => post._raw.flattenedPath === params.slug
+  );
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+
+  return (
+    <article className="mx-auto max-w-xl py-8">
+      <div className="mb-8 text-center">
+        <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
+          {format(parseISO(post.date), "LLLL d, yyyy")}
+        </time>
+        <h1 className="text-3xl font-bold">{post.title}</h1>
+      </div>
+      <div
+        className="[&>*]:mb-3 [&>*:last-child]:mb-0"
+        dangerouslySetInnerHTML={{ __html: post.body.html }}
+      />
+    </article>
+  );
+};
+
+export default PostLayout;
