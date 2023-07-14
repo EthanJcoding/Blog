@@ -1,6 +1,6 @@
-import { Layout } from "@/component/molecules/Layout/Layout";
-import { Text } from "@/component/atoms/Text/Text";
-import Figure from "@/component/atoms/Figure/Figure";
+import { Layout } from "component/molecules/Layout/Layout";
+import { Text } from "component/atoms/Text/Text";
+import Figure from "component/atoms/Figure/Figure";
 
 // 백엔드에서 데이터를 받고 하위 Posts View로 전달하기
 export default function Posts() {

@@ -1,5 +1,5 @@
-import { Button } from "@/component/atoms/Button/Button";
-import { useGenerationStore } from "@/hooks";
+import { Button } from "component/atoms/Button/Button";
+import { useGenerationStore } from "hooks";
 
 const NavBar = () => {
   const { isFolded, setFolded } = useGenerationStore();

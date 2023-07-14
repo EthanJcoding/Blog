@@ -1,9 +1,9 @@
 import {
   allContents,
   type Content as ContentType,
-} from "@/.contentlayer/generated";
-import { Layout } from "@/component/molecules/Layout/Layout";
-import { MdxComponent } from "@/component/molecules/MdxComponent/MdxComponent";
+} from "contentlayer/generated";
+import { Layout } from "component/molecules/Layout/Layout";
+import { MdxComponent } from "component/molecules/MdxComponent/MdxComponent";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {

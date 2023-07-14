@@ -1,7 +1,7 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
 import { projects, contentsGoodCode as contents } from "./MainGrid_Contents";
-import { useGenerationStore } from "@/hooks";
+import { useGenerationStore } from "hooks";
 
 type widget = keyof typeof widgets;
 
