@@ -1,10 +1,10 @@
-import { Grid_Section } from "@/component/organisms/Grid_Section/Grid_Section";
-import { MainGrid } from "@/component/molecules/MainGrid/MainGrid";
+import { Grid_Section } from "component/organisms/Grid_Section/Grid_Section";
+import { MainGrid } from "component/molecules/MainGrid/MainGrid";
 import { GetStaticProps } from "next";
-import { Layout } from "@/component/molecules/Layout/Layout";
-import { Profile } from "@/component/molecules/Profile/Profile";
+import { Layout } from "component/molecules/Layout/Layout";
+import { Profile } from "component/molecules/Profile/Profile";
 
-export const getStaticProps: GetStaticProps<any> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     "https://api.openweathermap.org/data/2.5/weather?lat=37.4563&lon=126.7052&appid=5fc487fa766ba2f7d88c20652cc61371"
   );

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
-import { useGenerationStore, useWindowSize } from "@/hooks/";
+import { useGenerationStore, useWindowSize } from "hooks";
 import { NavBar } from "../NavBar/NavBar";
 import { useEffect } from "react";
 

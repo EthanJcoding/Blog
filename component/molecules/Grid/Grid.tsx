@@ -6,7 +6,7 @@ import { Text } from "../../atoms/Text/Text";
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
-import { StackIcon } from "@/component/atoms/StackIcon/StackIcon";
+import { StackIcon } from "component/atoms/StackIcon/StackIcon";
 import localFont from "next/font/local";
 
 type widget = keyof typeof widgets;

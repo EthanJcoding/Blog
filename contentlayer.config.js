@@ -6,11 +6,11 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 const computedFields = {
     slug: {
         type: 'string',
-        resolve: (doc) => `/${doc._raw.flattenedPath}`,
+        resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
     },
     slugAsParams: {
         type: 'string',
-        resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+        resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
     }
 }
 
