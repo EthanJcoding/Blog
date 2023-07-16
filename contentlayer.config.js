@@ -1,53 +1,52 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
-
-
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 /** @type {import('contentlayer/source-files').computedFields} */
 const computedFields = {
     slug: {
-        type: 'string',
-        resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+        type: "string",
+        resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
     },
     slugAsParams: {
-        type: 'string',
+        type: "string",
         resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-    }
-}
+    },
+};
 
 export const Content = defineDocumentType(() => ({
-    name: 'Content',
+    name: "Content",
     filePathPattern: `**/*.mdx`,
-    contentType: 'mdx',
+    contentType: "mdx",
     fields: {
         title: {
-            type: 'string',
+            type: "string",
             required: true,
         },
         description: {
-            type: 'string',
+            type: "string",
             required: true,
         },
         thumbnailUrl: {
-            type: 'string',
+            type: "string",
             required: true,
         },
         publishedAt: {
-            type: 'string',
+            type: "string",
             required: true,
         },
         tags: {
-            type: 'list',
-            of: { type: 'string' },
+            type: "list",
+            of: { type: "string" },
             required: false,
         },
-    }, computedFields
-}))
+    },
+    computedFields,
+}));
 
 export default makeSource({
-    contentDirPath: './content',
+    contentDirPath: "./content",
     documentTypes: [Content],
     mdx: {
         remarkPlugins: [],
         rehypePlugins: [],
     },
-})
+});

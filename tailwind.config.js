@@ -1,5 +1,4 @@
 const { colors, width, screens } = require('tailwindcss/colors')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
