@@ -5,7 +5,6 @@ import {
 import { Layout } from "component/molecules/Layout/Layout";
 import { MdxComponent } from "component/molecules/MdxComponent/MdxComponent";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Text } from "component/atoms/Text/Text";
 import Frontmatter from "component/molecules/Frontmatter/Frontmatter";
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
@@ -30,12 +29,14 @@ const ContentPage = ({ content }: { content: ContentType }) => {
     <>
       <div>
         <Layout>
-          <Frontmatter
-            title={content.title}
-            publishedAt={content.publishedAt}
-            tags={content.tags}
-          />
-          <MdxComponent code={content.body.code} />
+          <div className="flex flex-col">
+            <Frontmatter
+              title={content.title}
+              publishedAt={content.publishedAt}
+              tags={content.tags}
+            />
+            <MdxComponent code={content.body.code} />
+          </div>
         </Layout>
       </div>
     </>
