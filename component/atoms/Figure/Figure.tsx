@@ -1,18 +1,17 @@
 import { memo } from "react";
 import type { FC } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 
 export interface Props {
-  caption: string;
+  caption?: string;
   image: string;
 }
 
 const Figure: FC<Props> = ({ caption, image }) => {
   return (
-    <div className="my-10 leading-7">
+    <div className="nx-mt-6 nx-leading-7 first:nx-mt-0">
       <figure>
-        <Image src={image} alt={caption} className="mx-auto" />
+        <img src={image} alt={caption} className="mx-auto" />
         {!!caption && (
           <figcaption className="mt-2 text-center text-xs text-neutral-500 dark:text-neutral-400 md:mt-3 md:text-sm">
             {caption}

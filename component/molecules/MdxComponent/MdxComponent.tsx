@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "utils";
 import Image from "next/image";
+import { Figure } from "component/atoms";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 const components = {
@@ -148,13 +149,14 @@ const components = {
     />
   ),
   Image,
+  Figure,
 };
 
 const MdxComponent = ({ code }: { code: string }) => {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx">
+    <div className="mdx w-full flex flex-col justify-center">
       <Component components={components} />
     </div>
   );
