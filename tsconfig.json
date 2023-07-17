@@ -23,7 +23,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".contentlayer/generated"
+    "**/*.js",
+    "**/*.mjs",
+    ".contentlayer/generated",
+    "postcss.config.js"
   ],
   "exclude": ["node_modules"]
 }

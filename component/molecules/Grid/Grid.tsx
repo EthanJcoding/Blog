@@ -95,145 +95,155 @@ const goms_font = localFont({
   src: "../../../public/font/designhouseOTFLight00.woff",
 });
 
-const Grid = forwardRef<HTMLButtonElement, GridProps>(
-  ({ size, intent, widgetType, hasThumbnail, gridType, contents }, ref) => {
-    const { color, detail, link } = IconDetailDistribute(widgetType);
+const Grid = ({
+  size,
+  intent,
+  widgetType,
+  hasThumbnail,
+  gridType,
+  contents,
+}: GridProps) => {
+  const { color, detail, link } = IconDetailDistribute(widgetType);
 
-    switch (gridType) {
-      case "default":
-        if (hasThumbnail) {
-          return (
-            <Link href={link} className="xlg:col-span-1 xlg:row-span-1">
-              <button className={cn(gridStyles({ intent, size }))}>
-                <div className="h-full flex flex-col">
-                  <Icon widget={widgetType} size="m" color={color} />
-                  <Text
-                    size="small_content"
-                    className="flex items-start mt-4 font-semibold"
-                  >
-                    {detail}
-                  </Text>
-                </div>
-              </button>
-            </Link>
-          );
-        } else
-          return (
-            <a
-              href={link}
-              target="_blank"
-              className="xlg:col-span-2 xlg:row-span-2"
-            >
-              <button className={cn(gridStyles({ intent, size }))}>
+  switch (gridType) {
+    case "default":
+      if (hasThumbnail) {
+        return (
+          <Link href={link} className="xlg:col-span-1 xlg:row-span-1">
+            <button className={cn(gridStyles({ intent, size }))}>
+              <div className="h-full flex flex-col">
+                <Icon widget={widgetType} size="m" color={color} />
                 <Text
                   size="small_content"
                   className="flex items-start mt-4 font-semibold"
                 >
                   {detail}
                 </Text>
-              </button>
-            </a>
-          );
-      case "A12":
-        if (hasThumbnail) {
-          return (
-            <a
-              href={contents.href}
-              target="_blank"
-              className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
-            >
-              <div className="flex flex-col justify-between h-full min-h-[108px]">
-                <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
-                  <Image src={contents.image} alt="project logo" />
-                  {contents.name === "악보의 정원" ? (
-                    <div
-                      className={`${goms_font.className} text-green-600 text-2xl xlg:text-4xl`}
-                    >
-                      {contents.name}
-                    </div>
-                  ) : null}
-                </div>
-                <div className="">
-                  <StackIcon stacks={contents.stacks} />
-                </div>
               </div>
-            </a>
-          );
-        } else
-          return (
-            <a
-              href={link}
-              target="_blank"
-              className="xlg:col-span-2 xlg:row-span-2"
-            >
-              <button className={cn(gridStyles({ intent, size }))}>
-                <div className="h-full flex flex-col">
-                  <Icon widget={widgetType} size="m" color={color} />
-                  <Text
-                    size="small_content"
-                    className="flex items-start mt-4 font-semibold"
+            </button>
+          </Link>
+        );
+      } else
+        return (
+          <a
+            href={link}
+            target="_blank"
+            className="xlg:col-span-2 xlg:row-span-2"
+            rel="noreferrer"
+          >
+            <button className={cn(gridStyles({ intent, size }))}>
+              <Text
+                size="small_content"
+                className="flex items-start mt-4 font-semibold"
+              >
+                {detail}
+              </Text>
+            </button>
+          </a>
+        );
+    case "A12":
+      if (hasThumbnail) {
+        return (
+          <a
+            href={contents.href}
+            target="_blank"
+            className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
+            rel="noreferrer"
+          >
+            <div className="flex flex-col justify-between h-full min-h-[108px]">
+              <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
+                <Image src={contents.image} alt="project logo" />
+                {contents.name === "악보의 정원" ? (
+                  <div
+                    className={`${goms_font.className} text-green-600 text-2xl xlg:text-4xl`}
                   >
-                    {detail}
-                  </Text>
-                </div>
-              </button>
-            </a>
-          );
-      case "A22":
-        if (hasThumbnail) {
-          return (
-            <a
-              href={contents.url}
-              target="_blank"
-              className={gridStyles({
-                intent,
-                size,
-              })}
-            >
-              <div className="flex flex-col justify-evenly h-full min-h-[342px]">
-                <div className="flex justify-center items-center rounded-3xl w-full h-52">
-                  {contents.thumbnail ? (
-                    <Image
-                      alt={`${contents.name} 이미지`}
-                      src={contents.thumbnail}
-                      className="w-full h-full object-none p-2"
-                      width={200}
-                      height={100}
-                      priority={true}
-                    />
-                  ) : null}
-                </div>
-                <div className="flex flex-col my-4 text-center">
-                  <Text size="content" font="semi_bold" textColor="content">
-                    {contents.title}
-                  </Text>
-                </div>
+                    {contents.name}
+                  </div>
+                ) : null}
               </div>
-            </a>
-          );
-        } else
-          return (
-            <a
-              href={link}
-              target="_blank"
-              className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
-            >
-              <button>
-                <div className="h-full flex flex-col">
-                  <Text
-                    size="small_content"
-                    className="flex items-start mt-4 font-semibold"
-                  >
-                    {contents.title}
-                  </Text>
-                </div>
-              </button>
-            </a>
-          );
-      default:
-        return null;
-    }
+              <div className="">
+                <StackIcon stacks={contents.stacks} />
+              </div>
+            </div>
+          </a>
+        );
+      } else
+        return (
+          <a
+            href={link}
+            target="_blank"
+            className="xlg:col-span-2 xlg:row-span-2"
+            rel="noreferrer"
+          >
+            <button className={cn(gridStyles({ intent, size }))}>
+              <div className="h-full flex flex-col">
+                <Icon widget={widgetType} size="m" color={color} />
+                <Text
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                >
+                  {detail}
+                </Text>
+              </div>
+            </button>
+          </a>
+        );
+    case "A22":
+      if (hasThumbnail) {
+        return (
+          <a
+            href={contents.url}
+            target="_blank"
+            className={gridStyles({
+              intent,
+              size,
+            })}
+            rel="noreferrer"
+          >
+            <div className="flex flex-col justify-evenly h-full min-h-[342px]">
+              <div className="flex justify-center items-center rounded-3xl w-full h-52">
+                {contents.thumbnail ? (
+                  <Image
+                    alt={`${contents.name} 이미지`}
+                    src={contents.thumbnail}
+                    className="w-full h-full object-none p-2"
+                    width={200}
+                    height={100}
+                    priority={true}
+                  />
+                ) : null}
+              </div>
+              <div className="flex flex-col my-4 text-center">
+                <Text size="content" font="semi_bold" textColor="content">
+                  {contents.title}
+                </Text>
+              </div>
+            </div>
+          </a>
+        );
+      } else
+        return (
+          <a
+            href={link}
+            target="_blank"
+            className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
+            rel="noreferrer"
+          >
+            <button>
+              <div className="h-full flex flex-col">
+                <Text
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                >
+                  {contents.title}
+                </Text>
+              </div>
+            </button>
+          </a>
+        );
+    default:
+      return null;
   }
-);
+};
 
 export { Grid, gridStyles };

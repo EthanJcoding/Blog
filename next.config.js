@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
-const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require("next-contentlayer");
 
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['img.shields.io', 'ghchart.rshah.org', "velog.velcdn.com"],
-  }
+    domains: ["img.shields.io", "ghchart.rshah.org", "velog.velcdn.com"],
+  },
   // webpack: {
   //   resolve: {
   //     fallback: {
@@ -13,6 +13,6 @@ const nextConfig = {
   //     }
   //   }
   // }
-}
+};
 
-module.exports = withContentlayer(nextConfig)
+module.exports = withContentlayer(nextConfig);
