@@ -24,7 +24,7 @@ const Layout = ({
     if (width < 1280) {
       setFolded(false);
     }
-  }, [width]);
+  }, [setFolded, width]);
 
   return (
     <>

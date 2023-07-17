@@ -6,7 +6,6 @@ interface IconProps {
   widget?: keyof typeof widgets;
   size?: string;
   color?: string;
-  as?: any;
 }
 
 const Icon = ({ icon, widget, size, color, ...props }: IconProps) => {

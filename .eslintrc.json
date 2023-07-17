@@ -5,6 +5,7 @@
     "es6": true
   },
   "extends": [
+    "next",
     "next/core-web-vitals",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
@@ -14,7 +15,8 @@
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-var-requires": "off"
   },
   "parserOptions": {
     "ecmaVersion": "latest",
