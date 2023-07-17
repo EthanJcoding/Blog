@@ -1,6 +1,5 @@
 import { Layout } from "component/molecules/Layout/Layout";
 import { Text } from "component/atoms/Text/Text";
-import Figure from "component/atoms/Figure/Figure";
 
 // 백엔드에서 데이터를 받고 하위 Posts View로 전달하기
 export default function Posts() {
@@ -27,18 +26,13 @@ export default function Posts() {
               placerat, ex eu mollis venenatis, odio tellus consectetur tortor,
               sed consectetur dui diam a arcu. Quisque cursus arcu in diam
               feugiat dictum. Ut malesuada ornare tincidunt. Aliquam volutpat
-              ligula sit amet volutpat efficitur.
-              <Figure
-                image="https://velog.velcdn.com/images/wongue_shin/post/52e04cf0-4a0c-4378-8b48-9ca978df5d0a/image.gif"
-                caption="example"
-              />
-              Integer volutpat nulla ut euismod elementum. Aliquam hendrerit
-              semper augue, in dictum tortor tristique quis. Cras vitae urna
-              accumsan, ullamcorper justo a, mattis tortor. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada fames ac
-              turpis egestas. Aliquam tristique velit id tellus tincidunt
-              vehicula. Integer leo eros, tristique a massa vel, volutpat
-              lobortis ligula.
+              ligula sit amet volutpat efficitur. Integer volutpat nulla ut
+              euismod elementum. Aliquam hendrerit semper augue, in dictum
+              tortor tristique quis. Cras vitae urna accumsan, ullamcorper justo
+              a, mattis tortor. Pellentesque habitant morbi tristique senectus
+              et netus et malesuada fames ac turpis egestas. Aliquam tristique
+              velit id tellus tincidunt vehicula. Integer leo eros, tristique a
+              massa vel, volutpat lobortis ligula.
             </div>
             <div className="예시">
               Praesent ullamcorper ornare nunc eu lacinia. Cras in sapien est.
