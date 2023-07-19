@@ -9,7 +9,7 @@ export interface Props {
 
 const Figure: FC<Props> = ({ caption, image }) => {
   return (
-    <div className="nx-mt-6 nx-leading-7 first:nx-mt-0">
+    <div className="mt-6 leading-7 ">
       <figure>
         <img src={image} alt={caption} className="mx-auto" />
         {!!caption && (

@@ -2,10 +2,15 @@ import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
 import { projects, contentsGoodCode as contents } from "./MainGrid_Contents";
 import { useGenerationStore } from "hooks";
+import { type Content as contentType } from "contentlayer/generated";
 
 type widget = keyof typeof widgets;
 
-const MainGrid = ({}) => {
+interface MainGridProps {
+  allContents: contentType[];
+}
+
+const MainGrid = ({ allContents }: MainGridProps) => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
   const { isFolded } = useGenerationStore();
 
@@ -26,6 +31,16 @@ const MainGrid = ({}) => {
       </div>
       {projects.map((project, idx) => (
         <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
+      ))}
+      {allContents.map((content, idx) => (
+        <Grid
+          key={idx}
+          contents={content}
+          hasThumbnail={false}
+          gridType="default"
+          intent="grid"
+          size="grid_md"
+        />
       ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️

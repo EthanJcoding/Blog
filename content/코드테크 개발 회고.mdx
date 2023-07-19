@@ -1,0 +1,131 @@
+---
+title: CodeTech 개발 회고
+publishedAt: 2022-12-09
+description: 코드테크 프로젝트의 개발 회고입니다.
+thumbnailUrl: "https://codetech.nworld.dev/favicon.ico"
+tags: [Codetech, 코드스테이츠]
+---
+
+![](https://velog.velcdn.com/images/ethan_world/post/03646744-5eb1-46a1-851b-13ad2dac19c7/image.gif)
+
+📎 https://codetech.nworld.dev/
+
+🌿 https://github.com/codestates-seb/seb40_main_011
+
+---
+
+## 메인페이지
+
+![피그마 프로토타입](https://velog.velcdn.com/images/ethan_world/post/81eaf75a-6684-4554-93e9-308fdfbc6f8f/image.png)
+
+위의 프로토타입을 바탕으로 필요 컴포넌트를 나눴다. 작업한 순서로 정리해볼까 한다.
+
+### 🖥 ProductList.tsx
+
+메인페이지의 메인 view를 담당하는 주요 컴포넌트이다. 맨 처음 작업을 시작할 때 `json-server` 를 사용하여 더미데이터를 만들었고, 혹시 모를 상황에 (급작스러운 API문서 수정) 대비하기위해 백엔드 개발자분들과 상의하여 받을 응답객체를 정해놓고 작업했다.
+
+> **아쉬운 점**
+
+1. 제품에 대한 데이터를 한 번에 다 받았다. API호출을 쿼리로 주고 받으면 데이터 세이빙과, 로딩시간을 개선할 수 있을 거 같다. 지금 시점에서는 제품 데이터가 많지 않아서 괜찮다.
+2. 제품을 더 불러오는 기능으로 `더 보기` 버튼을 만들었다. 처음엔 페이지네이션으로 프론트에서 offset등을 계산하여 좌우로 이동하게끔 구현했지만, 전직 디자이너셨던 팀원분께 의견을 여쭤보았는데 모바일에서의 view를 염두하고 계셔서 `더 보기` 버튼으로 구현을 헀다.
+
+> **개선한 점**
+
+1. 프로젝트 발표가 끝나고, 제일 먼저 수정을 했던 건 `useMemo, useCallback` 을 활용한 성능 최적화였다.
+   ![](https://velog.velcdn.com/images/ethan_world/post/cdc0a473-6abc-4f93-8942-09beb4c487a0/image.png)
+   처음 써보는 리엑트 훅이라 공부먼저 진행했고 `단테`님의 블로그가 도움이 많이 됐다. 값이나 함수가 변하지 않는다면, 그것들의 불필요한 렌더링을 막기 위한 메모이제이션 기법!
+
+### 👍 BestReviewList.tsx
+
+- 최상단에 위치하여 리뷰마다 가지고있는 Like의 오름차순으로 7개를 불러오는 컴포넌트이다. 이 컴포넌트를 작업할 때 재밌었던 건 백엔드분들이 리뷰가 캐러셀처럼 자동으로 옆으로 넘어가면 좋겠다고 하셔서 `setTimeout`을 사용하여 5초마다 옆으로 넘어가게 만들었다. 문제는 컴포넌트에 `setTimeout`을 `useEffect`나 다른 로직에 감싸서 넣은 게 아닌 plain하게 넣어버려서 다음 버튼을 누르면 고장(?)이 나버리는 것이였다. 기존에 사용하던 `setTimeout`이 아닌 `setInterval` 을 사용하여 이를 해결했다.
+  ![](https://velog.velcdn.com/images/ethan_world/post/04258d0c-36ae-4a2f-a49d-f7f1ad00eb1b/image.png)
+
+- 리뷰 컨텐츠가 마크다운 언어이다보니, 그대로 노출시킬 수 없었다. 변환은 아니고, 단순히 마크다운 문법을 제거하고 텍스트만 뽑아내는 작업을 하는 게 도전적이였고, 시간도 꽤 잡아먹었다. 정규표현식을 구글링하여 날먹(?)을 하고 싶었지만, 내 상황에 맞는 표현식이 없었기에*~~(찾지 못해서)~~* 새로 만들었다.
+  ![](https://velog.velcdn.com/images/ethan_world/post/7b16b6d3-cb76-4e8a-9600-df2ca8f910ab/image.png)
+
+> **아쉬운 점**
+
+- 해당 컴포넌트에 onHover시 리뷰가 넘어가는 걸 막는 함수를 아직 만들어주지 못했다. 프로젝트 기간에 미처 생각도 하지 못했던게 뼈아프다.
+
+> **개선한 점**
+
+- 제품 리스트 컴포넌트와 마찬가지로 `useMemo`와 `react.memo`를 사용하여 성능 최적화를 진행했다.
+
+### ❓ QuestionList.tsx
+
+메인페이지 하단에 위치한 질문 리스트 컴포넌트는 유저들이 작성한 답변이 필요한 질문과, 답변이 작성된 질문 두 개를 묶어서 만들었다. 같은 주소로 속성만 다르게하여 API 호출을 두 번 하는 비효율적인 데이터 fetching을 개선했다.
+
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/c13bd703-1632-4860-923a-798b61a4e2bc/image.png"
+  caption="하이"
+/>
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/93f16f81-311c-4e4b-a9a9-0ae55e9494f9/image.png"
+  caption="하이"
+/>
+
+Promise.all 을 부트캠프 진행하면서 딱 한 번 처음 배울 때 사용하고는 까맣게 잊고 지내다가 저 코드를 보고 한 번 대입해볼 기회라고 생각하여 작성해봤다. 이런 상황이 또 나온다면, 가독성을 위해 이전 코드로 작성해야 할까 아니면 최적화를 위해서 아래처럼 작성해야 할까?
+
+---
+
+## 상세 리뷰 페이지
+
+📎 https://codetech.nworld.dev/review/4
+
+> **어려웠던 점**
+
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/56728b91-08fc-4812-b83d-f3261f79ca86/image.png"
+  caption="(좌에서 우로 수정하는 것 보다 그냥 우로 만드는게 더 쉽다...)"
+/>
+
+기획단계에서 컴포넌트 계층을 고려하지 않고 프로토타입에 보이는 대로 만들다가 참사가 난 페이지였다.
+view는 다르지만 동일한 기능 (댓글 대댓글 CRUD)을 구현할 때 뼈저리게 느꼈다. 공통 컴포넌트로 코멘트 기능 재사용을 염두해두고 만들었다면 내가 겪은 `props drilling` 들을 완화할 수 있지 않았을까?
+
+한 컴포넌트에서 모든 API 데이터를 불러와 props로 넘겨주기 보단, 응답객체를 나눠서 받았다면 (review 전문 따로, 댓글 arr 따로) 작업에 더 수월했을 거 같다.
+
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/c586e49a-1806-420e-a364-4c756f53f6f0/image.png"
+  caption="하이"
+/>
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/f4ae1a15-7535-47f5-baaa-a1a670846720/image.png"
+  caption="하이"
+/>
+저렇게 컴포넌트간 주고받는 props가 많다면, 다른 팀원이 내 작업을 도울 때 많이
+힘들다. 나도 다른 팀원의 작업을 도울 때 그랬다.
+
+> **재밌었던 점**
+
+`Zustand`를 사용하여 리뷰 전문을 수정하는 기능 구현이 가장 재밌었다.
+
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/bdc66276-0f08-40f4-84ad-9620da032a48/image.gif"
+  caption="하이"
+/>
+
+이미 만들어진 `WriteReview` 컴포넌트에 간단한 props 하나를 넘겨 상태관리 툴을 조작하여 해당 데이터를 저 컴포넌트에서 불러오는 기능이 간단하지 않아보였지만, 막상 구현하고나니 이번 프로젝트에서 가장 간단한(?) 작업이지 않았을까 회고한다.
+
+---
+
+## 검색 결과 페이지
+
+📎 https://codetech.nworld.dev/search?search=%EB%A7%A5
+
+### 🎨 SearchResult.tsx
+
+> **어려웠던 점**
+
+헤더에 있는 Search 인풋을 통해서 라우팅되는 페이지를 만들어야 했다. 라우팅이되는 키워드를 가지고 오기 위해서 `useLocation` 을 사용하여 URL에 접근했는데, 키워드가 한글일 경우 파싱이 필요한 걸 알았다.
+따라서 `search=` 까지 짤라주고 `decodeURI` 메서드를 사용해서 해당 키워드를 성공적으로 뽑아왔다. 그렇게 받은 키워드는 아래의 두 컴포넌트의 props로 내려줬다.
+
+### 📝 SearchReview.tsx
+
+### 💻 SearchProduct.tsx
+
+전체적인 구조가 메인페이지의 제품리스트와 동일했기에 개발중에 크게 어려웠던 점은 없었다. 이 컴포넌트 안에 작은 컴포넌트들을 세분화하여 마지막 리턴문의 길이를 줄이는 것에 포커싱 해봤다.
+
+<Figure
+  image="https://velog.velcdn.com/images/ethan_world/post/91e82c33-c713-4d47-89ee-c8d302b9fe16/image.png"
+  caption="하이"
+/>
