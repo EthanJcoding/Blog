@@ -1,13 +1,18 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
 import { projects, contentsGoodCode as contents } from "./MainGrid_Contents";
-import { useGenerationStore } from "hooks";
-import { type Content as contentType } from "contentlayer/generated";
+import { useGenerationStore } from "services";
 
 type widget = keyof typeof widgets;
 
 interface MainGridProps {
-  allContents: contentType[];
+  allContents: {
+    title: string;
+    publishedAt: string;
+    description: string;
+    thumbnailUrl: string;
+    tags: string[];
+  }[];
 }
 
 const MainGrid = ({ allContents }: MainGridProps) => {

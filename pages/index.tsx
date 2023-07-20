@@ -1,22 +1,14 @@
 import { Grid_Section } from "component/organisms/Grid_Section/Grid_Section";
 import { MainGrid } from "component/molecules/MainGrid/MainGrid";
-import { GetStaticProps, GetStaticPropsContext } from "next";
 import { Layout } from "component/molecules/Layout/Layout";
-import {
-  allContents,
-  type Content as ContentType,
-} from "contentlayer/generated";
+import { contentsForMainPage } from "services";
 
-export const getStaticProps: GetStaticProps = async () => {
-  return { props: { allContents } };
-};
-
-export default function Home({ allContents }: { allContents: ContentType[] }) {
+export default function Home() {
   return (
     <Layout>
       <>
         <Grid_Section>
-          <MainGrid allContents={allContents} />
+          <MainGrid allContents={contentsForMainPage} />
         </Grid_Section>
       </>
     </Layout>

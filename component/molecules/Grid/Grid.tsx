@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { cn } from "../../../utils/twMerge";
+import { cn } from "../../../services/utils/twMerge";
 import { widgets, icons } from "../../atoms/Icon/index";
 import { Icon } from "../../atoms/Icon/Icon";
 import { Text } from "../../atoms/Text/Text";

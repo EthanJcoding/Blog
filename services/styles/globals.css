@@ -18,7 +18,7 @@ body {
 }
 
 .wave {
-  background-image: url("../public/img-wave.svg");
+  background-image: url("../../public/img-wave.svg");
   width: 3000px;
   height: 160px;
   display: block;
@@ -27,7 +27,7 @@ body {
 }
 
 .wave2 {
-  background-image: url("../public/img-wave2.svg");
+  background-image: url("../../public/img-wave2.svg");
   width: 3000px;
   height: 160px;
   display: block;

@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { HTMLAttributes } from "react";
-import { cn } from "../../../utils/twMerge";
+import { cn } from "../../../services/utils/twMerge";
 
 const textVariants = cva("max-w-prose", {
   variants: {

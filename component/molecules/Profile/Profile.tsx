@@ -2,7 +2,7 @@ import { ImageLayout } from "../../atoms/Image/ImageLayout";
 import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
 import { Button } from "component/atoms/Button/Button";
-import { useGenerationStore } from "hooks/useGenerationStore/useGenerationStore";
+import { useGenerationStore } from "services/hooks/useGenerationStore/useGenerationStore";
 
 const Profile = () => {
   const { isFolded, setFolded } = useGenerationStore();
