@@ -1,7 +1,7 @@
 import React from "react";
 import Git_Status from "component/molecules/Git_Status/Git_Status";
 import { Grid } from "component/molecules/Grid/Grid";
-import { useGenerationStore } from "hooks";
+import { useGenerationStore } from "services/hooks";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();

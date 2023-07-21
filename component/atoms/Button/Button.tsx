@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "../../../utils/twMerge";
+import { cn } from "../../../services/utils/twMerge";
 import { widgets, icons } from "../Icon/index";
 import { Icon } from "../Icon/Icon";
 

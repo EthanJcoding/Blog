@@ -4,12 +4,16 @@ import {
 } from "contentlayer/generated";
 import { Layout } from "component/molecules/Layout/Layout";
 import { MdxComponent } from "component/molecules/MdxComponent/MdxComponent";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Frontmatter from "component/molecules/Frontmatter/Frontmatter";
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const { params } = context;
+
   const content: ContentType | undefined = allContents.find(
-    (content) => content.slug === params.slug
+    (content) => content.slug === params?.slug
   );
 
   return { props: { content } };
@@ -29,7 +33,7 @@ const ContentPage = ({ content }: { content: ContentType }) => {
     <>
       <div>
         <Layout>
-          <div className="flex flex-col">
+          <div className="flex flex-col border-t">
             <Frontmatter
               title={content.title}
               publishedAt={content.publishedAt}

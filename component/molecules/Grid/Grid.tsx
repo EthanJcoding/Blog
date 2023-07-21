@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { cn } from "../../../utils/twMerge";
+import { cn } from "../../../services/utils/twMerge";
 import { widgets, icons } from "../../atoms/Icon/index";
 import { Icon } from "../../atoms/Icon/Icon";
 import { Text } from "../../atoms/Text/Text";
@@ -125,21 +125,28 @@ const Grid = ({
         );
       } else
         return (
-          <a
-            href={link}
-            target="_blank"
-            className="xlg:col-span-2 xlg:row-span-2"
-            rel="noreferrer"
+          <Link
+            href={`/content/` + contents.slug}
+            className={cn(gridStyles({ intent, size }))}
           >
-            <button className={cn(gridStyles({ intent, size }))}>
-              <Text
-                size="small_content"
-                className="flex items-start mt-4 font-semibold"
-              >
-                {detail}
-              </Text>
-            </button>
-          </a>
+            <div className="w-full h-full">
+              <div className="h-full flex flex-col justify-between">
+                <Image
+                  src={contents.thumbnailUrl}
+                  width={40}
+                  height={40}
+                  alt={contents.description}
+                />
+                <Text
+                  size="small_content"
+                  className="flex items-start mt-4 font-semibold"
+                  textColor="content"
+                >
+                  {contents.title}
+                </Text>
+              </div>
+            </div>
+          </Link>
         );
     case "A12":
       if (hasThumbnail) {
@@ -169,24 +176,24 @@ const Grid = ({
         );
       } else
         return (
-          <a
-            href={link}
+          <Link
+            href={`/content/` + contents.slug}
             target="_blank"
-            className="xlg:col-span-2 xlg:row-span-2"
+            className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
             rel="noreferrer"
           >
-            <button className={cn(gridStyles({ intent, size }))}>
+            <div>
               <div className="h-full flex flex-col">
                 <Icon widget={widgetType} size="m" color={color} />
                 <Text
                   size="small_content"
                   className="flex items-start mt-4 font-semibold"
                 >
-                  {detail}
+                  {contents.title}
                 </Text>
               </div>
-            </button>
-          </a>
+            </div>
+          </Link>
         );
     case "A22":
       if (hasThumbnail) {

@@ -8,8 +8,10 @@ import { BsWindowPlus, BsInstagram } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
 import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
+import { GrNotes } from "react-icons/gr";
 
 export const icons = {
+  GrNotes,
   BiArrowFromLeft,
   BiArrowFromRight,
   AiFillCloud,
