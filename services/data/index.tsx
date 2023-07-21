@@ -74,6 +74,7 @@ export const contentsForMainPage = [
         thumbnail:
           "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
       },
+      {},
     ],
   },
 ];
