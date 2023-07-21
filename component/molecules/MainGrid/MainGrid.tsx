@@ -1,35 +1,18 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
-import { projects, contentsGoodCode as contents } from "./MainGrid_Contents";
-import { useGenerationStore } from "services";
+import { useGenerationStore, contentsForMainPage } from "services";
 
 type widget = keyof typeof widgets;
 
-interface MainGridProps {
-  allContents: {
-    title: string;
-    publishedAt: string;
-    description: string;
-    thumbnailUrl: string;
-    tags: string[];
-  }[];
-}
-
-const MainGrid = ({ allContents }: MainGridProps) => {
+const MainGrid = () => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
   const { isFolded } = useGenerationStore();
+  const [{ projects, projectsRecall, contentsGoodCode }] = contentsForMainPage;
 
   return (
     <>
       {widgetArray.map((el, idx) => (
-        <Grid
-          widgetType={el}
-          key={idx}
-          intent="grid"
-          size="grid_md"
-          hasThumbnail={true}
-          gridType="default"
-        />
+        <Grid contents={el} key={idx} hasThumbnail={true} gridType="default" />
       ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Projects 💻
@@ -37,25 +20,25 @@ const MainGrid = ({ allContents }: MainGridProps) => {
       {projects.map((project, idx) => (
         <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
       ))}
-      {allContents.map((content, idx) => (
+      {projectsRecall.map((content, idx) => (
         <Grid
           key={idx}
           contents={content}
           hasThumbnail={false}
           gridType="default"
-          intent="grid"
-          size="grid_md"
         />
       ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
       </div>
-      {contents.map((content, idx) => (
+      {contentsGoodCode.map((content, idx) => (
         <Grid
           key={idx}
-          hasThumbnail={false}
+          hasThumbnail={true}
           contents={content}
           gridType="A22"
+          intent="A22_grid"
+          size="grid_xlg"
         />
       ))}
       {isFolded ? null : (
@@ -63,14 +46,14 @@ const MainGrid = ({ allContents }: MainGridProps) => {
           <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
             Recent Writings ✏️
           </div>
-          {contents.map((content, idx) => (
+          {contentsGoodCode.map((content, idx) => (
             <Grid
               key={idx}
               hasThumbnail={true}
               contents={content}
               gridType="A22"
-              size="grid_xlg"
               intent="A22_grid"
+              size="grid_xlg"
             />
           ))}
         </>
