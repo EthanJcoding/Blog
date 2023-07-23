@@ -1,35 +1,18 @@
 import { widgets } from "../../atoms/Icon/index";
 import { Grid } from "../Grid/Grid";
-import { projects } from "./MainGrid_Contents";
-import { useGenerationStore } from "@/hooks";
+import { useGenerationStore, contentsForMainPage } from "services";
 
 type widget = keyof typeof widgets;
 
-const MainGrid = ({}) => {
+const MainGrid = () => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
   const { isFolded } = useGenerationStore();
-
-  const contentsGoodCode = [
-    {
-      title: "유연한 코드",
-      content: "안녕",
-      thumbnail:
-        "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
-    },
-    {},
-  ];
+  const [{ projects, projectsRecall, contentsGoodCode }] = contentsForMainPage;
 
   return (
     <>
       {widgetArray.map((el, idx) => (
-        <Grid
-          widgetType={el}
-          key={idx}
-          intent="grid"
-          size="grid_md"
-          hasThumbnail={true}
-          gridType="default"
-        />
+        <Grid contents={el} key={idx} hasThumbnail={true} gridType="default" />
       ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Projects 💻
@@ -37,15 +20,25 @@ const MainGrid = ({}) => {
       {projects.map((project, idx) => (
         <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
       ))}
+      {projectsRecall.map((content, idx) => (
+        <Grid
+          key={idx}
+          contents={content}
+          hasThumbnail={false}
+          gridType="default"
+        />
+      ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Good code I define ✏️
       </div>
       {contentsGoodCode.map((content, idx) => (
         <Grid
           key={idx}
-          hasThumbnail={false}
+          hasThumbnail={true}
           contents={content}
           gridType="A22"
+          intent="A22_grid"
+          size="grid_xlg"
         />
       ))}
       {isFolded ? null : (
@@ -59,8 +52,8 @@ const MainGrid = ({}) => {
               hasThumbnail={true}
               contents={content}
               gridType="A22"
-              size="grid_xlg"
               intent="A22_grid"
+              size="grid_xlg"
             />
           ))}
         </>

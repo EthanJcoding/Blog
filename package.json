@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "contentlayer build & next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.5",
     "@storybook/addon-styling": "^1.0.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
@@ -23,10 +22,13 @@
     "axios": "^1.4.0",
     "class-variance-authority": "^0.5.1",
     "clsx": "^1.2.1",
+    "contentlayer": "^0.3.3",
+    "dayjs": "^1.11.9",
     "eslint": "^8.38.0",
     "eslint-config-next": "13.3.0",
     "eslint-plugin-import": "^2.27.5",
     "next": "13.3.0",
+    "next-contentlayer": "^0.3.3",
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -51,5 +53,14 @@
     "eslint-plugin-storybook": "^0.6.11",
     "prettier": "^2.8.7",
     "storybook": "^7.0.2"
+  },
+  "overrides": {
+    "@opentelemetry/api": "1.4.1",
+    "@opentelemetry/core": "1.13.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "0.39.1",
+    "@opentelemetry/resources": "1.13.0",
+    "@opentelemetry/sdk-trace-base": "1.13.0",
+    "@opentelemetry/sdk-trace-node": "1.13.0",
+    "@opentelemetry/semantic-conventions": "1.13.0"
   }
 }

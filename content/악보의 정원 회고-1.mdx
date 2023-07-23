@@ -1,0 +1,105 @@
+---
+title: 악보의 정원 회고 - 1
+publishedAt: 2023-03-13
+description: 악보의 정원 프로젝트의 개발 회고입니다.
+thumbnailUrl: "https://velog.velcdn.com/images/ethan_world/post/f2c4b97e-d014-43c2-94b6-8a2e91c8b388/image.ico"
+tags: [악보의 정원]
+---
+
+[악보의 정원 바로가기](http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/)
+
+---
+
+## 🎼 악보의 정원
+
+처음 사이드 프로젝트를 진행해보고 나서 복잡한 폴더 구조와 컴포넌트의 재사용성을 고려하지 못해서 아쉬웠다. 구조 단계에서 이를 공감하고 해결하기 위한 센빠이님들의 노력을 찾아보니, `아토믹 디자인 패턴 (Atomic Design Pattern)`이라는 구조 방식이 있었다.
+
+### 🎨 아토믹 디자인 패턴
+
+아토믹 디자인 패턴은 디자인 시스템 구축방법중 하나이다.
+컴포넌트를 `가장 작은 구성 요소`로 쪼개고, 그런 요소들을 조합하여 하나의 페이지를 만드는 방식으로 디자인 시스템을 구성한다.
+
+아토믹 디자인 패턴에는 5가지의 계층이 존재한다.
+
+1. Atoms : 가장 작은 단위로, 버튼, 입력 필드, 레이블 등과 같은 개별적인 요소들을 의미한다.
+2. Molecules : 두 개 이상의 원자가 결합하여 만들어지는 구성 요소들입니다. 예를 들어, 검색 필드와 검색 버튼이 결합하여 만들어지는 검색 폼이 분자입니다.
+3. Organisms : 분자들이 결합하여 만들어지는 구성 요소들입니다. 예를 들어, 헤더, 푸터, 메뉴 등과 같은 요소들이 유기체입니다.
+4. Templates : 유기체들을 조합하여 만들어지는 레이아웃 템플릿을 의미합니다.
+5. Pages : 실제로 사용자가 접하는 웹 페이지를 의미합니다. 페이지는 템플릿을 기반으로 구성되며, 유기체와 분자, 원자 등의 구성 요소들을 포함합니다.
+   ![](https://velog.velcdn.com/images/ethan_world/post/309173c3-c4f4-4a64-a1c2-0d5ec863f206/image.png)
+
+> 3명의 프론트엔드 개발자로 구성된 악보의 정원 프로젝트에서는 Templates 계층을 사용하지 않고 4가지로만 개발했다. Templates에서 데이터 fetching 만을 다루는 게 그닥 효율적으로 느껴지지 않았기 때문인데, 뒤돌아 생각해보면 스토리북에서 받아내는 API 호출 관련 에러들을 Templates단에서 정리해줄 수 있었을 거 같다.
+
+### 🛠 기술 스택
+
+언어 : Typescript
+프레임워크 : React.js
+상태관리 : Redux Toolkit
+디자인 : Scss
+컴포넌트 테스트 : Storybook
+데이터베이스 : Firebase
+배포 : S3
+
+### 🤖 프로토타입 feat. 피그마
+
+![](https://velog.velcdn.com/images/ethan_world/post/782b9ace-4c75-4893-97c7-7157f43cd957/image.png)
+
+먼저 PC버전의 page view를 작업하고 반응형을 고려하여 그 옆에 Mobile 버전으로도 만들어 줬다. 그리고 시작된 극한의 컴포넌트 쪼개기가 시작 됐다.
+![](https://velog.velcdn.com/images/ethan_world/post/778a799b-130c-4840-9dfb-1f859a977a9a/image.jpeg)
+
+온갖 형태의 버튼들과 인풋, 이미지 레이아웃으로 먼저 atoms를 만들었고, 유저에게 보여지는 텍스트들도 역시 atoms로 분류해놨다.
+
+해당 atoms로 molucules를 제작했다. 여기서부터 팀원들이 이렇게 하는게 맞는 건가 긴가민가 했고 사용하는 atoms와 molecules의 재사용성을 고려하며 현자타임을 맞이했던 거 같다. 결과적으로 디자인 시스템이 어찌 됐든 재사용성을 고민하고 작업을 하는 건 어느 작업에서건 효율을 높이는 멋진 고민이라고 이때 생각이 들었다.
+
+### 🌲 컴포넌트 구조
+
+![](https://velog.velcdn.com/images/ethan_world/post/cd8588e7-e215-49c8-b359-0f8f2cf0d3e1/image.png)
+
+이전 프로젝트에서 아쉽게 느껴졌던 폴더 구조 (~~components 폴더 안에 이것저것 넣어버리기..~~) 에서 위 폴더 구조를 보니 참으로 선녀같다.
+
+해당 폴더를 열어보면
+![](https://velog.velcdn.com/images/ethan_world/post/9f24b592-e9e3-4d02-accc-302bff303937/image.png)
+
+이렇게 css 모듈 파일, storybook export 파일, 기능 코드 파일 이렇게 3가지로 분류를 했다. 해당 폴더구조를 공부하고 도입한 팀원에게 무한한 박수를 👏
+
+> 아쉬웠던 점
+
+- Firebase 호출하는 로직파일이 Firebase.tsx 파일 하나에 모두 들어가있다. 기능에 따라 폴더를 세분화하는 작업이 필요한 걸 알고 있었기에 utils 폴더에 api collection 폴더를 만들었고, user의 authentication을 처리하는 파일을 만들었지만, 어찌 어찌 작업을 하다 보니깐 firebase.tsx의 코드 길이만 800줄이 됐다...
+
+### 🔥 파이어베이스
+
+처음엔 NestJS를 사용하여 백엔드 서버를 구축하려 했지만, 너무 프로젝트가 도전적이고 부담스러워 질 거 같아서 파이어베이스를 사용했다.
+
+#### 👨‍💻 유저
+
+가장 먼저 유저의 authentication 처리를 진행했다.
+![](https://velog.velcdn.com/images/ethan_world/post/5091b15e-76bb-4ed7-95a4-6e930d51a8b1/image.png)
+
+firebase/auth 에서 `createUserWithEmailAndPassword()` 메서드를 사용했다. 유저가 작성한 이메일과 비밀번호의 유효성 검사는 프론트에서 한 번 regTest를 하여 걸러줬다. 해당 메서드는 user 정보를 리턴하는데 그 정보중 **uid**를 파이어베이스 user collection에 document 키 값으로 사용하여 유저 DB를 만들었다. 초기 필드로 `isActive : true` `cash : 1,000,000` `cartItems=[]` 를 만들어줬다.
+![](https://velog.velcdn.com/images/ethan_world/post/0b77349b-b980-42b3-a24a-55ae366e4bd8/image.png)
+
+감사하게도 파이어베이스 메서드 `updateProfile()`를 사용하여 유저 본인의 정보에 접근이 가능했다. 랜덤으로 5개의 아바타중 하나를 추출하는 utils 함수를 만들어서 유저 프로필 사진으로 지정되게 만들어줬다.
+
+마지막으로 반환된 유저정보에서 token을 뽑아내서 로컬스토리지에 저장해주고 로그인 시켜주는 걸로 마무리!
+
+![](https://velog.velcdn.com/images/ethan_world/post/233c7069-330e-4cec-9151-dfda7bf3d6c1/image.png)
+
+로그인 역시 firebase/auth 를 사용하여 간단하게 처리할 수 있었다.
+
+> 핵심 기능인 게시글 CRUD는 너무 길어서 나중에 따로 블로깅 해야겠다.
+
+### 🎵 스포티파이 API
+
+본인피셜 프로젝트에서 내가 맡은 기능 중에 가장 어려웠던 부분이다.
+
+유저가 악보를 판매하기 위해 게시글을 작성할 때 해당 곡이 진짜 세상에 존재하는 곡인지 유효성 검사를 확인할 필요가 있다고 생각했다. (~~샷건의 집현전~~ 방지). 또한 유저가 업로드 하려는 게시글의 곡이 이미 firebase document로 존재한다면, 해당 문서의 필드인 scores 배열에 추가가 되었으면 했다. 따라서 같은 음원이 `중복된 document key`로 들어갈 필요가 있었다. 우리는 `곡 이름 - 가수 이름` 이렇게 key 값을 처리해줬다.
+
+위 유효성 검사를 진행하기 위해서는 많은 음원 정보를 가진 오픈 API를 찾아야 했는데 가장 처음으로 찾아본 게 `ManiaDB` 였다. 최신곡의 정보들이 올라가고 한국어를 지원하는 api여서 매력적이었지만, 마지막으로 api가 업데이트 된 시점이 2013년이고 도저히 api키 발급을 받기가 불가능에 가까웠다. 결국 음원시장의 대장인 `spotify`의 오픈 api를 사용하기로 했다.
+
+계정 만들기 이런 자잘한 내용은 스킵하고, Dashboard에서 App을 만들면 Client ID, Client Secret이 발급된다. 음원 정보를 조회하기 위해서는 access token으로 api 요청을 보내야한다. 하지만 access token의 유통기한이 1시간이라 만료될 때 마다 refresh token을 사용하여 새로운 access token을 발급받아야한다. 여기까지 생각이 미치기까지 오래 걸리지 않았다. 하지만 여기서 가장 큰 문제는 유저가 token이 만료가 될 때마다 spotify의 팝업이 나오고 내 spotify 계정이 노출되며 access 버튼을 눌러야 한다는 것이였다! 이것을 해결하는 게 꽤 도전적이었다.
+
+먼저 refresh의 유통기한이 엄청 길다는 걸 확인했다. 개발단계에서 refresh를 미리 받아놓고 환경변수로 만들어주고, 기존 Token이 만료될 때 꺼내서 갱신하도록 코딩했다. 반쪽짜리 답이긴하다. refresh마저 만료가 될 경우 개발자가 직접 refresh 토큰을 받아내서 새로 환경변수로 설정하고 deploy 브랜치에 머지를 해야 하는 번거로움이 있다. 그래도 답을 찾은 게 어디야 하하...
+![](https://velog.velcdn.com/images/ethan_world/post/01e1eb8e-9d2b-43e0-82ce-021aa0ffe5d5/image.png)
+![](https://velog.velcdn.com/images/ethan_world/post/4a74ec2f-13ca-42bc-9cc0-0e3e7aa19ef1/image.gif)
+
+**_2편에서 계속.._**

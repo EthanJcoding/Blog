@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
-import { useGenerationStore, useWindowSize } from "@/hooks/";
+import { useGenerationStore, useWindowSize } from "services";
 import { NavBar } from "../NavBar/NavBar";
 import { useEffect } from "react";
 
@@ -24,7 +24,7 @@ const Layout = ({
     if (width < 1280) {
       setFolded(false);
     }
-  }, [width]);
+  }, [setFolded, width]);
 
   return (
     <>
@@ -45,18 +45,20 @@ const Layout = ({
           content="HTML, CSS, JavaScript, TypeScript, Next.js, React.js"
         />
       </Head>
-      <main className="min-full-screen flex items-center justify-center">
-        {isFolded ? (
-          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
-            <NavBar />
-            <div className="relative flex w-full">{children}</div>
-          </div>
-        ) : (
-          <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
-            <Profile />
-            <div className="relative xl:w-[824px] w-full">{children}</div>
-          </div>
-        )}
+      <main className="min-h-screen flex items-center justify-center">
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+          {isFolded ? (
+            <>
+              <NavBar />
+              <div className="relative flex w-full">{children}</div>
+            </>
+          ) : (
+            <>
+              <Profile />
+              <div className="relative xl:w-[824px] w-full">{children}</div>
+            </>
+          )}
+        </div>
       </main>
     </>
   );

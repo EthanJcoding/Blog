@@ -1,6 +1,6 @@
-import React, { ButtonHTMLAttributes, forwardRef } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "../../../utils/twMerge";
+import { cn } from "../../../services/utils/twMerge";
 import { widgets, icons } from "../Icon/index";
 import { Icon } from "../Icon/Icon";
 
@@ -38,31 +38,23 @@ interface ButtonProps
     VariantProps<typeof buttonStyles> {
   icon?: icon;
   idx?: number;
-  widgetType?: widget;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      size = "default",
-      intent = "default",
-      icon,
-      widgetType,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <button
-        ref={ref}
-        className={cn(buttonStyles({ intent, size, className }))}
-        {...props}
-      >
-        {icon && <Icon icon={icon} />}
-      </button>
-    );
-  }
-);
+const Button = ({
+  className,
+  size = "default",
+  intent = "default",
+  icon,
+  ...props
+}: ButtonProps) => {
+  return (
+    <button
+      className={cn(buttonStyles({ intent, size, className }))}
+      {...props}
+    >
+      {icon && <Icon icon={icon} />}
+    </button>
+  );
+};
 
 export { Button, buttonStyles };
