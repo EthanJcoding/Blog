@@ -1,5 +1,5 @@
 import GitHubCalendar from "react-github-calendar";
-import { useGenerationStore, useWindowSize } from "services/hooks";
+import { useGenerationStore, useWindowSize } from "services";
 
 interface Activity {
   date: string;

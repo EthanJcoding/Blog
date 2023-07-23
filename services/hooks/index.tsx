@@ -2,4 +2,6 @@
 import { useToggleState } from "./useToggleState/useToggleState";
 import { useGenerationStore } from "./useGenerationStore/useGenerationStore";
 import { useWindowSize } from "./useWindowSize/useWindowSize";
-export { useToggleState, useGenerationStore, useWindowSize };
+import { useIcon } from "./useIcon/useIcon";
+
+export { useToggleState, useGenerationStore, useWindowSize, useIcon };

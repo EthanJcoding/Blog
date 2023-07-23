@@ -1,12 +1,10 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { cn } from "../../../services/utils/twMerge";
+import { cn, useIcon } from "services";
 import { widgets, icons } from "../../atoms/Icon/index";
-import { Icon } from "../../atoms/Icon/Icon";
-import { Text } from "../../atoms/Text/Text";
+import { Text, Icon, StackIcon } from "component/atoms";
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
-import { StackIcon } from "component/atoms/StackIcon/StackIcon";
 import localFont from "next/font/local";
 
 type widget = keyof typeof widgets;
@@ -51,68 +49,34 @@ interface GridProps
     VariantProps<typeof gridStyles> {
   icon?: keyof typeof widgets | keyof typeof icons;
   idx?: number;
-  widgetType?: widget;
   hasThumbnail: boolean;
   gridType: "default" | "A12" | "A22";
-  contents?: any;
+  contents: any | widget;
 }
 
-const IconDetailDistribute = (
-  widget?: widget
-): {
-  color: string;
-  detail: string;
-  link: string;
-} => {
-  switch (widget) {
-    case "FaGithubSquare":
-      return {
-        color: "black",
-        detail: "EthanJcoding",
-        link: "https://github.com/EthanJcoding",
-      };
-    case "BsInstagram":
-      return {
-        color: "instagram",
-        detail: "@_junilJ",
-        link: "https://www.instagram.com/_junilj/",
-      };
-    case "SiVelog":
-      return {
-        color: "1EBF8F",
-        detail: "ethan_world.log",
-        link: "https://velog.io/@ethan_world",
-      };
-    default:
-      return {
-        color: "black",
-        detail: "archive",
-        link: "/archive",
-      };
-  }
-};
 const goms_font = localFont({
   src: "../../../public/font/designhouseOTFLight00.woff",
 });
 
 const Grid = ({
-  size,
-  intent,
-  widgetType,
   hasThumbnail,
   gridType,
   contents,
+  intent,
+  size,
 }: GridProps) => {
-  const { color, detail, link } = IconDetailDistribute(widgetType);
+  const { color, detail, link } = useIcon(contents);
 
   switch (gridType) {
     case "default":
       if (hasThumbnail) {
         return (
           <Link href={link} className="xlg:col-span-1 xlg:row-span-1">
-            <button className={cn(gridStyles({ intent, size }))}>
+            <button
+              className={cn(gridStyles({ intent: "grid", size: "grid_md" }))}
+            >
               <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
+                <Icon widget={contents} size="m" color={color} />
                 <Text
                   size="small_content"
                   className="flex items-start mt-4 font-semibold"
@@ -127,7 +91,7 @@ const Grid = ({
         return (
           <Link
             href={`/content/` + contents.slug}
-            className={cn(gridStyles({ intent, size }))}
+            className={cn(gridStyles({ intent: "grid", size: "grid_md" }))}
           >
             <div className="w-full h-full">
               <div className="h-full flex flex-col justify-between">
@@ -184,7 +148,7 @@ const Grid = ({
           >
             <div>
               <div className="h-full flex flex-col">
-                <Icon widget={widgetType} size="m" color={color} />
+                <Icon widget={contents} size="m" color={color} />
                 <Text
                   size="small_content"
                   className="flex items-start mt-4 font-semibold"
@@ -201,10 +165,7 @@ const Grid = ({
           <a
             href={contents.url}
             target="_blank"
-            className={gridStyles({
-              intent,
-              size,
-            })}
+            className={gridStyles({ intent, size })}
             rel="noreferrer"
           >
             <div className="flex flex-col justify-evenly h-full min-h-[342px]">
@@ -216,7 +177,6 @@ const Grid = ({
                     className="w-full h-full object-none p-2"
                     width={200}
                     height={100}
-                    priority={true}
                   />
                 ) : null}
               </div>
@@ -233,19 +193,17 @@ const Grid = ({
           <a
             href={link}
             target="_blank"
-            className={gridStyles({ intent: "A22_grid", size: "grid_xlg" })}
+            className={gridStyles({ intent, size })}
             rel="noreferrer"
           >
-            <button>
-              <div className="h-full flex flex-col">
-                <Text
-                  size="small_content"
-                  className="flex items-start mt-4 font-semibold"
-                >
-                  {contents.title}
-                </Text>
-              </div>
-            </button>
+            <div className="h-full flex flex-col">
+              <Text
+                size="small_content"
+                className="flex items-start mt-4 font-semibold"
+              >
+                {contents.title}
+              </Text>
+            </div>
           </a>
         );
     default:
