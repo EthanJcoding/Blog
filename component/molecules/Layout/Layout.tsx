@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Profile } from "../Profile/Profile";
 import { useGenerationStore, useWindowSize } from "services";
-import { NavBar } from "../NavBar/NavBar";
 import { useEffect } from "react";
+import { Navigation } from "../Navigation/Navigation";
 
 interface LayoutProps {
   title?: string;
@@ -49,7 +49,7 @@ const Layout = ({
         <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
           {isFolded ? (
             <>
-              <NavBar />
+              <Navigation location="navBar" />
               <div className="relative flex w-full">{children}</div>
             </>
           ) : (
