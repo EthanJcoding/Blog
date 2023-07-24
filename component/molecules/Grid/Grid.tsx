@@ -115,7 +115,7 @@ const Grid = ({
     case "A12":
       if (hasThumbnail) {
         return (
-          <a
+          <Link
             href={contents.href}
             target="_blank"
             className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
@@ -136,7 +136,7 @@ const Grid = ({
                 <StackIcon stacks={contents.stacks} />
               </div>
             </div>
-          </a>
+          </Link>
         );
       } else
         return (
@@ -190,7 +190,7 @@ const Grid = ({
         );
       } else
         return (
-          <a
+          <Link
             href={link}
             target="_blank"
             className={gridStyles({ intent, size })}
@@ -204,7 +204,7 @@ const Grid = ({
                 {contents.title}
               </Text>
             </div>
-          </a>
+          </Link>
         );
     default:
       return null;

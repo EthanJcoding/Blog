@@ -32,7 +32,11 @@ const ContentPage = ({ content }: { content: ContentType }) => {
   return (
     <>
       <div>
-        <Layout>
+        <Layout
+          title={content.title}
+          description={content.description}
+          image={content.thumbnailUrl}
+        >
           <div className="flex flex-col border-t">
             <Frontmatter
               title={content.title}
