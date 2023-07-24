@@ -123,6 +123,7 @@ firebase/auth 에서 `createUserWithEmailAndPassword()` 메서드를 사용했�
   width={500}
   height={40}
   alt="authentication firebase"
+  className="w-auto"
 />
 
 로그인 역시 firebase/auth 를 사용하여 간단하게 처리할 수 있었다.
@@ -140,7 +141,6 @@ firebase/auth 에서 `createUserWithEmailAndPassword()` 메서드를 사용했�
 계정 만들기 이런 자잘한 내용은 스킵하고, Dashboard에서 App을 만들면 Client ID, Client Secret이 발급된다. 음원 정보를 조회하기 위해서는 access token으로 api 요청을 보내야한다. 하지만 access token의 유통기한이 1시간이라 만료될 때 마다 refresh token을 사용하여 새로운 access token을 발급받아야한다. 여기까지 생각이 미치기까지 오래 걸리지 않았다. 하지만 여기서 가장 큰 문제는 유저가 token이 만료가 될 때마다 spotify의 팝업이 나오고 내 spotify 계정이 노출되며 access 버튼을 눌러야 한다는 것이였다! 이것을 해결하는 게 꽤 도전적이었다.
 
 먼저 refresh의 유통기한이 엄청 길다는 걸 확인했다. 개발단계에서 refresh를 미리 받아놓고 환경변수로 만들어주고, 기존 Token이 만료될 때 꺼내서 갱신하도록 코딩했다. 반쪽짜리 답이긴하다. refresh마저 만료가 될 경우 개발자가 직접 refresh 토큰을 받아내서 새로 환경변수로 설정하고 deploy 브랜치에 머지를 해야 하는 번거로움이 있다. 그래도 답을 찾은 게 어디야 하하...
-![]()
 
 <Image
   src="https://velog.velcdn.com/images/ethan_world/post/01e1eb8e-9d2b-43e0-82ce-021aa0ffe5d5/image.png"

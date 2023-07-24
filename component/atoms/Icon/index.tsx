@@ -7,11 +7,10 @@ import { AiOutlineForm, AiFillAlert, AiFillCloud } from "react-icons/ai";
 import { BsWindowPlus, BsInstagram } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
-import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
-import { GrNotes } from "react-icons/gr";
+import { BiArrowFromLeft, BiArrowFromRight, BiHome } from "react-icons/bi";
 
 export const icons = {
-  GrNotes,
+  BiHome,
   BiArrowFromLeft,
   BiArrowFromRight,
   AiFillCloud,
