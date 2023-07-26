@@ -36,6 +36,7 @@ const ContentPage = ({ content }: { content: ContentType }) => {
           title={content.title}
           description={content.description}
           image={content.thumbnailUrl}
+          tags={content.tags?.join(", ")}
         >
           <div className="flex flex-col border-t">
             <Frontmatter
