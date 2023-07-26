@@ -26,7 +26,12 @@ tags: [악보의 정원]
 3. Organisms : 분자들이 결합하여 만들어지는 구성 요소들입니다. 예를 들어, 헤더, 푸터, 메뉴 등과 같은 요소들이 유기체입니다.
 4. Templates : 유기체들을 조합하여 만들어지는 레이아웃 템플릿을 의미합니다.
 5. Pages : 실제로 사용자가 접하는 웹 페이지를 의미합니다. 페이지는 템플릿을 기반으로 구성되며, 유기체와 분자, 원자 등의 구성 요소들을 포함합니다.
-   ![](https://velog.velcdn.com/images/ethan_world/post/309173c3-c4f4-4a64-a1c2-0d5ec863f206/image.png)
+   <Image
+     src="https://velog.velcdn.com/images/ethan_world/post/309173c3-c4f4-4a64-a1c2-0d5ec863f206/image.png"
+     width={800}
+     height={80}
+     alt="아토믹 디자인 패턴"
+   />
 
 > 3명의 프론트엔드 개발자로 구성된 악보의 정원 프로젝트에서는 Templates 계층을 사용하지 않고 4가지로만 개발했다. Templates에서 데이터 fetching 만을 다루는 게 그닥 효율적으로 느껴지지 않았기 때문인데, 뒤돌아 생각해보면 스토리북에서 받아내는 API 호출 관련 에러들을 Templates단에서 정리해줄 수 있었을 거 같다.
 
@@ -42,10 +47,24 @@ tags: [악보의 정원]
 
 ### 🤖 프로토타입 feat. 피그마
 
-![](https://velog.velcdn.com/images/ethan_world/post/782b9ace-4c75-4893-97c7-7157f43cd957/image.png)
+{/* ![](https://velog.velcdn.com/images/ethan_world/post/782b9ace-4c75-4893-97c7-7157f43cd957/image.png) */}
+
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/782b9ace-4c75-4893-97c7-7157f43cd957/image.png"
+  width={800}
+  height={80}
+  alt="피그마 프로토타입"
+/>
 
 먼저 PC버전의 page view를 작업하고 반응형을 고려하여 그 옆에 Mobile 버전으로도 만들어 줬다. 그리고 시작된 극한의 컴포넌트 쪼개기가 시작 됐다.
-![](https://velog.velcdn.com/images/ethan_world/post/778a799b-130c-4840-9dfb-1f859a977a9a/image.jpeg)
+{/* ![](https://velog.velcdn.com/images/ethan_world/post/778a799b-130c-4840-9dfb-1f859a977a9a/image.jpeg) */}
+
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/778a799b-130c-4840-9dfb-1f859a977a9a/image.jpeg"
+  width={800}
+  height={80}
+  alt="피그마 프로토타입"
+/>
 
 온갖 형태의 버튼들과 인풋, 이미지 레이아웃으로 먼저 atoms를 만들었고, 유저에게 보여지는 텍스트들도 역시 atoms로 분류해놨다.
 
@@ -53,7 +72,12 @@ tags: [악보의 정원]
 
 ### 🌲 컴포넌트 구조
 
-![](https://velog.velcdn.com/images/ethan_world/post/cd8588e7-e215-49c8-b359-0f8f2cf0d3e1/image.png)
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/cd8588e7-e215-49c8-b359-0f8f2cf0d3e1/image.png"
+  width={250}
+  height={40}
+  alt="폴더 구조"
+/>
 
 이전 프로젝트에서 아쉽게 느껴졌던 폴더 구조 (~~components 폴더 안에 이것저것 넣어버리기..~~) 에서 위 폴더 구조를 보니 참으로 선녀같다.
 
@@ -73,16 +97,34 @@ tags: [악보의 정원]
 #### 👨‍💻 유저
 
 가장 먼저 유저의 authentication 처리를 진행했다.
-![](https://velog.velcdn.com/images/ethan_world/post/5091b15e-76bb-4ed7-95a4-6e930d51a8b1/image.png)
+
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/5091b15e-76bb-4ed7-95a4-6e930d51a8b1/image.png"
+  width={500}
+  height={40}
+  alt="authentication firebase"
+/>
 
 firebase/auth 에서 `createUserWithEmailAndPassword()` 메서드를 사용했다. 유저가 작성한 이메일과 비밀번호의 유효성 검사는 프론트에서 한 번 regTest를 하여 걸러줬다. 해당 메서드는 user 정보를 리턴하는데 그 정보중 **uid**를 파이어베이스 user collection에 document 키 값으로 사용하여 유저 DB를 만들었다. 초기 필드로 `isActive : true` `cash : 1,000,000` `cartItems=[]` 를 만들어줬다.
-![](https://velog.velcdn.com/images/ethan_world/post/0b77349b-b980-42b3-a24a-55ae366e4bd8/image.png)
+
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/0b77349b-b980-42b3-a24a-55ae366e4bd8/image.png"
+  width={500}
+  height={40}
+  alt="authentication firebase"
+/>
 
 감사하게도 파이어베이스 메서드 `updateProfile()`를 사용하여 유저 본인의 정보에 접근이 가능했다. 랜덤으로 5개의 아바타중 하나를 추출하는 utils 함수를 만들어서 유저 프로필 사진으로 지정되게 만들어줬다.
 
 마지막으로 반환된 유저정보에서 token을 뽑아내서 로컬스토리지에 저장해주고 로그인 시켜주는 걸로 마무리!
 
-![](https://velog.velcdn.com/images/ethan_world/post/233c7069-330e-4cec-9151-dfda7bf3d6c1/image.png)
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/233c7069-330e-4cec-9151-dfda7bf3d6c1/image.png"
+  width={500}
+  height={40}
+  alt="authentication firebase"
+  className="w-auto"
+/>
 
 로그인 역시 firebase/auth 를 사용하여 간단하게 처리할 수 있었다.
 
@@ -99,7 +141,13 @@ firebase/auth 에서 `createUserWithEmailAndPassword()` 메서드를 사용했�
 계정 만들기 이런 자잘한 내용은 스킵하고, Dashboard에서 App을 만들면 Client ID, Client Secret이 발급된다. 음원 정보를 조회하기 위해서는 access token으로 api 요청을 보내야한다. 하지만 access token의 유통기한이 1시간이라 만료될 때 마다 refresh token을 사용하여 새로운 access token을 발급받아야한다. 여기까지 생각이 미치기까지 오래 걸리지 않았다. 하지만 여기서 가장 큰 문제는 유저가 token이 만료가 될 때마다 spotify의 팝업이 나오고 내 spotify 계정이 노출되며 access 버튼을 눌러야 한다는 것이였다! 이것을 해결하는 게 꽤 도전적이었다.
 
 먼저 refresh의 유통기한이 엄청 길다는 걸 확인했다. 개발단계에서 refresh를 미리 받아놓고 환경변수로 만들어주고, 기존 Token이 만료될 때 꺼내서 갱신하도록 코딩했다. 반쪽짜리 답이긴하다. refresh마저 만료가 될 경우 개발자가 직접 refresh 토큰을 받아내서 새로 환경변수로 설정하고 deploy 브랜치에 머지를 해야 하는 번거로움이 있다. 그래도 답을 찾은 게 어디야 하하...
-![](https://velog.velcdn.com/images/ethan_world/post/01e1eb8e-9d2b-43e0-82ce-021aa0ffe5d5/image.png)
+
+<Image
+  src="https://velog.velcdn.com/images/ethan_world/post/01e1eb8e-9d2b-43e0-82ce-021aa0ffe5d5/image.png"
+  width={700}
+  height={40}
+  alt="spotify token"
+/>
 ![](https://velog.velcdn.com/images/ethan_world/post/4a74ec2f-13ca-42bc-9cc0-0e3e7aa19ef1/image.gif)
 
 **_2편에서 계속.._**
