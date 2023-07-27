@@ -31,23 +31,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const ContentPage = ({ content }: { content: ContentType }) => {
   return (
     <>
-      <div>
-        <Layout
-          title={content.title}
-          description={content.description}
-          image={content.thumbnailUrl}
-          tags={content.tags?.join(", ")}
-        >
-          <div className="flex flex-col border-t">
-            <Frontmatter
-              title={content.title}
-              publishedAt={content.publishedAt}
-              tags={content.tags}
-            />
-            <MdxComponent code={content.body.code} />
-          </div>
-        </Layout>
-      </div>
+      <Layout
+        title={content.title}
+        description={content.description}
+        image={content.thumbnailUrl}
+        tags={content.tags?.join(", ")}
+      >
+        <div className="flex flex-col border-t">
+          <Frontmatter
+            title={content.title}
+            publishedAt={content.publishedAt}
+            tags={content.tags}
+          />
+          <MdxComponent code={content.body.code} />
+        </div>
+      </Layout>
     </>
   );
 };

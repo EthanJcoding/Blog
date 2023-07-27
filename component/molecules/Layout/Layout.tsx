@@ -9,7 +9,7 @@ interface LayoutProps {
   description?: string;
   image?: string;
   url?: string;
-  tags?: string[];
+  tags?: string;
 }
 
 const Layout = ({
@@ -49,7 +49,7 @@ const Layout = ({
           }
         />
       </Head>
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center animate-fadeindown">
         <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
           {isFolded ? (
             <>

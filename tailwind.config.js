@@ -22,10 +22,21 @@ module.exports = {
             left: "-1480px",
           },
         },
+        fadeindown: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(2.5rem)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0px)",
+          },
+        },
       },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
         wave: "wave 4s linear infinite",
+        fadeindown: "fadeindown 1.5s ease",
       },
       gridTemplateRows: {
         8: "repeat(8, minmax(0, 1fr))",
