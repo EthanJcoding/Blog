@@ -36,7 +36,7 @@ module.exports = {
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
         wave: "wave 4s linear infinite",
-        fadeindown: "fadeindown 1.5s ease",
+        fadeindown: "fadeindown 1s ease",
       },
       gridTemplateRows: {
         8: "repeat(8, minmax(0, 1fr))",
