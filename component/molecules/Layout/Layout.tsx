@@ -9,6 +9,7 @@ interface LayoutProps {
   description?: string;
   image?: string;
   url?: string;
+  tags?: string;
 }
 
 const Layout = ({
@@ -17,6 +18,7 @@ const Layout = ({
   description,
   image,
   url,
+  tags,
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
@@ -42,10 +44,12 @@ const Layout = ({
         <meta name="author" content="Junil Jeong" />
         <meta
           name="keywords"
-          content="HTML, CSS, JavaScript, TypeScript, Next.js, React.js"
+          content={
+            tags ?? "HTML, CSS, JavaScript, TypeScript, Next.js, React.js"
+          }
         />
       </Head>
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center animate-fadeindown">
         <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
           {isFolded ? (
             <>
