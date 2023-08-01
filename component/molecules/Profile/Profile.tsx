@@ -1,7 +1,7 @@
 import { ImageLayout } from "../../atoms/Image/ImageLayout";
 import { Text } from "../../atoms/Text/Text";
 import profile from "../../../public/profile.jpg";
-import { Navigation } from "../Navigation/Navigation";
+import { Navigation } from "..";
 
 const Profile = () => {
   return (
@@ -33,4 +33,4 @@ const Profile = () => {
   );
 };
 
-export { Profile };
+export default Profile;

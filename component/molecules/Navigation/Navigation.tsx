@@ -36,4 +36,4 @@ const Navigation = ({ location }: NavigationProps) => {
   );
 };
 
-export { Navigation };
+export default Navigation;

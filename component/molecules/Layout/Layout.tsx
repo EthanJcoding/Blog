@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { Profile } from "../Profile/Profile";
 import { useGenerationStore, useWindowSize } from "services";
 import { useEffect } from "react";
-import { Navigation } from "../Navigation/Navigation";
 import { useRouter } from "next/router";
+import { TableOfContent, Navigation, Profile } from "..";
 
 interface LayoutProps {
   title?: string;
@@ -53,7 +52,7 @@ const Layout = ({
         />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16 justify-center">
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16 justify-between">
           {isFolded ? (
             <>
               <Navigation location="navBar" />
@@ -62,7 +61,7 @@ const Layout = ({
               ) : (
                 <>
                   <div className="relative flex max-w-[1024px]">{children}</div>
-                  <div className="w-full bg-slate-300"></div>
+                  <TableOfContent />
                 </>
               )}
             </>
@@ -78,4 +77,4 @@ const Layout = ({
   );
 };
 
-export { Layout };
+export default Layout;

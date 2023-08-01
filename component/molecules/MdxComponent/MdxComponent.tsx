@@ -162,4 +162,4 @@ const MdxComponent = ({ code }: { code: string }) => {
   );
 };
 
-export { MdxComponent };
+export default MdxComponent;

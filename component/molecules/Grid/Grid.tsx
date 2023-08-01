@@ -224,4 +224,4 @@ const Grid = ({
   }
 };
 
-export { Grid, gridStyles };
+export default Grid;
