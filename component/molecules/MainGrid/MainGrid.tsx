@@ -1,4 +1,4 @@
-import { widgets } from "../../atoms/Icon/index";
+import { widgets } from "component/atoms/Icon";
 import { Grid } from "..";
 import { useGenerationStore, contentsForMainPage } from "services";
 

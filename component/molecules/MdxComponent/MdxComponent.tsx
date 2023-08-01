@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "services/utils";
+import { cn } from "services";
 import Image from "next/image";
 import { Figure } from "component/atoms";
 import { useMDXComponent } from "next-contentlayer/hooks";

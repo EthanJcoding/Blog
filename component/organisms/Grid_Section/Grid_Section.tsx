@@ -1,8 +1,6 @@
+import { Git_Status, Grid } from "component/molecules";
 import React from "react";
-import Git_Status from "component/molecules/Git_Status/Git_Status";
-import { Grid } from "component/molecules/Grid/Grid";
-import { useGenerationStore } from "services/hooks";
-import { contentsForMainPage } from "services";
+import { contentsForMainPage, useGenerationStore } from "services";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();
@@ -50,4 +48,4 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   );
 };
 
-export { Grid_Section };
+export default Grid_Section;

@@ -1,6 +1,6 @@
-import { Button } from "component/atoms/Button/Button";
 import { useGenerationStore } from "services/hooks";
 import { useRouter } from "next/router";
+import { Button } from "component/atoms";
 
 interface NavigationProps {
   location: "navBar" | "profile";

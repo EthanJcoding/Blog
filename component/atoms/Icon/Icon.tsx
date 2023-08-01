@@ -1,4 +1,4 @@
-import { icons, widgets } from "./index";
+import { icons, widgets } from ".";
 import React from "react";
 
 interface IconProps {
