@@ -1,5 +1,5 @@
-import { memo } from "react";
-import type { FC } from "react";
+import { memo, type FC } from "react";
+
 import dynamic from "next/dynamic";
 
 export interface Props {

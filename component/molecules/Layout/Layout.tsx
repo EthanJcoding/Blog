@@ -10,6 +10,7 @@ interface LayoutProps {
   image?: string;
   url?: string;
   tags?: string;
+  content?: string;
 }
 
 const Layout = ({
@@ -19,6 +20,7 @@ const Layout = ({
   image,
   url,
   tags,
+  content,
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
@@ -52,17 +54,16 @@ const Layout = ({
         />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16 justify-between">
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16 justify-center">
           {isFolded ? (
             <>
               <Navigation location="navBar" />
               {router.pathname === "/" ? (
                 <div className="relative flex w-full">{children}</div>
               ) : (
-                <>
-                  <div className="relative flex max-w-[1024px]">{children}</div>
-                  <TableOfContent />
-                </>
+                <div className="relative flex w-full max-w-[1080px]">
+                  {children}
+                </div>
               )}
             </>
           ) : (

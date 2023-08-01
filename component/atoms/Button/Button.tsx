@@ -1,10 +1,10 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "services";
-import { widgets, icons } from "../Icon/index";
-import { Icon } from "..";
 
-type widget = keyof typeof widgets;
+import { Icon } from "..";
+import { icons } from "../Icon";
+
 type icon = keyof typeof icons;
 
 const buttonStyles = cva(
