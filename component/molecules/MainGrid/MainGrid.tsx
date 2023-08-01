@@ -1,5 +1,5 @@
-import { widgets } from "../../atoms/Icon/index";
-import { Grid } from "../Grid/Grid";
+import { widgets } from "component/atoms/Icon";
+import { Grid } from "..";
 import { useGenerationStore, contentsForMainPage } from "services";
 
 type widget = keyof typeof widgets;
@@ -62,4 +62,4 @@ const MainGrid = () => {
   );
 };
 
-export { MainGrid };
+export default MainGrid;

@@ -1,11 +1,11 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cn, useIcon } from "services";
-import { widgets, icons } from "../../atoms/Icon/index";
 import { Text, Icon, StackIcon } from "component/atoms";
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import localFont from "next/font/local";
+import { icons, widgets } from "component/atoms/Icon";
 
 type widget = keyof typeof widgets;
 
@@ -224,4 +224,4 @@ const Grid = ({
   }
 };
 
-export { Grid, gridStyles };
+export default Grid;

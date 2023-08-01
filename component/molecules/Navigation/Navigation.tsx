@@ -1,6 +1,6 @@
-import { Button } from "component/atoms/Button/Button";
 import { useGenerationStore } from "services/hooks";
 import { useRouter } from "next/router";
+import { Button } from "component/atoms";
 
 interface NavigationProps {
   location: "navBar" | "profile";
@@ -10,15 +10,11 @@ const Navigation = ({ location }: NavigationProps) => {
   const { isFolded, setFolded } = useGenerationStore();
   const router = useRouter();
 
-  const handleClick = () => {
-    setFolded(!isFolded);
-  };
-
   return (
     <div
       className={`h-full ${
         location === "navBar"
-          ? "flex-col mr-10 sticky top-16"
+          ? "flex flex-col mr-10 sticky top-16"
           : "hidden xlg:flex xlg:flex-col"
       }`}
     >
@@ -26,7 +22,7 @@ const Navigation = ({ location }: NavigationProps) => {
         icon={location === "navBar" ? "BiArrowFromLeft" : "BiArrowFromRight"}
         intent="transparent"
         size="sm"
-        onClick={handleClick}
+        onClick={() => setFolded(!isFolded)}
       />
       {router.pathname === "/" ? null : (
         <Button
@@ -40,4 +36,4 @@ const Navigation = ({ location }: NavigationProps) => {
   );
 };
 
-export { Navigation };
+export default Navigation;

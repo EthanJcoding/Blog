@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { Profile } from "../Profile/Profile";
 import { useGenerationStore, useWindowSize } from "services";
 import { useEffect } from "react";
-import { Navigation } from "../Navigation/Navigation";
+import { useRouter } from "next/router";
+import { TableOfContent, Navigation, Profile } from "..";
 
 interface LayoutProps {
   title?: string;
@@ -22,6 +22,8 @@ const Layout = ({
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
+  const router = useRouter();
+
   useEffect(() => {
     if (width < 1280) {
       setFolded(false);
@@ -50,11 +52,18 @@ const Layout = ({
         />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16 justify-between">
           {isFolded ? (
             <>
               <Navigation location="navBar" />
-              <div className="relative flex w-full">{children}</div>
+              {router.pathname === "/" ? (
+                <div className="relative flex w-full">{children}</div>
+              ) : (
+                <>
+                  <div className="relative flex max-w-[1024px]">{children}</div>
+                  <TableOfContent />
+                </>
+              )}
             </>
           ) : (
             <>
@@ -68,4 +77,4 @@ const Layout = ({
   );
 };
 
-export { Layout };
+export default Layout;

@@ -7,4 +7,4 @@ const Weather = ({ weatherDescription }: WeatherProps) => {
   return <div>hi</div>;
 };
 
-export { Weather };
+export default Weather;

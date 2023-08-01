@@ -1,25 +1,10 @@
+import { Git_Status, Grid } from "component/molecules";
 import React from "react";
-import Git_Status from "component/molecules/Git_Status/Git_Status";
-import { Grid } from "component/molecules/Grid/Grid";
-import { useGenerationStore } from "services/hooks";
-import { contentsForMainPage } from "services";
+import { contentsForMainPage, useGenerationStore } from "services";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();
   const [{ contentsGoodCode }] = contentsForMainPage;
-
-  const renderContentGrids = () => {
-    return contentsGoodCode.map((content, idx) => (
-      <Grid
-        key={idx}
-        hasThumbnail={true}
-        contents={content}
-        gridType="A22"
-        size="grid_flexible"
-        intent="Flex_grid"
-      />
-    ));
-  };
 
   return (
     <div className="">
@@ -39,7 +24,16 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
               <div className="col-span-2 xlg:col-span-2 h-full w-full text-xl flex flex-col justify-end">
                 Recent Writings ✏️
               </div>
-              {renderContentGrids()}
+              {contentsGoodCode.map((content, idx) => (
+                <Grid
+                  key={idx}
+                  hasThumbnail={true}
+                  contents={content}
+                  gridType="A22"
+                  size="grid_flexible"
+                  intent="Flex_grid"
+                />
+              ))}
             </div>
           </div>
           <div className="grid gap-10">{children}</div>
@@ -54,4 +48,4 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   );
 };
 
-export { Grid_Section };
+export default Grid_Section;

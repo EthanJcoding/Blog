@@ -2,10 +2,9 @@ import {
   allContents,
   type Content as ContentType,
 } from "contentlayer/generated";
-import { Layout } from "component/molecules/Layout/Layout";
-import { MdxComponent } from "component/molecules/MdxComponent/MdxComponent";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Frontmatter from "component/molecules/Frontmatter/Frontmatter";
+import { Layout, MdxComponent } from "component/molecules";
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
@@ -37,7 +36,7 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         image={content.thumbnailUrl}
         tags={content.tags?.join(", ")}
       >
-        <div className="flex flex-col border-t">
+        <div className="flex flex-col">
           <Frontmatter
             title={content.title}
             publishedAt={content.publishedAt}
