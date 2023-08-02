@@ -3,8 +3,13 @@ import {
   type Content as ContentType,
 } from "contentlayer/generated";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import Frontmatter from "component/molecules/Frontmatter/Frontmatter";
-import { Layout, MdxComponent } from "component/molecules";
+import {
+  Frontmatter,
+  Layout,
+  MdxComponent,
+  TableOfContent,
+} from "component/molecules";
+import { useRef } from "react";
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
@@ -35,14 +40,19 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         description={content.description}
         image={content.thumbnailUrl}
         tags={content.tags?.join(", ")}
+        content={content.body.raw}
       >
-        <div className="flex flex-col">
-          <Frontmatter
-            title={content.title}
-            publishedAt={content.publishedAt}
-            tags={content.tags}
-          />
-          <MdxComponent code={content.body.code} />
+        <div className="flex justify-between">
+          <div className="flex flex-col">
+            <Frontmatter
+              title={content.title}
+              publishedAt={content.publishedAt}
+              tags={content.tags}
+            />
+            <MdxComponent code={content.body.code} />
+          </div>
+
+          <TableOfContent content={content.body.raw} />
         </div>
       </Layout>
     </>
