@@ -1,12 +1,20 @@
-import { useState } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 import { useObserver } from "services";
 
-const TableOfContent = ({ content }: { content: string }) => {
-  const [activeId, setActiveId] = useState("");
+function setHeadingIds(content: string) {
+  const titles = content.split("\n").filter((t) => t.includes("# "));
+  const headingElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
-  useObserver(setActiveId, content);
-  const titles = content.split(`\n`).filter((t) => t.includes("# "));
+  for (let i = 0; i < headingElements.length; i++) {
+    const headingElement = headingElements[i]; // Get the heading element
+    if (headingElement) {
+      const headingText = headingElement.textContent?.trim() || ""; // Use optional chaining to avoid null/undefined
+      const id = headingText;
 
+      headingElement.setAttribute("id", id);
+    }
+  }
   const result = titles
     .filter((str) => str[0] === "#")
     .map((item) => {
@@ -21,21 +29,52 @@ const TableOfContent = ({ content }: { content: string }) => {
       return { title: item.split("# ")[1].replace(/`/g, "").trim(), count };
     });
 
+  return result;
+}
+
+interface TableItemProps {
+  item: { title: string; count: number | undefined };
+  activeId: string;
+}
+
+const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
+  if (item?.count && item.count <= 30 && item?.title) {
+    return (
+      <a href={`#${item.title}`}>
+        <div className={activeId === item.title ? "text-4xl" : "text-sm"}>
+          {item.title}
+        </div>
+      </a>
+    );
+  }
+  return null;
+});
+
+TableOfContentItem.displayName = "TableOfContentItem";
+
+const TableOfContent = ({ content }: { content: string }) => {
+  const [activeId, setActiveId] = useState("");
+  const [table, setTable] = useState<
+    {
+      title: string;
+      count: number | undefined;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const result = setHeadingIds(content);
+    setTable(result);
+  }, [content]); // Only run the effect when 'content' changes
+
+  useObserver(setActiveId, content);
+
   return (
-    <div className="hidden xlg:block bg-slate-300 ml-10 max-w-[256px] w-full sticky top-16 h-full ">
-      {result.map((item, idx) => {
-        if (item?.count && item.count <= 30 && item?.title) {
-          return (
-            <a
-              // href에 #title을 주어서 클릭시 해당 위치로 스크롤 이동하도록 구현
-              href={`#${item.title}`}
-              key={item.title + idx}
-            >
-              <div>{item.title}</div>
-            </a>
-          );
-        }
-      })}
+    <div className="hidden xlg:block bg-slate-300 ml-10 max-w-[256px] w-full sticky top-16 h-fit ">
+      {table.map((item, idx) => (
+        <React.Fragment key={item.title + idx}>
+          <TableOfContentItem item={item} activeId={activeId} />
+        </React.Fragment>
+      ))}
     </div>
   );
 };
