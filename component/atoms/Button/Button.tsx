@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "services";
-
 import { Icon } from "..";
 import { icons } from "../Icon";
 

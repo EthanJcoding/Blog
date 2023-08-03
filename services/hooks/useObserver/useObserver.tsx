@@ -1,17 +1,17 @@
 import { useEffect, useRef } from "react";
 
-function debounce<T extends (...args: any[]) => void>(
-  callback: T,
-  delay: number
-): (...args: Parameters<T>) => void {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeoutId as ReturnType<typeof setTimeout>);
-    timeoutId = setTimeout(() => {
-      callback(...args);
-    }, delay);
-  };
-}
+// function debounce<T extends (...args: any[]) => void>(
+//   callback: T,
+//   delay: number
+// ): (...args: Parameters<T>) => void {
+//   let timeoutId: ReturnType<typeof setTimeout> | null = null;
+//   return (...args: Parameters<T>) => {
+//     clearTimeout(timeoutId as ReturnType<typeof setTimeout>);
+//     timeoutId = setTimeout(() => {
+//       callback(...args);
+//     }, delay);
+//   };
+// }
 
 export function useObserver(
   setActiveId: React.Dispatch<React.SetStateAction<string>>,
@@ -51,9 +51,9 @@ export function useObserver(
       }
     };
 
-    const deboucedCallback = debounce(callback, 200);
+    // const deboucedCallback = debounce(callback, 200);
 
-    const observer = new IntersectionObserver(deboucedCallback, {
+    const observer = new IntersectionObserver(callback, {
       rootMargin: "-64px 0px -40% 0px",
     });
 
@@ -63,6 +63,4 @@ export function useObserver(
 
     return () => observer.disconnect();
   }, [content]);
-
-  console.log("hi");
 }

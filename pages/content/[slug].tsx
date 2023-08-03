@@ -51,7 +51,6 @@ const ContentPage = ({ content }: { content: ContentType }) => {
             />
             <MdxComponent code={content.body.code} />
           </div>
-
           <TableOfContent content={content.body.raw} />
         </div>
       </Layout>
