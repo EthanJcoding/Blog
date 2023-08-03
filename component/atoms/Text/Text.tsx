@@ -17,6 +17,7 @@ const textVariants = cva("max-w-prose", {
     textColor: {
       none: "",
       content: "text-contentText",
+      onObserver: "text-[#4F80FF]",
     },
   },
   defaultVariants: {

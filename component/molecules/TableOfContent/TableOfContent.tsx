@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useObserver } from "services";
-
+import { Text } from "component/atoms";
 function setHeadingIds(content: string) {
   const titles = content.split("\n").filter((t) => t.includes("# "));
   const headingElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -40,10 +40,16 @@ interface TableItemProps {
 const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
   if (item?.count && item.count <= 30 && item?.title) {
     return (
-      <a href={`#${item.title}`}>
-        <div className={activeId === item.title ? "text-4xl" : "text-sm"}>
-          {item.title}
-        </div>
+      <a href={`#${item.title}`} className="mb-2">
+        {activeId === item.title ? (
+          <Text size="small_content" font="semi_bold" textColor="onObserver">
+            {item.title}
+          </Text>
+        ) : (
+          <Text size="small_content" textColor="content">
+            {item.title}
+          </Text>
+        )}
       </a>
     );
   }
@@ -64,18 +70,18 @@ const TableOfContent = ({ content }: { content: string }) => {
   useEffect(() => {
     const result = setHeadingIds(content);
     setTable(result);
-  }, [content]); // Only run the effect when 'content' changes
+  }, [content]);
 
   useObserver(setActiveId, content);
 
   return (
-    <div className="hidden xlg:block bg-slate-300 ml-10 max-w-[256px] w-full sticky top-16 h-fit ">
+    <>
       {table.map((item, idx) => (
         <React.Fragment key={item.title + idx}>
           <TableOfContentItem item={item} activeId={activeId} />
         </React.Fragment>
       ))}
-    </div>
+    </>
   );
 };
 

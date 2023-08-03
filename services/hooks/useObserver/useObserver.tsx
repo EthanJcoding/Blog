@@ -62,5 +62,5 @@ export function useObserver(
     headingElements.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
-  }, [content]);
+  }, [setActiveId, content]);
 }
