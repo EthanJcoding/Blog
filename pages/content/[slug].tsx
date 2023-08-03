@@ -40,7 +40,6 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         description={content.description}
         image={content.thumbnailUrl}
         tags={content.tags?.join(", ")}
-        content={content.body.raw}
       >
         <div className="flex justify-between">
           <div className="flex flex-col w-full">
