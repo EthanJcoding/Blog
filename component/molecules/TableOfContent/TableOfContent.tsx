@@ -40,16 +40,17 @@ interface TableItemProps {
 const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
   if (item?.count && item.count <= 30 && item?.title) {
     return (
-      <a href={`#${item.title}`} className="mb-2">
-        {activeId === item.title ? (
-          <Text size="small_content" font="semi_bold" textColor="onObserver">
-            {item.title}
-          </Text>
-        ) : (
-          <Text size="small_content" textColor="content">
-            {item.title}
-          </Text>
-        )}
+      <a
+        href={`#${item.title}`}
+        className={`${item.count === 30 ? "ml-2 py-2 pl-3 border-l" : "py-2"}`}
+      >
+        <Text
+          size={item.count === 20 ? "medium_content" : "small_content"}
+          font="semi_bold"
+          textColor={activeId === item.title ? "onObserver" : "toc"}
+        >
+          {item.title}
+        </Text>
       </a>
     );
   }

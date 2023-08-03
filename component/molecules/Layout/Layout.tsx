@@ -70,7 +70,9 @@ const Layout = ({
             <>
               <Profile />
               {router.pathname === "/" ? (
-                <div className="relative xl:w-[824px] w-full">{children}</div>
+                <div className="relative flex xl:w-[824px] w-full">
+                  {children}
+                </div>
               ) : (
                 <div className="relative flex w-full max-w-[1080px]">
                   {children}

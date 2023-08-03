@@ -7,7 +7,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const [{ contentsGoodCode }] = contentsForMainPage;
 
   return (
-    <div className="">
+    <div className="w-full">
       <div className="h-40 w-full absolute overflow-hidden rounded-t-3xl">
         <div className="wave2 animate-wave absolute opacity-90"></div>
         <div className="wave animate-wave absolute opacity-80"></div>

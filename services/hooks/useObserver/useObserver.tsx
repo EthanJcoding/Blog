@@ -54,7 +54,7 @@ export function useObserver(
     // const deboucedCallback = debounce(callback, 200);
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: "-64px 0px -40% 0px",
+      rootMargin: "-92px 0px -40% 0px",
     });
 
     const headingElements = Array.from(document.querySelectorAll("h1, h2, h3"));

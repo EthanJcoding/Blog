@@ -2,12 +2,13 @@ import { cva, VariantProps } from "class-variance-authority";
 import { HTMLAttributes } from "react";
 import { cn } from "services";
 
-const textVariants = cva("max-w-prose", {
+const textVariants = cva("", {
   variants: {
     size: {
       title: "text-xl xl:text-3xl xsm:text-lg",
       name: "text-3xl xl:text-5xl 2xsm:text-lg",
       content: "text-md xl:text-lg xsm:text-md",
+      medium_content: "text-xl",
       small_content: "text-md",
     },
     font: {
@@ -17,6 +18,7 @@ const textVariants = cva("max-w-prose", {
     textColor: {
       none: "",
       content: "text-contentText",
+      toc: "text-contentText/75",
       onObserver: "text-[#4F80FF]",
     },
   },
