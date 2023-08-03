@@ -26,6 +26,7 @@ const ImageLayout = ({ src, alt, size, ...props }: ImageLayoutProps) => {
       src={src}
       className={ImageLayoutStyles({ size })}
       {...props}
+      priority
     />
   );
 };

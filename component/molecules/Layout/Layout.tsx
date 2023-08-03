@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { Profile } from "../Profile/Profile";
 import { useGenerationStore, useWindowSize } from "services";
 import { useEffect } from "react";
-import { Navigation } from "../Navigation/Navigation";
+import { useRouter } from "next/router";
+import { Navigation, Profile } from "..";
 
 interface LayoutProps {
   title?: string;
@@ -22,6 +22,8 @@ const Layout = ({
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
+  const router = useRouter();
+
   useEffect(() => {
     if (width < 1280) {
       setFolded(false);
@@ -50,16 +52,34 @@ const Layout = ({
         />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 xl:max-w-[1728px] xl:flex-row xl:p-16">
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16">
           {isFolded ? (
             <>
               <Navigation location="navBar" />
-              <div className="relative flex w-full">{children}</div>
+              {router.pathname === "/" ? (
+                /** 접힌 상태에서의 메인페이지 */
+                <div className="relative flex w-full">{children}</div>
+              ) : (
+                /** 접힌 상태에서의 컨텐츠페이지 */
+                <div className="relative flex w-full max-w-[1080px]">
+                  {children}
+                </div>
+              )}
             </>
           ) : (
             <>
               <Profile />
-              <div className="relative xl:w-[824px] w-full">{children}</div>
+              {router.pathname === "/" ? (
+                /** 일반적인 메인페이지 */
+                <div className="relative flex xl:w-[824px] w-full">
+                  {children}
+                </div>
+              ) : (
+                /** 일반적인 컨텐츠페이지 */
+                <div className="relative flex w-full max-w-[1080px]">
+                  {children}
+                </div>
+              )}
             </>
           )}
         </div>
@@ -68,4 +88,4 @@ const Layout = ({
   );
 };
 
-export { Layout };
+export default Layout;

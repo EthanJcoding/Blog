@@ -2,10 +2,14 @@ import {
   allContents,
   type Content as ContentType,
 } from "contentlayer/generated";
-import { Layout } from "component/molecules/Layout/Layout";
-import { MdxComponent } from "component/molecules/MdxComponent/MdxComponent";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import Frontmatter from "component/molecules/Frontmatter/Frontmatter";
+import {
+  Frontmatter,
+  Layout,
+  MdxComponent,
+  TableOfContent,
+} from "component/molecules";
+import { useRef } from "react";
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
@@ -37,13 +41,18 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         image={content.thumbnailUrl}
         tags={content.tags?.join(", ")}
       >
-        <div className="flex flex-col border-t">
-          <Frontmatter
-            title={content.title}
-            publishedAt={content.publishedAt}
-            tags={content.tags}
-          />
-          <MdxComponent code={content.body.code} />
+        <div className="flex justify-between">
+          <div className="flex flex-col w-full">
+            <Frontmatter
+              title={content.title}
+              publishedAt={content.publishedAt}
+              tags={content.tags}
+            />
+            <MdxComponent code={content.body.code} />
+          </div>
+          <div className="h-fit sticky top-16 hidden xlg:flex xlg:flex-col ml-10 max-w-[176px] w-full">
+            <TableOfContent content={content.body.raw} />
+          </div>
         </div>
       </Layout>
     </>

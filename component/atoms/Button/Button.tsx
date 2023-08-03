@@ -1,10 +1,9 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "../../../services/utils/twMerge";
-import { widgets, icons } from "../Icon/index";
-import { Icon } from "../Icon/Icon";
+import { cn } from "services";
+import { Icon } from "..";
+import { icons } from "../Icon";
 
-type widget = keyof typeof widgets;
 type icon = keyof typeof icons;
 
 const buttonStyles = cva(
