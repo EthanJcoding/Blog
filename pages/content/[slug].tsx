@@ -40,10 +40,9 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         description={content.description}
         image={content.thumbnailUrl}
         tags={content.tags?.join(", ")}
-        content={content.body.raw}
       >
         <div className="flex justify-between">
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <Frontmatter
               title={content.title}
               publishedAt={content.publishedAt}
@@ -51,8 +50,9 @@ const ContentPage = ({ content }: { content: ContentType }) => {
             />
             <MdxComponent code={content.body.code} />
           </div>
-
-          <TableOfContent content={content.body.raw} />
+          <div className="h-fit sticky top-16 hidden xlg:flex xlg:flex-col ml-10 max-w-[176px] w-full">
+            <TableOfContent content={content.body.raw} />
+          </div>
         </div>
       </Layout>
     </>

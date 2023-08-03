@@ -1,3 +1,4 @@
+import { Text } from "component/atoms";
 import dayjs from "dayjs";
 
 interface FrontmatterProps {
@@ -8,18 +9,22 @@ interface FrontmatterProps {
 
 const Frontmatter = ({ title, publishedAt, tags }: FrontmatterProps) => {
   return (
-    <div className="text-center">
-      <h1 className="mt-4 text-3xl font-bold md:text-4xl">{title}</h1>
+    <div className="text-center border-t xlg:border-none">
+      <Text className="mt-4" font="semi_bold" textColor="content" size="title">
+        {title}
+      </Text>
       {/* dark:text-neutral-500 */}
-      <div className="mt-4 text-sm text-neutral-400">
+      <Text className="mt-4" size="small_content" textColor="toc">
         {dayjs(publishedAt).format("YYYY.MM.DD")}
-      </div>
-      <div className="mt-4 mb-8 flex flex-wrap justify-center gap-3 text-xs md:text-sm">
+      </Text>
+      <div className="mt-4 mb-8 flex flex-wrap justify-center gap-3">
         {/* dark:bg-neutral-800 */}
         {tags?.map((tag, i) => (
-          <span key={i} className="rounded-full bg-neutral-200 px-3 py-1">
-            {tag}
-          </span>
+          <div key={i} className="rounded-full bg-neutral-200 px-3 py-1">
+            <Text size="small_content" textColor="toc">
+              {tag}
+            </Text>
+          </div>
         ))}
       </div>
     </div>
