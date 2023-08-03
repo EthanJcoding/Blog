@@ -9,7 +9,7 @@ interface FrontmatterProps {
 
 const Frontmatter = ({ title, publishedAt, tags }: FrontmatterProps) => {
   return (
-    <div className="text-center">
+    <div className="text-center border-t xlg:border-none">
       <Text className="mt-4" font="semi_bold" textColor="content" size="title">
         {title}
       </Text>

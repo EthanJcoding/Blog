@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useGenerationStore, useWindowSize } from "services";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { TableOfContent, Navigation, Profile } from "..";
+import { Navigation, Profile } from "..";
 
 interface LayoutProps {
   title?: string;
@@ -10,7 +10,6 @@ interface LayoutProps {
   image?: string;
   url?: string;
   tags?: string;
-  content?: string;
 }
 
 const Layout = ({
@@ -20,7 +19,6 @@ const Layout = ({
   image,
   url,
   tags,
-  content,
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
@@ -59,8 +57,10 @@ const Layout = ({
             <>
               <Navigation location="navBar" />
               {router.pathname === "/" ? (
+                /** 접힌 상태에서의 메인페이지 */
                 <div className="relative flex w-full">{children}</div>
               ) : (
+                /** 접힌 상태에서의 컨텐츠페이지 */
                 <div className="relative flex w-full max-w-[1080px]">
                   {children}
                 </div>
@@ -70,10 +70,12 @@ const Layout = ({
             <>
               <Profile />
               {router.pathname === "/" ? (
+                /** 일반적인 메인페이지 */
                 <div className="relative flex xl:w-[824px] w-full">
                   {children}
                 </div>
               ) : (
+                /** 일반적인 컨텐츠페이지 */
                 <div className="relative flex w-full max-w-[1080px]">
                   {children}
                 </div>
