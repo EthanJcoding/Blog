@@ -4,12 +4,12 @@ import {
 } from "contentlayer/generated";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import {
+  ContentNavigator,
   Frontmatter,
   Layout,
   MdxComponent,
   TableOfContent,
 } from "component/molecules";
-import { useRef } from "react";
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
@@ -42,13 +42,14 @@ const ContentPage = ({ content }: { content: ContentType }) => {
         tags={content.tags?.join(", ")}
       >
         <div className="flex justify-between">
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full ">
             <Frontmatter
               title={content.title}
               publishedAt={content.publishedAt}
               tags={content.tags}
             />
             <MdxComponent code={content.body.code} />
+            <ContentNavigator publishedAt={content.publishedAt} />
           </div>
           <div className="h-fit sticky top-16 hidden xlg:flex xlg:flex-col ml-10 max-w-[176px] w-full">
             <TableOfContent content={content.body.raw} />
