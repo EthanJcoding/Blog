@@ -17,6 +17,7 @@ const buttonStyles = cva(
         iconButton: "border rounded-3xl flex-col p-6",
         github_Follow: "bg-gray-200 ",
         transparent: "bg-transparent hover:bg-slate-100",
+        iconWithText: "flex items-center rounded-xl hover:bg-slate-200",
       },
       size: {
         default: "flex bg-none py-2 px-4",
@@ -39,13 +40,7 @@ interface ButtonProps
   idx?: number;
 }
 
-const Button = ({
-  className,
-  size = "default",
-  intent = "default",
-  icon,
-  ...props
-}: ButtonProps) => {
+const Button = ({ className, size, intent, icon, ...props }: ButtonProps) => {
   return (
     <button
       className={cn(buttonStyles({ intent, size, className }))}
