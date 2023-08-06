@@ -23,7 +23,7 @@ const buttonStyles = cva(
         default: "flex bg-none py-2 px-4",
         sm: "h-full p-2 rounded-md",
         extra_sm: "h-6",
-        iconButton: "w-40 h-40",
+        iconButton: "",
       },
     },
     defaultVariants: {
