@@ -19,7 +19,7 @@ const ContentNavigator = ({ publishedAt }: { publishedAt: string }) => {
           onClick={() => router.push(prevDateEl.slug)}
         >
           <Icon icon="MdArrowBackIosNew" color="#3F3F4A" size="sm" />
-          <Text textColor="content" size="content">
+          <Text textColor="content" size="small_content">
             {prevDateEl.title}
           </Text>
         </button>
@@ -29,7 +29,7 @@ const ContentNavigator = ({ publishedAt }: { publishedAt: string }) => {
           className={buttonStyles({ intent: "iconWithText", size: "default" })}
           onClick={() => router.push(nextDateEl.slug)}
         >
-          <Text textColor="content" size="content">
+          <Text textColor="content" size="small_content">
             {nextDateEl.title}
           </Text>
           <Icon icon="MdArrowForwardIos" color="#3F3F4A" size="sm" />

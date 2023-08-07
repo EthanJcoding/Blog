@@ -45,7 +45,7 @@ const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
         className={`${item.count === 30 ? "ml-2 py-2 pl-3 border-l" : "py-2"}`}
       >
         <Text
-          size={item.count === 20 ? "medium_content" : "small_content"}
+          size={item.count === 20 ? "medium_content" : "content"}
           font="semi_bold"
           textColor={activeId === item.title ? "onObserver" : "toc"}
         >

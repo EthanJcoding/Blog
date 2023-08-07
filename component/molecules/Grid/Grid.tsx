@@ -169,17 +169,17 @@ const Grid = ({
     if (hasThumbnail) {
       return (
         <a
-          href={contents.url}
+          href={contents.slug}
           target="_blank"
           className={gridStyles({ intent, size })}
           rel="noreferrer"
         >
           <div className="flex flex-col justify-evenly h-full min-h-[342px]">
             <div className="flex justify-center items-center rounded-3xl w-full h-52">
-              {contents.thumbnail ? (
+              {contents.thumbnailUrl ? (
                 <Image
-                  alt={`${contents.name} 이미지`}
-                  src={contents.thumbnail}
+                  alt={`${contents.title} 이미지`}
+                  src={contents.thumbnailUrl}
                   className="w-full h-full object-none p-2"
                   width={200}
                   height={100}
