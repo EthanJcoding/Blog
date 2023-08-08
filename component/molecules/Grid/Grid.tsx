@@ -168,11 +168,9 @@ const Grid = ({
   const renderA22Grid = () => {
     if (hasThumbnail) {
       return (
-        <a
-          href={contents.slug}
-          target="_blank"
+        <Link
+          href={`/content/${contents.slug}`}
           className={gridStyles({ intent, size })}
-          rel="noreferrer"
         >
           <div className="flex flex-col justify-evenly h-full min-h-[342px]">
             <div className="flex justify-center items-center rounded-3xl w-full h-52">
@@ -192,7 +190,7 @@ const Grid = ({
               </Text>
             </div>
           </div>
-        </a>
+        </Link>
       );
     } else {
       return (
