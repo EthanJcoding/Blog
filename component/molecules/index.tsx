@@ -8,6 +8,8 @@ import Navigation from "./Navigation/Navigation";
 import Profile from "./Profile/Profile";
 import TableOfContent from "./TableOfContent/TableOfContent";
 import Weather from "./Weather/Weather";
+import ContentNavigator from "./ContentNavigator/ContentNavigator";
+import ArchiveGrid from "./ArchiveGrid/ArchiveGrid";
 
 export {
   Frontmatter,
@@ -20,4 +22,6 @@ export {
   Profile,
   TableOfContent,
   Weather,
+  ContentNavigator,
+  ArchiveGrid,
 };

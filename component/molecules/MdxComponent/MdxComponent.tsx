@@ -156,7 +156,7 @@ const MdxComponent = ({ code }: { code: string }) => {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx w-full flex flex-col justify-center">
+    <div className="mdx w-full flex flex-col justify-center mb-8">
       <Component components={components} />
     </div>
   );

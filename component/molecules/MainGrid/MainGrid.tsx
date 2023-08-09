@@ -1,6 +1,6 @@
 import { widgets } from "component/atoms/Icon";
-import { Grid } from "..";
 import { useGenerationStore, contentsForMainPage } from "services";
+import { Grid } from "..";
 
 type widget = keyof typeof widgets;
 

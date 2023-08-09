@@ -1,6 +1,10 @@
 import { FaSearch, FaReact, FaTools, FaGithubSquare } from "react-icons/fa";
 import { RxComponent1 } from "react-icons/rx";
-import { MdTipsAndUpdates } from "react-icons/md";
+import {
+  MdTipsAndUpdates,
+  MdArrowBackIosNew,
+  MdArrowForwardIos,
+} from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
 import { RxLetterCaseLowercase, RxAvatar } from "react-icons/rx";
 import { AiOutlineForm, AiFillAlert, AiFillCloud } from "react-icons/ai";
@@ -26,6 +30,8 @@ export const icons = {
   FaTools,
   MdTipsAndUpdates,
   RxLetterCaseLowercase,
+  MdArrowBackIosNew,
+  MdArrowForwardIos,
 };
 
 export const widgets = {
