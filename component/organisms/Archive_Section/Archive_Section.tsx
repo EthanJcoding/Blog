@@ -10,7 +10,9 @@ const Archive_Section = ({ children }: { children: JSX.Element }) => {
           <div className="grid gap-10">{children}</div>
         </div>
       ) : (
-        <div className="grid gap-10">{children}</div>
+        <div className="flex flex-col xlg:flex-row w-full">
+          <div className="grid gap-10 ">{children}</div>
+        </div>
       )}
     </div>
   );
