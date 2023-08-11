@@ -14,11 +14,11 @@ interface LayoutProps {
 
 const Layout = ({
   children,
-  title,
-  description,
-  image,
-  url,
-  tags,
+  title = "Junil-portfolio",
+  description = "프론트엔드 개발자 정준일의 포트폴리오 bento",
+  image = "/default-image.jpg",
+  url = "https://junil-portfolio.vercel.app/",
+  tags = "HTML, CSS, JavaScript, TypeScript, Next.js, React.js",
 }: React.PropsWithChildren<LayoutProps>) => {
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
@@ -33,23 +33,12 @@ const Layout = ({
   return (
     <>
       <Head>
-        <title>{title ?? "Junil-portfolio"}</title>
-        <meta
-          name="description"
-          content={description ?? "프론트엔드 개발자 정준일의 포트폴리오 bento"}
-        />
-        <meta property="og:image" content={image ?? "/default-image.jpg"} />
-        <meta
-          property="og:url"
-          content={url ?? "https://junil-portfolio.vercel.app/"}
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:url" content={url} />
         <meta name="author" content="Junil Jeong" />
-        <meta
-          name="keywords"
-          content={
-            tags ?? "HTML, CSS, JavaScript, TypeScript, Next.js, React.js"
-          }
-        />
+        <meta name="keywords" content={tags} />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
         <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16">
@@ -61,7 +50,11 @@ const Layout = ({
                 <div className="relative flex w-full">{children}</div>
               ) : (
                 /** 접힌 상태에서의 컨텐츠페이지 */
-                <div className="relative flex w-full max-w-[1080px]">
+                <div
+                  className={`relative flex w-full ${
+                    router.pathname === "/archive" ? "" : "max-w-[1080px]"
+                  }`}
+                >
                   {children}
                 </div>
               )}
@@ -69,7 +62,7 @@ const Layout = ({
           ) : (
             <>
               <Profile />
-              {router.pathname === "/" ? (
+              {router.pathname === "/" || router.pathname === "/archive" ? (
                 /** 일반적인 메인페이지 */
                 <div className="relative flex xl:w-[824px] w-full">
                   {children}
