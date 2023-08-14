@@ -1,3 +1,4 @@
+import { Cloud } from "component/atoms";
 import { Git_Status, Grid } from "component/molecules";
 import React from "react";
 import { contentsForMainPage, useGenerationStore } from "services";
@@ -7,13 +8,8 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const [{ contentsGoodCode }] = contentsForMainPage;
 
   return (
-    <div className="w-full">
-      <div className="h-40 w-full absolute overflow-hidden rounded-t-3xl">
-        <div className="wave2 animate-wave absolute opacity-90"></div>
-        <div className="wave animate-wave absolute opacity-80"></div>
-      </div>
-
-      <div className="h-40 mb-10"></div>
+    <div className={`${isFolded ? "w-[1508px]" : "w-full"}`}>
+      <Cloud />
       <div className="text-xl justify-end my-10 w-full">Welcome 👋</div>
 
       {isFolded ? (
