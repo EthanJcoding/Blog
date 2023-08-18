@@ -8,7 +8,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const [{ contentsGoodCode }] = contentsForMainPage;
 
   return (
-    <div className={`${isFolded ? "w-[1508px]" : "w-full"}`}>
+    <div className={`${isFolded ? "w-full" : "w-full"}`}>
       <Cloud />
       <div className="text-xl justify-end my-10 w-full">Welcome 👋</div>
 
@@ -16,8 +16,8 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
         <div className="flex flex-col xlg:flex-row w-full">
           <div className="hidden w-full xlg:flex xlg:mr-10 flex-col">
             <Git_Status />
-            <div className="grid gap-10">
-              <div className="col-span-2 xlg:col-span-2 h-full w-full text-xl flex flex-col justify-end">
+            <div className="grid gap-10 ">
+              <div className="col-span-1 2xlg:col-span-2 text-xl flex flex-col justify-end">
                 Recent Writings ✏️
               </div>
               {contentsGoodCode.map((content, idx) => (
