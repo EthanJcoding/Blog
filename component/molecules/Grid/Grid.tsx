@@ -29,15 +29,10 @@ const gridStyles = cva(
           "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
         grid_flexible: "font-medium text-md p-5 w-full h-full",
       },
-      theme: {
-        default: "",
-        content: "bg-cyan-700",
-      },
     },
     defaultVariants: {
       intent: "grid",
       size: "grid_lg",
-      theme: "default",
     },
   }
 );
@@ -183,7 +178,7 @@ const Grid = ({
               ) : null}
             </div>
             <div className="flex flex-col my-4 text-center">
-              <Text size="small_content" font="semi_bold" textColor="content">
+              <Text size="medium_content" font="semi_bold" textColor="content">
                 {contents.title}
               </Text>
             </div>
