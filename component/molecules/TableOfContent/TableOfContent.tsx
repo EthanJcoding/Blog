@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useObserver } from "services";
 import { Text } from "component/atoms";
+
 function setHeadingIds(content: string) {
   const titles = content.split("\n").filter((t) => t.includes("# "));
   const headingElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -37,6 +38,7 @@ interface TableItemProps {
   activeId: string;
 }
 
+// eslint-disable-next-line react/display-name
 const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
   if (item?.count && item.count <= 30 && item?.title) {
     return (
@@ -56,8 +58,6 @@ const TableOfContentItem = React.memo(({ item, activeId }: TableItemProps) => {
   }
   return null;
 });
-
-TableOfContentItem.displayName = "TableOfContentItem";
 
 const TableOfContent = ({ content }: { content: string }) => {
   const [activeId, setActiveId] = useState("");

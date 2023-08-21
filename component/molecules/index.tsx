@@ -10,6 +10,7 @@ import TableOfContent from "./TableOfContent/TableOfContent";
 import Weather from "./Weather/Weather";
 import ContentNavigator from "./ContentNavigator/ContentNavigator";
 import ArchiveGrid from "./ArchiveGrid/ArchiveGrid";
+import Contribution from "./Contribution/Contribution";
 
 export {
   Frontmatter,
@@ -24,4 +25,5 @@ export {
   Weather,
   ContentNavigator,
   ArchiveGrid,
+  Contribution,
 };
