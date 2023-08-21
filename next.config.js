@@ -4,6 +4,7 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    dangerouslyAllowSVG: true,
     domains: [
       "img.shields.io",
       "ghchart.rshah.org",
