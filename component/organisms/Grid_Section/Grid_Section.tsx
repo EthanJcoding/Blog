@@ -1,5 +1,5 @@
 import { Cloud } from "component/atoms";
-import { Git_Status, Grid } from "component/molecules";
+import { Grid, Git_Status } from "component/molecules";
 import React from "react";
 import { contentsForMainPage, useGenerationStore } from "services";
 
@@ -7,39 +7,43 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();
   const [{ contentsGoodCode }] = contentsForMainPage;
 
-  return (
-    <div className={`${isFolded ? "w-full" : "w-full"}`}>
-      <Cloud />
-      <div className="text-xl justify-end my-10 w-full">Welcome 👋</div>
+  const renderGridContent = () => (
+    <>
+      <Git_Status />
+      <div className="grid gap-10">{children}</div>
+    </>
+  );
 
-      {isFolded ? (
-        <div className="flex flex-col xlg:flex-row w-full">
-          <div className="hidden w-full xlg:flex xlg:mr-10 flex-col">
-            <Git_Status />
-            <div className="grid gap-10 ">
-              <div className="col-span-1 2xlg:col-span-2 text-xl flex flex-col justify-end">
-                Recent Writings ✏️
-              </div>
-              {contentsGoodCode.map((content, idx) => (
-                <Grid
-                  key={idx}
-                  hasThumbnail={true}
-                  contents={content}
-                  gridType="A22"
-                  size="grid_flexible"
-                  intent="Flex_grid"
-                />
-              ))}
-            </div>
+  const renderFoldedContent = () => (
+    <div className="flex flex-col xlg:flex-row w-full">
+      <div className="mr-10">
+        <Git_Status />
+        <div className="grid gap-10 ">
+          <div className="col-span-1 2xlg:col-span-2 text-xl flex flex-col justify-end">
+            Recent Writings ✏️
           </div>
-          <div className="grid gap-10">{children}</div>
+          {contentsGoodCode.map((content, idx) => (
+            <Grid
+              key={idx}
+              hasThumbnail={true}
+              contents={content}
+              gridType="A22"
+              size="grid_flexible"
+              intent="Flex_grid"
+            />
+          ))}
         </div>
-      ) : (
-        <>
-          <Git_Status />
-          <div className="grid gap-10">{children}</div>
-        </>
-      )}
+      </div>
+      <div className="grid gap-10">{children}</div>
+    </div>
+  );
+
+  return (
+    <div className="w-full">
+      <Cloud />
+      <div className="text-xl justify-end my-10">Welcome 👋</div>
+
+      {isFolded ? renderFoldedContent() : renderGridContent()}
     </div>
   );
 };

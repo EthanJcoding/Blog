@@ -30,6 +30,37 @@ const Layout = ({
     }
   }, [setFolded, width]);
 
+  const isHomePage = router.pathname === "/";
+  const isArchivePage = router.pathname === "/archive";
+
+  const renderContent = () => {
+    if (isFolded) {
+      if (isHomePage) {
+        return <div className="relative flex w-full ">{children}</div>;
+      } else {
+        return (
+          <div
+            className={`relative flex w-full ${
+              isArchivePage ? "" : "max-w-[1080px]"
+            }`}
+          >
+            {children}
+          </div>
+        );
+      }
+    } else {
+      if (isHomePage || isArchivePage) {
+        return (
+          <div className="relative flex xl:w-[824px] w-full">{children}</div>
+        );
+      } else {
+        return (
+          <div className="relative flex w-full max-w-[1080px]">{children}</div>
+        );
+      }
+    }
+  };
+
   return (
     <>
       <Head>
@@ -41,40 +72,9 @@ const Layout = ({
         <meta name="keywords" content={tags} />
       </Head>
       <main className="min-h-screen flex items-center justify-center animate-fadeindown">
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16">
-          {isFolded ? (
-            <>
-              <Navigation location="navBar" />
-              {router.pathname === "/" ? (
-                /** 접힌 상태에서의 메인페이지 */
-                <div className="relative flex w-full">{children}</div>
-              ) : (
-                /** 접힌 상태에서의 컨텐츠페이지 */
-                <div
-                  className={`relative flex w-full ${
-                    router.pathname === "/archive" ? "" : "max-w-[1080px]"
-                  }`}
-                >
-                  {children}
-                </div>
-              )}
-            </>
-          ) : (
-            <>
-              <Profile />
-              {router.pathname === "/" || router.pathname === "/archive" ? (
-                /** 일반적인 메인페이지 */
-                <div className="relative flex xl:w-[824px] w-full">
-                  {children}
-                </div>
-              ) : (
-                /** 일반적인 컨텐츠페이지 */
-                <div className="relative flex w-full max-w-[1080px]">
-                  {children}
-                </div>
-              )}
-            </>
-          )}
+        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16 ">
+          {isFolded ? <Navigation location="navBar" /> : <Profile />}
+          {renderContent()}
         </div>
       </main>
     </>

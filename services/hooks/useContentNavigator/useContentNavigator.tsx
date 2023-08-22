@@ -13,7 +13,6 @@ interface Project {
 export const useContentNavigator = (publishedAt: string) => {
   const [{ projectsRecall }] = contentsForMainPage;
 
-  // Memoize orderedProjects using useMemo for better performance
   const orderedProjects = useMemo(
     () =>
       projectsRecall.sort(
@@ -23,7 +22,6 @@ export const useContentNavigator = (publishedAt: string) => {
     [projectsRecall]
   );
 
-  // Helper function to find the index of the current project
   const findCurrentProjectIndex = () =>
     orderedProjects.findIndex((el) => el.publishedAt === publishedAt);
 
