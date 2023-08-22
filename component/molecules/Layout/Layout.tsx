@@ -55,7 +55,9 @@ const Layout = ({
         );
       } else {
         return (
-          <div className="relative flex w-full max-w-[1080px]">{children}</div>
+          <div className="relative flex w-full xlg:min-w-[824px]">
+            {children}
+          </div>
         );
       }
     }
