@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useGenerationStore, useWindowSize } from "services";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Navigation, Profile } from "..";
 
@@ -23,10 +23,18 @@ const Layout = ({
   const { isFolded, setFolded } = useGenerationStore();
   const { width } = useWindowSize();
   const router = useRouter();
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     if (width < 1280) {
       setFolded(false);
+    }
+    const animationStatus = localStorage.getItem("animationStatus");
+    if (animationStatus === "animated") {
+      setHasAnimated(true);
+    } else {
+      setHasAnimated(false);
+      localStorage.setItem("animationStatus", "animated");
     }
   }, [setFolded, width]);
 
@@ -73,7 +81,11 @@ const Layout = ({
         <meta name="author" content="Junil Jeong" />
         <meta name="keywords" content={tags} />
       </Head>
-      <main className="min-h-screen flex items-center justify-center animate-fadeindown">
+      <main
+        className={`min-h-screen flex items-center justify-center ${
+          hasAnimated ? "" : "animate-fadeindown"
+        }`}
+      >
         <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16 ">
           {isFolded ? <Navigation location="navBar" /> : <Profile />}
           {renderContent()}
