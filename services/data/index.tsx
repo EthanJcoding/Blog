@@ -35,7 +35,8 @@ export const contentsForMainPage = [
         title: "CodeTech 기획 회고",
         publishedAt: "2022-12-09",
         description: "코드테크 프로젝트의 기획 회고입니다.",
-        thumbnailUrl: "https://codetech.nworld.dev/favicon.ico",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/67fb17d4-1d79-4b7b-b1df-4aff27929bfb/image.ico",
         tags: ["Codetech", "코드스테이츠"],
         slug: "코드테크 기획 회고",
       },
@@ -43,7 +44,8 @@ export const contentsForMainPage = [
         title: "CodeTech 개발 회고",
         publishedAt: "2022-12-10",
         description: "코드테크 프로젝트의 개발 회고입니다.",
-        thumbnailUrl: "https://codetech.nworld.dev/favicon.ico",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/67fb17d4-1d79-4b7b-b1df-4aff27929bfb/image.ico",
         tags: ["Codetech", " 코드스테이츠"],
         slug: "코드테크 개발 회고",
       },
