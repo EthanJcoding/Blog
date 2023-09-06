@@ -1,12 +1,11 @@
 import { widgets } from "component/atoms/Icon";
-import { useGenerationStore, contentsForMainPage } from "services";
+import { contentsForMainPage } from "services";
 import { Grid } from "..";
 
 type widget = keyof typeof widgets;
 
 const MainGrid = () => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
-  const { isFolded } = useGenerationStore();
   const [{ projects, projectsRecall, contentsGoodCode }] = contentsForMainPage;
 
   return (
@@ -29,7 +28,7 @@ const MainGrid = () => {
         />
       ))}
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
-        Good code I define ✏️
+        Contents ✏️
       </div>
       {contentsGoodCode.map((content, idx) => (
         <Grid
@@ -41,23 +40,6 @@ const MainGrid = () => {
           size="grid_xlg"
         />
       ))}
-      {isFolded ? null : (
-        <>
-          <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
-            Recent Writings ✏️
-          </div>
-          {contentsGoodCode.map((content, idx) => (
-            <Grid
-              key={idx}
-              hasThumbnail={true}
-              contents={content}
-              gridType="A22"
-              intent="A22_grid"
-              size="grid_xlg"
-            />
-          ))}
-        </>
-      )}
     </>
   );
 };

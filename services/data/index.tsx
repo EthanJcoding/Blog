@@ -68,16 +68,20 @@ export const contentsForMainPage = [
     ],
     contentsGoodCode: [
       {
-        title: "유연한 코드",
-        content: "안녕",
+        title: "웹 개발 작업 프로세스 정리",
+        publishedAt: "2023-09-05",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
+          "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
+        slug: "웹 개발 작업 프로세스 정리",
       },
       {
-        title: "유연한 코드",
-        content: "안녕",
+        title: "웹 개발 작업 프로세스 정리",
+        publishedAt: "2023-09-05",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
+          "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
+        slug: "웹 개발 작업 프로세스 정리",
       },
     ],
   },
