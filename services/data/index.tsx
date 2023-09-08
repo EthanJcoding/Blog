@@ -35,7 +35,8 @@ export const contentsForMainPage = [
         title: "CodeTech 기획 회고",
         publishedAt: "2022-12-09",
         description: "코드테크 프로젝트의 기획 회고입니다.",
-        thumbnailUrl: "https://codetech.nworld.dev/favicon.ico",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/67fb17d4-1d79-4b7b-b1df-4aff27929bfb/image.ico",
         tags: ["Codetech", "코드스테이츠"],
         slug: "코드테크 기획 회고",
       },
@@ -43,7 +44,8 @@ export const contentsForMainPage = [
         title: "CodeTech 개발 회고",
         publishedAt: "2022-12-10",
         description: "코드테크 프로젝트의 개발 회고입니다.",
-        thumbnailUrl: "https://codetech.nworld.dev/favicon.ico",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/67fb17d4-1d79-4b7b-b1df-4aff27929bfb/image.ico",
         tags: ["Codetech", " 코드스테이츠"],
         slug: "코드테크 개발 회고",
       },
@@ -68,16 +70,20 @@ export const contentsForMainPage = [
     ],
     contentsGoodCode: [
       {
-        title: "유연한 코드",
-        content: "안녕",
+        title: "웹 개발 작업 프로세스 정리",
+        publishedAt: "2023-09-05",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
+          "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
+        slug: "웹 개발 작업 프로세스 정리",
       },
       {
-        title: "유연한 코드",
-        content: "안녕",
+        title: "웹 개발 작업 프로세스 정리",
+        publishedAt: "2023-09-05",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/dnr6054/post/21e308c6-106e-46cc-aba0-c01191af3e3f/image.png",
+          "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
+        slug: "웹 개발 작업 프로세스 정리",
       },
     ],
   },
