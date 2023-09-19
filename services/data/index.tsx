@@ -14,6 +14,12 @@ export const contentsForMainPage = [
           { stack: "zustand", color: "443E38" },
           { stack: "tailwindcss", color: "06B6D4" },
         ],
+        scope: ["➡ 팀장"],
+        spec: [
+          "Library: react",
+          "State Management: Zustand",
+          "Style: Tailwindcss",
+        ],
       },
       {
         name: "악보의 정원",

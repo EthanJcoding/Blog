@@ -13,7 +13,7 @@ const Archive_Section = ({ children }: { children: JSX.Element }) => {
           <div
             className={`${gridColSpan} h-full w-full text-xl flex flex-col justify-end`}
           >
-            Archive 📚
+            Projects 📚
           </div>
           {children}
         </div>

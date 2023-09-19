@@ -17,6 +17,8 @@ import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
 import { BiArrowFromLeft, BiArrowFromRight, BiHome } from "react-icons/bi";
 
+import { FcBriefcase } from "react-icons/fc";
+
 export const icons = {
   BiHome,
   BiArrowFromLeft,
@@ -41,5 +43,5 @@ export const widgets = {
   FaGithubSquare,
   SiVelog,
   BsInstagram,
-  AiOutlineProject,
+  FcBriefcase,
 };

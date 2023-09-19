@@ -9,34 +9,32 @@ import { icons, widgets } from "component/atoms/Icon";
 
 type widget = keyof typeof widgets;
 
-const gridStyles = cva(
-  "active:scale-95 hover:bg-hover ease-in-out duration-300",
-  {
-    variants: {
-      intent: {
-        grid: "col-span-1 row-span-1 shadow-md border rounded-3xl",
-        A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
-        A14_grid:
-          "col-span-4 row-span-2 shadow-md border rounded-3xl p-5 flex ",
-        A22_grid:
-          "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2",
-        Flex_grid: "col-span-1 row-span-1 shadow-md border rounded-3xl p-5 ",
-      },
-      size: {
-        grid_md:
-          "w-full h-full xsm:min-w-[9.438rem] xsm:min-h-[9.438rem] min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
-        grid_lg:
-          "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
-        grid_xlg:
-          "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
-        grid_flexible: "font-medium text-md p-5 w-full h-full",
-      },
+const gridStyles = cva("", {
+  variants: {
+    intent: {
+      grid: "col-span-1 row-span-1 shadow-md border rounded-3xl active:scale-95 hover:bg-hover ease-in-out duration-300",
+      A12_grid:
+        "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 active:scale-95 hover:bg-hover ease-in-out duration-300",
+      A14_grid: "col-span-4 row-span-2 p-5 flex justify-between ",
+      A22_grid:
+        "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2 active:scale-95 hover:bg-hover ease-in-out duration-300",
+      Flex_grid:
+        "col-span-1 row-span-1 shadow-md border rounded-3xl p-5 active:scale-95 hover:bg-hover ease-in-out duration-300",
     },
-    defaultVariants: {
-      intent: "grid",
+    size: {
+      grid_md:
+        "w-full h-full xsm:min-w-[9.438rem] xsm:min-h-[9.438rem] min-w-[11rem] min-h-[11rem] text-sm font-medium p-5",
+      grid_lg:
+        "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
+      grid_xlg:
+        "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] min-w-[24.5rem] min-h-[24.5rem] font-medium text-md p-5",
+      grid_flexible: "font-medium text-md p-5 w-full h-full",
     },
-  }
-);
+  },
+  defaultVariants: {
+    intent: "grid",
+  },
+});
 
 interface GridProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -130,7 +128,7 @@ const Grid = ({
           href={contents.href || `/content/${contents.slug}`}
           target="_blank"
           rel="noreferrer"
-          className="w-1/2"
+          className="w-2/5"
         >
           <div className="flex justify-between h-full ">
             <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full ">
@@ -145,18 +143,34 @@ const Grid = ({
             </div>
           </div>
         </Link>
-        <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-1/2">
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-          laying out print, graphic or web designs. The passage is attributed to
-          an unknown typesetter in the 15th century who is thought to have
-          scrambled parts of De Finibus Bonorum et Malorum for use in a type
-          specimen book. It usually begins with: “Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.” The purpose of lorem ipsum is to
-          create a natural looking block of text (sentence, paragraph, page,
-          etc.) thatdistract from the layout. A practice not without
-          controversy, laying out pages with meaningless filler text can be very
-          useful when the focus is meant to be on design, not content.
+        <div className="flex rounded-3xl shadow border p-4 w-1/2 flex-col justify-evenly">
+          <div>
+            <Text size={"medium_content"} font={"semi_bold"}>
+              Role and Contribution
+            </Text>
+            <div>
+              <>
+                {contents.scope?.map((spec: string, idx: number) => (
+                  <Text key={idx} size={"small_content"} textColor={"content"}>
+                    {spec}
+                  </Text>
+                ))}
+              </>
+            </div>
+          </div>
+
+          <div>
+            <Text size={"medium_content"} font={"semi_bold"}>
+              Stacks
+            </Text>
+            <>
+              {contents.spec?.map((spec: string, idx: number) => (
+                <Text key={idx} size={"small_content"} textColor={"content"}>
+                  {spec}
+                </Text>
+              ))}
+            </>
+          </div>
         </div>
       </div>
     );
