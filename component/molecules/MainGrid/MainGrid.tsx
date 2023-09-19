@@ -6,18 +6,12 @@ type widget = keyof typeof widgets;
 
 const MainGrid = () => {
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
-  const [{ projects, projectsRecall, contentsGoodCode }] = contentsForMainPage;
+  const [{ projectsRecall, contentsGoodCode }] = contentsForMainPage;
 
   return (
     <>
       {widgetArray.map((el, idx) => (
         <Grid contents={el} key={idx} hasThumbnail={true} gridType="default" />
-      ))}
-      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
-        Projects 💻
-      </div>
-      {projects.map((project, idx) => (
-        <Grid key={idx} contents={project} hasThumbnail={true} gridType="A12" />
       ))}
       {projectsRecall.map((content, idx) => (
         <Grid

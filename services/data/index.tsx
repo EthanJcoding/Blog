@@ -1,15 +1,13 @@
 // main page 에 디스플레이에 필요한 컨텐츠들의 frontmatter 임.
 // 현재는 프로젝트 회고만을 담고있지만, Recent writings and good code I defined 도 작성할 예정
-import gomsLogo from "../../public/gomsLogo.png";
-import codeTechLogo from "../../public/codeTechLogo.png";
-
 export const contentsForMainPage = [
   {
     projects: [
       {
         name: "코드테크",
         href: "https://codetech.nworld.dev/",
-        image: codeTechLogo,
+        image:
+          "https://velog.velcdn.com/images/ethan_world/post/03646744-5eb1-46a1-851b-13ad2dac19c7/image.gif",
         stacks: [
           { stack: "react", color: "149ECA" },
           { stack: "typescript", color: "3178C6" },
@@ -20,7 +18,8 @@ export const contentsForMainPage = [
       {
         name: "악보의 정원",
         href: "http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/",
-        image: gomsLogo,
+        image:
+          "https://velog.velcdn.com/images/ethan_world/post/69a47aca-5433-492d-a8f1-990f10a5ec06/image.gif",
         stacks: [
           { stack: "react", color: "149ECA" },
           { stack: "typescript", color: "3178C6" },
