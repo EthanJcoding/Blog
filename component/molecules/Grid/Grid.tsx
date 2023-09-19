@@ -16,6 +16,8 @@ const gridStyles = cva(
       intent: {
         grid: "col-span-1 row-span-1 shadow-md border rounded-3xl",
         A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
+        A14_grid:
+          "col-span-4 row-span-2 shadow-md border rounded-3xl p-5 flex ",
         A22_grid:
           "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2",
         Flex_grid: "col-span-1 row-span-1 shadow-md border rounded-3xl p-5 ",
@@ -32,7 +34,6 @@ const gridStyles = cva(
     },
     defaultVariants: {
       intent: "grid",
-      size: "grid_lg",
     },
   }
 );
@@ -43,7 +44,7 @@ interface GridProps
   icon?: keyof typeof widgets | keyof typeof icons;
   idx?: number;
   hasThumbnail: boolean;
-  gridType: "default" | "A12" | "A22";
+  gridType: "default" | "A12" | "A22" | "A14";
   contents: any | widget;
 }
 
@@ -99,7 +100,12 @@ const Grid = ({
         <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
             {contents.image && (
-              <Image src={contents.image} alt="project logo" />
+              <Image
+                src={contents.image}
+                alt="project logo"
+                width={500}
+                height={500}
+              />
             )}
             {contents.name === "악보의 정원" && (
               <div
@@ -114,6 +120,45 @@ const Grid = ({
           </div>
         </div>
       </Link>
+    );
+  };
+
+  const A14Grid = () => {
+    return (
+      <div className={gridStyles({ intent: "A14_grid" })}>
+        <Link
+          href={contents.href || `/content/${contents.slug}`}
+          target="_blank"
+          rel="noreferrer"
+          className="w-1/2"
+        >
+          <div className="flex justify-between h-full ">
+            <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full ">
+              {contents.image && (
+                <Image
+                  src={contents.image}
+                  alt="project logo"
+                  width={500}
+                  height={500}
+                />
+              )}
+            </div>
+          </div>
+        </Link>
+        <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-1/2">
+          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+          laying out print, graphic or web designs. The passage is attributed to
+          an unknown typesetter in the 15th century who is thought to have
+          scrambled parts of De Finibus Bonorum et Malorum for use in a type
+          specimen book. It usually begins with: “Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua.” The purpose of lorem ipsum is to
+          create a natural looking block of text (sentence, paragraph, page,
+          etc.) thatdistract from the layout. A practice not without
+          controversy, laying out pages with meaningless filler text can be very
+          useful when the focus is meant to be on design, not content.
+        </div>
+      </div>
     );
   };
 
@@ -150,6 +195,8 @@ const Grid = ({
       return <DefaultGrid />;
     case "A12":
       return <A12Grid />;
+    case "A14":
+      return <A14Grid />;
     case "A22":
       return <A22Grid />;
     default:
