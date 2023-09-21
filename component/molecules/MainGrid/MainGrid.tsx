@@ -13,6 +13,9 @@ const MainGrid = () => {
       {widgetArray.map((el, idx) => (
         <Grid contents={el} key={idx} hasThumbnail={true} gridType="default" />
       ))}
+      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
+        Contents ✏️
+      </div>
       {projectsRecall.map((content, idx) => (
         <Grid
           key={idx}
@@ -21,9 +24,6 @@ const MainGrid = () => {
           gridType="default"
         />
       ))}
-      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
-        Contents ✏️
-      </div>
       {contentsGoodCode.map((content, idx) => (
         <Grid
           key={idx}
