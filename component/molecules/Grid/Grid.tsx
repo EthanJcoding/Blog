@@ -15,7 +15,7 @@ const gridStyles = cva("", {
       grid: "col-span-1 row-span-1 shadow-md border rounded-3xl active:scale-95 hover:bg-hover ease-in-out duration-300",
       A12_grid:
         "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 active:scale-95 hover:bg-hover ease-in-out duration-300",
-      A14_grid: "col-span-4 row-span-2 p-5 flex justify-between ",
+      Project_grid: "col-span-4 row-span-2 p-5 flex w-full justify-between ",
       A22_grid:
         "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2 active:scale-95 hover:bg-hover ease-in-out duration-300",
       Flex_grid:
@@ -121,29 +121,23 @@ const Grid = ({
     );
   };
 
-  const A14Grid = () => {
+  const ProjectGrid = () => {
     return (
-      <div className={gridStyles({ intent: "A14_grid" })}>
-        <Link
-          href={contents.href || `/content/${contents.slug}`}
-          target="_blank"
-          rel="noreferrer"
-          className="w-2/5"
-        >
-          <div className="flex justify-between h-full ">
-            <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full ">
-              {contents.image && (
-                <Image
-                  src={contents.image}
-                  alt="project logo"
-                  width={500}
-                  height={500}
-                />
-              )}
-            </div>
+      <div className={gridStyles({ intent: "Project_grid" })}>
+        <div className="flex justify-between ">
+          <div className="flex justify-center items-center rounded-3xl shadow border p-4 ">
+            {contents.image && (
+              <Image
+                src={contents.image}
+                alt="project logo"
+                width={500}
+                height={500}
+              />
+            )}
           </div>
-        </Link>
-        <div className="flex rounded-3xl shadow border p-4 w-1/2 flex-col justify-evenly">
+        </div>
+
+        <div className="flex rounded-3xl shadow border p-4 flex-col justify-evenly">
           <div>
             <Text size={"medium_content"} font={"semi_bold"}>
               Role and Contribution
@@ -210,7 +204,7 @@ const Grid = ({
     case "A12":
       return <A12Grid />;
     case "A14":
-      return <A14Grid />;
+      return <ProjectGrid />;
     case "A22":
       return <A22Grid />;
     default:
