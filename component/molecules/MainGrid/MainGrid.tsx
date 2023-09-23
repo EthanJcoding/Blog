@@ -1,12 +1,13 @@
 import { widgets } from "component/atoms/Icon";
-import { contentsForMainPage } from "services";
+import { contentsForMainPage, useGenerationStore } from "services";
 import { Grid } from "..";
 
 type widget = keyof typeof widgets;
 
 const MainGrid = () => {
+  const { isFolded } = useGenerationStore();
   const widgetArray: widget[] = Object.keys(widgets) as widget[];
-  const [{ projectsRecall, contentsGoodCode }] = contentsForMainPage;
+  const [{ projectsRecall, contentsArticleInfo }] = contentsForMainPage;
 
   return (
     <>
@@ -24,16 +25,18 @@ const MainGrid = () => {
           gridType="default"
         />
       ))}
-      {contentsGoodCode.map((content, idx) => (
-        <Grid
-          key={idx}
-          hasThumbnail={true}
-          contents={content}
-          gridType="A22"
-          intent="A22_grid"
-          size="grid_xlg"
-        />
-      ))}
+      {isFolded
+        ? null
+        : contentsArticleInfo.map((content, idx) => (
+            <Grid
+              key={idx}
+              hasThumbnail={true}
+              contents={content}
+              gridType="A22"
+              intent="A22_grid"
+              size="grid_xlg"
+            />
+          ))}
     </>
   );
 };

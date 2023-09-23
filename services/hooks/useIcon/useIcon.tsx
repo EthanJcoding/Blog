@@ -32,7 +32,7 @@ export const useIcon = (
       return {
         color: "black",
         detail: "projects",
-        link: "/archive",
+        link: "/projects",
       };
   }
 };

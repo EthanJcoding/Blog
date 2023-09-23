@@ -5,7 +5,7 @@ import { contentsForMainPage, useGenerationStore } from "services";
 
 const Grid_Section = ({ children }: { children: JSX.Element }) => {
   const { isFolded } = useGenerationStore();
-  const [{ contentsGoodCode }] = contentsForMainPage;
+  const [{ contentsArticleInfo }] = contentsForMainPage;
 
   const renderGridContent = () => (
     <>
@@ -15,14 +15,14 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
   );
 
   const renderFoldedContent = () => (
-    <div className="flex flex-col xlg:flex-row w-full">
+    <div className="flex flex-col xlg:flex-row w-full justify-between">
       <div className="mr-10">
         <Git_Status />
         <div className="grid gap-10 ">
-          <div className="col-span-1 2xlg:col-span-2 text-xl flex flex-col justify-end">
+          <div className="col-span-1 2.5xlg:col-span-2 text-xl flex flex-col justify-end">
             Recent Writings ✏️
           </div>
-          {contentsGoodCode.map((content, idx) => (
+          {contentsArticleInfo.map((content, idx) => (
             <Grid
               key={idx}
               hasThumbnail={true}
@@ -34,7 +34,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
           ))}
         </div>
       </div>
-      <div className="grid gap-10">{children}</div>
+      <div className="grid gap-10 h-full">{children}</div>
     </div>
   );
 
