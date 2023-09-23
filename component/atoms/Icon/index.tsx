@@ -1,5 +1,4 @@
 import { FaSearch, FaReact, FaTools, FaGithubSquare } from "react-icons/fa";
-import { RxComponent1 } from "react-icons/rx";
 import {
   MdTipsAndUpdates,
   MdArrowBackIosNew,
@@ -7,11 +6,18 @@ import {
 } from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
 import { RxLetterCaseLowercase, RxAvatar } from "react-icons/rx";
-import { AiOutlineForm, AiFillAlert, AiFillCloud } from "react-icons/ai";
+import {
+  AiOutlineForm,
+  AiOutlineProject,
+  AiFillAlert,
+  AiFillCloud,
+} from "react-icons/ai";
 import { BsWindowPlus, BsInstagram } from "react-icons/bs";
 import { TiTabsOutline } from "react-icons/ti";
 import { SiVelog } from "react-icons/si";
 import { BiArrowFromLeft, BiArrowFromRight, BiHome } from "react-icons/bi";
+
+import { FcBriefcase } from "react-icons/fc";
 
 export const icons = {
   BiHome,
@@ -25,7 +31,6 @@ export const icons = {
   AiOutlineForm,
   HiCursorClick,
   FaSearch,
-  RxComponent1,
   FaReact,
   FaTools,
   MdTipsAndUpdates,
@@ -38,5 +43,5 @@ export const widgets = {
   FaGithubSquare,
   SiVelog,
   BsInstagram,
-  RxComponent1,
+  FcBriefcase,
 };

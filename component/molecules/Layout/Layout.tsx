@@ -39,7 +39,7 @@ const Layout = ({
   }, [setFolded, width]);
 
   const isHomePage = router.pathname === "/";
-  const isArchivePage = router.pathname === "/archive";
+  const isProjectsPage = router.pathname === "/projects";
 
   const renderContent = () => {
     if (isFolded) {
@@ -49,7 +49,7 @@ const Layout = ({
         return (
           <div
             className={`relative flex w-full ${
-              isArchivePage ? "" : "max-w-[1080px]"
+              isProjectsPage ? "" : "max-w-[1080px]"
             }`}
           >
             {children}
@@ -57,7 +57,7 @@ const Layout = ({
         );
       }
     } else {
-      if (isHomePage || isArchivePage) {
+      if (isHomePage || isProjectsPage) {
         return (
           <div className="relative flex xl:w-[824px] w-full">{children}</div>
         );

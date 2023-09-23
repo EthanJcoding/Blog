@@ -31,8 +31,8 @@ export const useIcon = (
     default:
       return {
         color: "black",
-        detail: "archive",
-        link: "/archive",
+        detail: "projects",
+        link: "/projects",
       };
   }
 };

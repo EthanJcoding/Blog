@@ -2,19 +2,17 @@ import Grid from "../Grid/Grid";
 import { contentsForMainPage } from "services";
 
 const ArchiveGrid = () => {
-  const [{ projectsRecall }] = contentsForMainPage;
+  const [{ projects }] = contentsForMainPage;
 
   return (
     <>
-      {projectsRecall.map((content, idx) => {
+      {projects.map((content, idx) => {
         return (
           <Grid
             key={idx}
             hasThumbnail={true}
-            gridType="A22"
+            gridType="ProjectGrid"
             contents={content}
-            intent="Flex_grid"
-            size="grid_flexible"
           />
         );
       })}
