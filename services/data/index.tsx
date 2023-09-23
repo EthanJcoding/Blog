@@ -9,16 +9,17 @@ export const contentsForMainPage = [
         image:
           "https://velog.velcdn.com/images/ethan_world/post/03646744-5eb1-46a1-851b-13ad2dac19c7/image.gif",
         scope: [
-          "➡ 팀장",
-          "➡ 메인페이지, 검색 결과페이지, 컴포넌트 제작 및 디자인",
-          "➡ 리뷰 페이지 컴포넌트 제작, 리뷰 수정 및 컨텐츠 댓글 api 연결",
-          "➡ 다크모드",
+          "팀장",
+          "메인페이지, 검색 결과페이지, 컴포넌트 제작 및 디자인",
+          "리뷰 페이지 컴포넌트 제작, 리뷰 수정 및 컨텐츠 댓글 api 연결",
+          "다크모드",
         ],
         spec: [
           "Library: React",
           "State Management: Zustand",
           "Style: Tailwindcss",
         ],
+        description: "IT 관련 기기 별점 리뷰 커뮤니티",
       },
       {
         name: "악보의 정원",
@@ -26,16 +27,18 @@ export const contentsForMainPage = [
         image:
           "https://velog.velcdn.com/images/ethan_world/post/69a47aca-5433-492d-a8f1-990f10a5ec06/image.gif",
         scope: [
-          "➡ Storybook을 사용하여 CDD 기반 개발 및 아토믹 디자인 패턴을 사용하여 재사용성 높은 컴포넌트 제작",
-          "➡ Storybook CI를 위해서 chromatic을 깃헙 action에 추가하여 컴포넌트 테스트 자동화 구현",
-          "➡ Firebase 데이터베이스 및 authentication을 사용한 유저 관리 및 게시글 CRUD 구현",
-          "➡ Spotify API 를 활용하여 유저의 인풋을 검증하는 로직 제작",
+          "Storybook을 사용하여 CDD 기반 개발 및 아토믹 디자인 패턴을 사용하여 재사용성 높은 컴포넌트 제작",
+          "Storybook CI를 위해서 chromatic을 깃헙 action에 추가하여 컴포넌트 테스트 자동화 구현",
+          "Firebase 데이터베이스 및 authentication을 사용한 유저 관리 및 게시글 CRUD 구현",
+          "Spotify API 를 활용하여 유저의 인풋을 검증하는 로직 제작",
         ],
         spec: [
           "Library: React",
           "State Management: Redux-toolkit",
           "Style: Sass-scss",
+          "DB: Firebase",
         ],
+        description: "악기별 악보 커머스 서비스",
       },
     ],
     projectsRecall: [

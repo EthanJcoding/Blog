@@ -9,7 +9,7 @@ import Profile from "./Profile/Profile";
 import TableOfContent from "./TableOfContent/TableOfContent";
 import Weather from "./Weather/Weather";
 import ContentNavigator from "./ContentNavigator/ContentNavigator";
-import ArchiveGrid from "./ArchiveGrid/ArchiveGrid";
+import PrjoectsGrid from "./ProjectsGrid/ProjectsGrid";
 
 export {
   Frontmatter,
@@ -23,5 +23,5 @@ export {
   TableOfContent,
   Weather,
   ContentNavigator,
-  ArchiveGrid,
+  PrjoectsGrid,
 };

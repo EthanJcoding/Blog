@@ -62,6 +62,7 @@ module.exports = {
         "2xsm": { max: "366px" },
         xlg: { min: "1280px" },
         "2xlg": { min: "1480px" },
+        "2.5xlg": { min: "1580px" },
         "3xlg": { min: "1724px" },
       },
     },

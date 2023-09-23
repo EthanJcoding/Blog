@@ -11,9 +11,8 @@ const ArchiveGrid = () => {
           <Grid
             key={idx}
             hasThumbnail={true}
-            gridType="A14"
+            gridType="ProjectGrid"
             contents={content}
-            intent="Flex_grid"
           />
         );
       })}
