@@ -58,30 +58,29 @@ const Grid = ({
 
   const DefaultGrid = () => {
     return (
-      <Link href={hasThumbnail ? link : `/content/${contents.slug}`}>
-        <button
-          className={cn(gridStyles({ intent: "default", size: "grid_md" }))}
-        >
-          <div className="h-full flex flex-col">
-            {hasThumbnail ? (
-              <Icon widget={contents} size="m" color={color} />
-            ) : (
-              <Image
-                src={contents.thumbnailUrl}
-                width={40}
-                height={40}
-                alt={contents.description}
-              />
-            )}
-            <Text
-              size="small_content"
-              className="flex items-start mt-4 font-semibold"
-              textColor="content"
-            >
-              {hasThumbnail ? detail : contents.title}
-            </Text>
-          </div>
-        </button>
+      <Link
+        href={hasThumbnail ? link : `/content/${contents.slug}`}
+        className={cn(gridStyles({ intent: "default", size: "grid_md" }))}
+      >
+        <div className="h-full flex flex-col">
+          {hasThumbnail ? (
+            <Icon widget={contents} size="m" color={color} />
+          ) : (
+            <Image
+              src={contents.thumbnailUrl}
+              width={40}
+              height={40}
+              alt={contents.description}
+            />
+          )}
+          <Text
+            size="small_content"
+            className="flex items-start mt-4 font-semibold"
+            textColor="content"
+          >
+            {hasThumbnail ? detail : contents.title}
+          </Text>
+        </div>
       </Link>
     );
   };
