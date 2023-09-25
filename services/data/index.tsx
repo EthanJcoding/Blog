@@ -40,6 +40,24 @@ export const contentsForMainPage = [
         ],
         description: "악기별 악보 커머스 서비스",
       },
+      {
+        name: "Bento-Portfolio",
+        href: "https://junil-portfolio.vercel.app/",
+        image:
+          "https://velog.velcdn.com/images/ethan_world/post/37dc1d83-78cc-4a02-b46d-bd9db31904de/image.png",
+        scope: [
+          "content-layer 를 사용하여 .mdx 형식의 컨텐츠 동적으로 관리",
+          "기존의 bento.me 스타일을 클론하고 여러 기능 (컨텐츠 페이지, 프로필 접기 등) 을 추가",
+          "class-variance-authority 를 사용하여 tailwindcss의 단점인 가독성이 떨어지는 조건부 렌더를 해소",
+        ],
+        spec: [
+          "Library: Next.js@13",
+          "State Management: Zustand",
+          "Style: Tailwind",
+          "CI/CD: github-actions, vercel",
+        ],
+        description: "악기별 악보 커머스 서비스",
+      },
     ],
     projectsRecall: [
       {
