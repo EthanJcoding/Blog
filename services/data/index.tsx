@@ -56,7 +56,7 @@ export const contentsForMainPage = [
           "Style: Tailwind",
           "CI/CD: github-actions, vercel",
         ],
-        description: "악기별 악보 커머스 서비스",
+        description: "개인 블로그 및 포트폴리오 정리",
       },
     ],
     projectsRecall: [
