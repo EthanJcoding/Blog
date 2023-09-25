@@ -149,7 +149,7 @@ const Grid = ({
         <div
           className={`flex flex-col justify-evenly h-full col-span-2 row-span-2 shadow-md border rounded-3xl p-8 ${
             isFolded
-              ? "w-[51.5rem]"
+              ? "max-w-[51.5rem]"
               : "xsm:min-w-[21.375rem] xsm:min-h-[21.375rem] w-[24.5rem] h-[24.5rem] font-medium text-md"
           }`}
         >
