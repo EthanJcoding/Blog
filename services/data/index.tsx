@@ -49,6 +49,7 @@ export const contentsForMainPage = [
           "content-layer 를 사용하여 .mdx 형식의 컨텐츠 동적으로 관리",
           "기존의 bento.me 스타일을 클론하고 여러 기능 (컨텐츠 페이지, 프로필 접기 등) 을 추가",
           "class-variance-authority 를 사용하여 tailwindcss의 단점인 가독성이 떨어지는 조건부 렌더를 해소",
+          "SSG를 사용한 정적 데이터 관리",
         ],
         spec: [
           "Library: Next.js@13",
