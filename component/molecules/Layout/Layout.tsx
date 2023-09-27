@@ -86,7 +86,7 @@ const Layout = ({
           hasAnimated ? "" : "animate-fadeindown"
         }`}
       >
-        <div className="flex h-full w-full max-w-[428px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16 ">
+        <div className="flex h-full w-full max-w-[440px] flex-col p-6 py-12 justify-center xlg:max-w-[1728px] xlg:flex-row xlg:p-16 ">
           {isFolded ? <Navigation location="navBar" /> : <Profile />}
           {renderContent()}
         </div>
