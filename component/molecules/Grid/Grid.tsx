@@ -23,11 +23,11 @@ const gridStyles = cva(
       },
       size: {
         grid_md:
-          "xsm:w-[9.438rem] xsm:h-[9.438rem] w-[11rem] h-[11rem] text-sm font-medium p-5",
+          "xsm:w-full xsm:min-w-[150px] xsm:h-full xsm:min-h-[150px] w-[11rem] h-[11rem] text-sm font-medium p-5",
         grid_lg:
           "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5",
         grid_xlg:
-          "xsm:w-[21.375rem] xsm:h-[21.375rem] w-[24.5rem] h-[24.5rem] font-medium text-md p-5",
+          "xsm:w-full xsm:h-[21.375rem] w-[24.5rem] h-[24.5rem] font-medium text-md p-5",
         grid_flexible: "font-medium text-md p-5 h-[24.5rem]",
       },
     },
@@ -133,7 +133,7 @@ const Grid = ({
           className={`flex flex-col justify-evenly h-full col-span-2 row-span-2 shadow-md border rounded-3xl p-8 ${
             isFolded
               ? "w-[40.25rem]"
-              : "xsm:w-[21.375rem] xsm:h-[21.375rem] w-[24.5rem] h-[24.5rem] font-medium text-md"
+              : "xsm:w-full xsm:h-full w-[24.5rem] h-[24.5rem] font-medium text-md"
           }`}
         >
           {contents.image && (
@@ -150,7 +150,7 @@ const Grid = ({
           className={`flex flex-col justify-evenly h-full col-span-2 row-span-2 shadow-md border rounded-3xl p-8 ${
             isFolded
               ? "max-w-[51.5rem]"
-              : "xsm:w-[21.375rem] xsm:h-full w-[24.5rem] h-[24.5rem] font-medium text-md"
+              : "xsm:w-full xsm:h-full w-[24.5rem] h-[24.5rem] font-medium text-md"
           }`}
         >
           <div>
