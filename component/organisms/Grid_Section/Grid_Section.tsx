@@ -18,7 +18,7 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
     <div className="flex flex-col xlg:flex-row w-full justify-between">
       <div className="mr-10">
         <Git_Status />
-        <div className="grid gap-10 ">
+        <div className="grid gap-10">
           <div className="col-span-1 2.5xlg:col-span-2 text-xl flex flex-col justify-end">
             Recent Writings ✏️
           </div>
