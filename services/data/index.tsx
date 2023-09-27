@@ -100,20 +100,20 @@ export const contentsForMainPage = [
     ],
     contentsArticleInfo: [
       {
+        title: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
+        publishedAt: "2023-09-23",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/fd78f0a8-aaf2-4bd6-b3a1-d9380f1cfde3/image.jpeg",
+        slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
+      },
+      {
         title: "웹 개발 작업 프로세스 정리",
         publishedAt: "2023-09-05",
         description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
           "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
         slug: "웹 개발 작업 프로세스 정리",
-      },
-      {
-        title: "효율적인 소프트웨어 개발을 위한 아키텍처와 디자인 패턴",
-        publishedAt: "2023-09-23",
-        description: "웹 개발 작업 프로세스 정리글 입니다",
-        thumbnailUrl:
-          "https://velog.velcdn.com/images/ethan_world/post/fd78f0a8-aaf2-4bd6-b3a1-d9380f1cfde3/image.jpeg",
-        slug: "효율적인 소프트웨어 개발을 위한 아키텍처와 디자인 패턴",
       },
     ],
   },
