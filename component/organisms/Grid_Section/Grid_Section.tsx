@@ -22,13 +22,16 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
           <div className="col-span-1 2.5xlg:col-span-2 text-xl flex flex-col justify-end">
             Recent Writings ✏️
           </div>
-          <Grid
-            hasThumbnail={true}
-            contents={contentsArticleInfo[0]}
-            gridType="A22"
-            size="grid_flexible"
-            intent="Flex_grid"
-          />
+          {contentsArticleInfo.map((content, idx) => (
+            <Grid
+              key={idx}
+              hasThumbnail={true}
+              contents={content}
+              gridType="A22"
+              size="grid_flexible"
+              intent="default"
+            />
+          ))}
         </div>
       </div>
       <div className="grid gap-10 h-full">{children}</div>
