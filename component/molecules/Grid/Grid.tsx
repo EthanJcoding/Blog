@@ -9,25 +9,20 @@ import { useGenerationStore, cn, useIcon } from "services";
 type widget = keyof typeof widgets;
 
 const gridStyles = cva(
-  "active:scale-95 hover:bg-hover ease-in-out duration-300",
+  "active:scale-95 hover:bg-hover ease-in-out duration-300 shadow-md border rounded-3xl p-5 ",
   {
     variants: {
       intent: {
-        default: "col-span-1 row-span-1 shadow-md border rounded-3xl ",
-        A12_grid: "col-span-2 row-span-1 shadow-md border rounded-3xl p-5 ",
-        Project_grid: "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 ",
-        A22_grid:
-          "col-span-2 row-span-2 shadow-md border rounded-3xl p-5 2xlg:col-span-2 ",
-        Flex_grid: "col-span-1 row-span-1 shadow-md border rounded-3xl p-5 ",
+        default: "col-span-1 row-span-1 ",
+        A12_grid: "col-span-2 row-span-1 ",
+        A22_grid: "col-span-2 row-span-2 ",
       },
       size: {
         grid_md:
-          "xsm:w-full xsm:min-w-[150px] xsm:h-full xsm:min-h-[150px] w-[11rem] h-[11rem] text-sm font-medium p-5 ",
-        grid_lg:
-          "w-full h-full xsm:min-w-[21.375rem] min-w-[21.375rem] min-h-[11rem] font-medium text-md p-5 ",
-        grid_xlg:
-          "xsm:w-full xsm:h-[21.375rem] w-[24.5rem] h-[24.5rem] font-medium text-md p-5 ",
-        grid_flexible: "font-medium text-md p-5 h-[24.5rem] ",
+          "xsm:w-full xsm:h-full xsm:min-w-[150px] xsm:min-h-[150px] w-[11rem] h-[11rem] ",
+        grid_lg: "w-full h-full min-w-[21.375rem] min-h-[11rem] ",
+        grid_xlg: "xsm:w-full xsm:h-[21.375rem] w-[24.5rem] h-[24.5rem] ",
+        grid_flexible: "h-[24.5rem] ",
       },
     },
     defaultVariants: {
