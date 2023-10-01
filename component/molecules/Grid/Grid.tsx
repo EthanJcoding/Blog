@@ -83,9 +83,9 @@ const Grid = ({
     return (
       <Link
         href={contents.href || `/content/${contents.slug}`}
-        target="_blank"
         className={gridStyles({ intent: "A12_grid", size: "grid_lg" })}
         rel="noreferrer"
+        target="_blank"
       >
         <div className="flex flex-col justify-between h-full min-h-[108px]">
           <div className="flex justify-center items-center rounded-3xl shadow border p-4 w-full h-16 xlg:h-20 bg-codeTech_grid">
@@ -115,13 +115,16 @@ const Grid = ({
     const { isFolded } = useGenerationStore();
     return (
       <>
-        <Text
-          className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end"
-          textColor="content"
-          size="content"
-        >
-          {contents.name}: {contents.description}
-        </Text>
+        <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex justify-between">
+          <Text textColor="content" size="content">
+            {contents.name}: {contents.description}
+          </Text>
+          <Link href={contents.href} rel="noreferrer" target="_blank">
+            <Text textColor="onObserver" size="small_content">
+              {contents.name} 바로가기 📎
+            </Text>
+          </Link>
+        </div>
 
         <div
           className={`flex flex-col justify-evenly h-full col-span-2 row-span-2 shadow-md border rounded-3xl p-8 ${
