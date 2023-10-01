@@ -5,7 +5,7 @@ export const contentsForMainPage = [
     projects: [
       {
         name: "코드테크",
-        href: "https://codetech.nworld.dev/",
+        href: "https://codetech.laterre.dev/",
         image:
           "https://velog.velcdn.com/images/ethan_world/post/03646744-5eb1-46a1-851b-13ad2dac19c7/image.gif",
         scope: [
