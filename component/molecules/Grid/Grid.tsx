@@ -97,11 +97,9 @@ const Grid = ({
                 height={500}
               />
             )}
-            {contents.name === "악보의 정원" && (
-              <div className={` text-green-600 text-2xl xlg:text-4xl`}>
-                {contents.name}
-              </div>
-            )}
+            <div className={` text-green-600 text-2xl xlg:text-4xl`}>
+              {contents.name}
+            </div>
           </div>
           <div className="">
             <StackIcon stacks={contents.stacks} />
