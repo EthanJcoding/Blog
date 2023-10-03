@@ -7,9 +7,9 @@ const textVariants = cva("", {
     size: {
       title: "text-xl xl:text-3xl xsm:text-lg",
       name: "text-3xl xl:text-5xl 2xsm:text-lg",
-      content: "text-md",
+      content: "text-sm xl:text-base ",
       medium_content: "text-xl",
-      small_content: "text-sm xl:text-md",
+      small_content: "text-xs xl:text-sm ",
     },
     font: {
       none: "",

@@ -113,7 +113,7 @@ const Grid = ({
     const { isFolded } = useGenerationStore();
     return (
       <>
-        <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex justify-between">
+        <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col xl:flex-row justify-between">
           <Text textColor="content" size="content">
             {contents.name}: {contents.description}
           </Text>
