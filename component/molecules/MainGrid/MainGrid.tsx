@@ -17,14 +17,6 @@ const MainGrid = () => {
       <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
         Contents ✏️
       </div>
-      {projectsRecall.map((content, idx) => (
-        <Grid
-          key={idx}
-          contents={content}
-          hasThumbnail={false}
-          gridType="default"
-        />
-      ))}
       {isFolded
         ? null
         : contentsArticleInfo.map((content, idx) => (
@@ -37,6 +29,14 @@ const MainGrid = () => {
               size="grid_xlg"
             />
           ))}
+      {projectsRecall.map((content, idx) => (
+        <Grid
+          key={idx}
+          contents={content}
+          hasThumbnail={false}
+          gridType="default"
+        />
+      ))}
     </>
   );
 };

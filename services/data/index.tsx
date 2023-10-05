@@ -97,23 +97,31 @@ export const contentsForMainPage = [
         tags: ["악보의 정원"],
         slug: "악보의 정원 회고-2",
       },
-    ],
-    contentsArticleInfo: [
-      {
-        title: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
-        publishedAt: "2023-09-23",
-        description: "웹 개발 작업 프로세스 정리글 입니다",
-        thumbnailUrl:
-          "https://velog.velcdn.com/images/ethan_world/post/fd78f0a8-aaf2-4bd6-b3a1-d9380f1cfde3/image.jpeg",
-        slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
-      },
       {
         title: "웹 개발 작업 프로세스 정리",
         publishedAt: "2023-09-05",
         description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/wansook0316/post/88c6a6da-3a22-45cd-8705-7ff1e66feb8f/image.png",
+          "https://velog.velcdn.com/images/ethan_world/post/05d6e6ee-c3c8-485d-97ec-096f775dcce1/image.png",
         slug: "웹 개발 작업 프로세스 정리",
+      },
+    ],
+    contentsArticleInfo: [
+      {
+        title: "좋은 컴포넌트란",
+        publishedAt: "2023-10-05",
+        description: "좋은 컴포넌트에 대해 고민하는 글입니다",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/924a656a-26e1-44c2-ac16-67e6e8fe87fa/image.png",
+        slug: "좋은 컴포넌트란",
+      },
+      {
+        title: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
+        publishedAt: "2023-09-23",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/d4152c58-2ac2-4b4c-840d-7f8464661f2c/image.png",
+        slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
       },
     ],
   },
