@@ -103,6 +103,7 @@ export const contentsForMainPage = [
         description: "웹 개발 작업 프로세스 정리글 입니다",
         thumbnailUrl:
           "https://velog.velcdn.com/images/ethan_world/post/05d6e6ee-c3c8-485d-97ec-096f775dcce1/image.png",
+        tags: ["악보의 정원"],
         slug: "웹 개발 작업 프로세스 정리",
       },
     ],
@@ -113,6 +114,7 @@ export const contentsForMainPage = [
         description: "좋은 컴포넌트에 대해 고민하는 글입니다",
         thumbnailUrl:
           "https://velog.velcdn.com/images/ethan_world/post/924a656a-26e1-44c2-ac16-67e6e8fe87fa/image.png",
+        tags: ["악보의 정원"],
         slug: "좋은 컴포넌트란",
       },
       {
