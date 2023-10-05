@@ -5,6 +5,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { Text, Icon, StackIcon } from "component/atoms";
 import { icons, widgets } from "component/atoms/Icon";
 import { useGenerationStore, cn, useIcon } from "services";
+import dayjs from "dayjs";
 
 type widget = keyof typeof widgets;
 
@@ -113,7 +114,7 @@ const Grid = ({
     const { isFolded } = useGenerationStore();
     return (
       <>
-        <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col xl:flex-row justify-between">
+        <div className="col-span-2 xlg:col-span-4 h-full w-full flex flex-col xl:flex-row justify-between p-1">
           <Text textColor="content" size="content">
             {contents.name}: {contents.description}
           </Text>
@@ -194,21 +195,24 @@ const Grid = ({
         href={contents.href || `/content/${contents.slug}`}
         className={gridStyles({ intent, size })}
       >
-        <div className="flex flex-col justify-evenly h-full ">
-          <div className="flex justify-center items-center rounded-3xl w-full h-52">
+        <div className="flex flex-col h-full ">
+          <div className="flex justify-center items-center w-full h-52">
             {contents.thumbnailUrl && (
               <Image
                 alt={`${contents.title} 이미지`}
                 src={contents.thumbnailUrl}
-                className="w-full h-full object-none p-2"
+                className="object-fit w-full h-full rounded-[44px]"
                 width={200}
                 height={100}
               />
             )}
           </div>
-          <div className="flex flex-col my-4 text-center">
-            <Text size="medium_content" font="semi_bold" textColor="content">
+          <div className="flex flex-col my-4">
+            <Text size="content" font="semi_bold" textColor="content">
               {contents.title}
+            </Text>
+            <Text size="small_content" textColor="content" className="mt-4">
+              {dayjs(contents.publishedAt).format("YYYY.MM.DD")}
             </Text>
           </div>
         </div>
