@@ -1,6 +1,7 @@
 import { widgets } from "component/atoms/Icon";
 import { contentsForMainPage, useGenerationStore } from "services";
 import { Grid } from "..";
+import { Text } from "component/atoms";
 
 type widget = keyof typeof widgets;
 
@@ -14,9 +15,12 @@ const MainGrid = () => {
       {widgetArray.map((el, idx) => (
         <Grid contents={el} key={idx} hasThumbnail={true} gridType="default" />
       ))}
-      <div className="col-span-2 xlg:col-span-4 h-full w-full text-xl flex flex-col justify-end">
+      <Text
+        className="col-span-2 xlg:col-span-4 h-full w-full flex flex-col justify-end"
+        size="medium_content"
+      >
         Contents ✏️
-      </div>
+      </Text>
       {isFolded
         ? null
         : contentsArticleInfo.map((content, idx) => (
