@@ -201,7 +201,7 @@ const Grid = ({
               <Image
                 alt={`${contents.title} 이미지`}
                 src={contents.thumbnailUrl}
-                className="object-fit w-full h-full rounded-[44px]"
+                className="object-fit w-full h-full rounded"
                 width={200}
                 height={100}
               />
