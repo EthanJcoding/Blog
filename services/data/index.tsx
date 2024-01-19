@@ -23,7 +23,7 @@ export const contentsForMainPage = [
       },
       {
         name: "악보의 정원",
-        href: "http://gardenmusic.s3-website.ap-northeast-2.amazonaws.com/",
+        href: "http://music-garden.s3-website.ap-northeast-2.amazonaws.com/",
         image:
           "https://velog.velcdn.com/images/ethan_world/post/69a47aca-5433-492d-a8f1-990f10a5ec06/image.gif",
         scope: [
