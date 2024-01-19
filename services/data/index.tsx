@@ -106,8 +106,25 @@ export const contentsForMainPage = [
         tags: ["개발"],
         slug: "웹 개발 작업 프로세스 정리",
       },
+      {
+        title: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
+        publishedAt: "2023-09-23",
+        description: "웹 개발 작업 프로세스 정리글 입니다",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/05d6e6ee-c3c8-485d-97ec-096f775dcce1/image.png",
+        tags: ["개발"],
+        slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
+      },
     ],
     contentsArticleInfo: [
+      {
+        title: "디스코드 봇을 활용한 프론트엔드 프로젝트",
+        publishedAt: "2024-01-19",
+        description: "discord.js를 활용한 프로젝트 만들기",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/2c86c742-f167-4500-b272-94192b769db5/image.png",
+        slug: "디스코드 봇을 활용한 프론트엔드 프로젝트",
+      },
       {
         title: "좋은 컴포넌트란",
         publishedAt: "2023-10-05",
@@ -116,14 +133,6 @@ export const contentsForMainPage = [
           "https://velog.velcdn.com/images/ethan_world/post/924a656a-26e1-44c2-ac16-67e6e8fe87fa/image.png",
         tags: ["개발"],
         slug: "좋은 컴포넌트란",
-      },
-      {
-        title: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
-        publishedAt: "2023-09-23",
-        description: "웹 개발 작업 프로세스 정리글 입니다",
-        thumbnailUrl:
-          "https://velog.velcdn.com/images/ethan_world/post/d4152c58-2ac2-4b4c-840d-7f8464661f2c/image.png",
-        slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
       },
     ],
   },

@@ -17,8 +17,8 @@ const gridStyles = cva(
         default: "col-span-1 row-span-1 ",
         A12_grid: "col-span-2 row-span-1 ",
         A22_grid: "col-span-2 row-span-2 ",
-        hidden: "hidden",
-        doubleA22: "col-span-1",
+        hidden: "col-span-2 row-span-2 2xlg:hidden ",
+        doubleA22: "col-span-1 2xlg:flex hidden",
       },
       size: {
         grid_md:

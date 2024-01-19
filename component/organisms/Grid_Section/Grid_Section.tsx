@@ -27,19 +27,16 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
         <div className="mr-10 w-full">
           <Git_Status />
           <div className="grid gap-10 grid-cols-2">
-            <Text
-              className="col-span-1 sm:col-span-2 flex flex-col"
-              size="medium_content"
-            >
-              Recent Writings ✏️
-            </Text>
-            <div className="col-span-1 flex justify-end sm:hidden">
+            <div className="col-span-1 sm:col-span-2 flex justify-between">
+              <Text size="medium_content">Recent Writings ✏️</Text>
               <Button
                 onClick={handleButtonClick}
                 icon="MdArrowForward"
                 size="extra_sm"
+                className="2xlg:hidden "
               />
             </div>
+
             {contentsArticleInfo.map((content, idx) => (
               <Grid
                 key={idx}
@@ -50,13 +47,14 @@ const Grid_Section = ({ children }: { children: JSX.Element }) => {
                 intent="doubleA22"
               />
             ))}
-            {/* <Grid
+
+            <Grid
               hasThumbnail={true}
               contents={contentsArticleInfo[currentIndex]}
               gridType="A22"
               size="grid_flexible"
               intent="hidden"
-            /> */}
+            />
           </div>
         </div>
         <div className="grid gap-10 h-full">{children}</div>
