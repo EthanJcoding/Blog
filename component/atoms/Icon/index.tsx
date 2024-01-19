@@ -3,6 +3,7 @@ import {
   MdTipsAndUpdates,
   MdArrowBackIosNew,
   MdArrowForwardIos,
+  MdArrowForward,
 } from "react-icons/md";
 import { HiCursorClick } from "react-icons/hi";
 import { RxLetterCaseLowercase, RxAvatar } from "react-icons/rx";
@@ -37,6 +38,7 @@ export const icons = {
   RxLetterCaseLowercase,
   MdArrowBackIosNew,
   MdArrowForwardIos,
+  MdArrowForward,
 };
 
 export const widgets = {
