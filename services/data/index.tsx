@@ -115,6 +115,15 @@ export const contentsForMainPage = [
         tags: ["개발"],
         slug: "효율적인 개발을 위한 아키텍처와 디자인 패턴",
       },
+      {
+        title: "좋은 컴포넌트란",
+        publishedAt: "2023-10-05",
+        description: "좋은 컴포넌트에 대해 고민하는 글입니다",
+        thumbnailUrl:
+          "https://velog.velcdn.com/images/ethan_world/post/924a656a-26e1-44c2-ac16-67e6e8fe87fa/image.png",
+        tags: ["개발"],
+        slug: "좋은 컴포넌트란",
+      },
     ],
     contentsArticleInfo: [
       {
@@ -126,13 +135,12 @@ export const contentsForMainPage = [
         slug: "디스코드 봇을 활용한 프론트엔드 프로젝트",
       },
       {
-        title: "좋은 컴포넌트란",
-        publishedAt: "2023-10-05",
-        description: "좋은 컴포넌트에 대해 고민하는 글입니다",
+        title: "app router에서 next-auth 활용하기",
+        publishedAt: "2024-03-28",
+        description: "next-auth 사용기",
         thumbnailUrl:
-          "https://velog.velcdn.com/images/ethan_world/post/924a656a-26e1-44c2-ac16-67e6e8fe87fa/image.png",
-        tags: ["개발"],
-        slug: "좋은 컴포넌트란",
+          "https://velog.velcdn.com/images/ethan_world/post/009670f9-95c6-4868-b617-e31756035b59/image.png",
+        slug: "app router에서 next-auth 활용하기",
       },
     ],
   },
