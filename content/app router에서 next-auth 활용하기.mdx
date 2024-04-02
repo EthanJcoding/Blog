@@ -1,0 +1,91 @@
+---
+title: app router에서 next-auth 활용하기
+publishedAt: 2024-03-28
+description: next-auth 사용기
+thumbnailUrl: "https://velog.velcdn.com/images/ethan_world/post/05d6e6ee-c3c8-485d-97ec-096f775dcce1/image.png"
+tags: [next.js, next-auth, discord, oauth]
+---
+
+> 진행중인 프로젝트에서 discord Oauth를 구현할 필요가 생겼고, next-auth를 사용하며 리서치한 내용을 정리했습니다. 공식 문서에서는 Page router를 기준으로 설명하여 접근하기 어려웠던 경험이 있어 공유합니다 🧐
+
+## 1. next-auth
+
+- next-auth는 next.js를 사용한 서비스의 사용자 인증 및 세션 관리를 쉽게 구현할 수 있도록 도와주는 오픈소스 솔루션이다.
+
+## 2. 적용하기
+
+1. `npm install next-auth`을 프로젝트 터미널에 입력하여 필요한 라이브러리를 다운로드합니다.
+2. app-router를 사용하는 프로젝트에서 app/api/auth/[...nextauth] 경로에 route.ts 파일을 생성합니다.
+
+   <img
+     src="https://velog.velcdn.com/images/ethan_world/post/ca2da059-2d5b-4cbd-93ad-ce32c4a0a953/image.png"
+     width="250"
+     height="300"
+   />
+
+3. 지금 당장은 callbacks를 무시하고 위의 providers에 사용할 인증업체를 작성하고 그 업체에서 부여한 ID와 Secret을 환경변수로 만들어 아래처럼 값을 넣어줍니다. <img src="https://velog.velcdn.com/images/ethan_world/post/b59ff7f9-3c93-4acc-9149-edfcf0041a01/image.png" width="450" height="300"/>
+4. 환경변수(.env)로 `NEXTAUTH_URL` `NEXTAUTH_SECRET` 값을 설정해줍니다. 개발단계에서는 URL은 일단 localhost:3000을 SECRET은 "secret"으로 부여해줬습니다.
+5. 인증업체에서 인증을 완료한 후 redirect 주소를 설정해줍니다. 디스코드 개발자 포탈에서 아래처럼 URL을 만들어줬습니다.
+
+   <img
+     src="https://velog.velcdn.com/images/ethan_world/post/c91cbd63-9b0a-457f-8d97-c0edee646467/image.png"
+     width="600"
+     height="300"
+   />
+
+6. 이제 session provider를 만들어 클라이언트에서도 세션정보를 확인할 수 있도록 해야합니다. 저는 다크모드를 관리하는 provider가 이미 있으니 providers 폴더를 만들어서 개별적으로 관리하겠습니다.
+
+   <img
+     src="https://velog.velcdn.com/images/ethan_world/post/7d63562e-d1cf-4c6f-8984-b4e5e18468a5/image.png"
+     width="600"
+     height="300"
+   />
+
+   이렇게 provider를 만들고, root layout을 감싸줬습니다. 이 provider에는 getServerSession()
+   함수를 사용하여 서버에서 받은 세션을 prop으로 내려주고 사용하는 하는 걸 볼 수
+   있습니다.
+
+   <img
+     src="https://velog.velcdn.com/images/ethan_world/post/252f078d-159a-4ba5-9fe9-55d1fad55613/image.png"
+     width="600"
+     height="300"
+   />
+
+## 3. 사용하기
+
+1. 사용을 위한 모든 준비를 했습니다. 이제 로그인과 로그아웃 버튼을 만들어서 next-auth에서 제공한 함수를 버튼에 붙혀주면 작업이 끝납니다.
+
+   <img
+     src="https://velog.velcdn.com/images/ethan_world/post/9000203d-c74a-4bae-b21f-67b2442e73fc/image.png"
+     width="600"
+     height="300"
+   />
+
+   AuthButton 이라는 컴포넌트를 만들었고 여기서 로그인 버튼을 만들었습니다. onClick
+   트리거 내부에 `signIn()` 이라는 next-auth 함수를 배치하고 인자로 `'discord'`를
+   넣어주면 모든 작업이 끝납니다. 이 버튼 컴포넌트에서 useSession을 통해 유저가 로그인을
+   완료하여 세션이 존재하면 로그아웃 버튼을 갖고있는 Profile 컴포넌트를 노출시키게
+   만들었습니다.
+
+## 4. 엣지케이스
+
+- 애초에 discord의 userId 값에 접근하기 위해 위 방식의 Oauth 진행을 시도했습니다. 하지만 로그인 후 받은 세션을 확인해보면
+
+  <img
+    src="https://velog.velcdn.com/images/ethan_world/post/7e72dca4-08f7-404e-9a75-046b6d4f09c3/image.png"
+    width="200"
+    height="300"
+  />
+
+  아쉽게도 userId를 받아오지 못합니다. 이때 위에서 무시했던 callbacks를 사용하여
+  세션 정보를 수정할 수 있습니다.
+
+  <img
+    src="https://velog.velcdn.com/images/ethan_world/post/e67d0f73-1219-4ffe-80c1-7e727183e105/image.png"
+    width="600"
+    height="300"
+  />
+
+  userId를 갖고있는 token.sub를 session의 id로 선언해주면됩니다.
+
+> 그냥 사용하면 type 에러가 발생합니다. session의 인터페이스는 위 사진처럼 id가 존재하지 않는 형태니깐요. 따라서 프로젝트 폴더에서 next-auth.d.ts를 생성하여 아래처럼 module의 인터페이스를 수정해줘야 type관련 에러를 해결할 수 있습니다.<img src="https://velog.velcdn.com/images/ethan_world/post/8026287a-bd07-4921-ad92-520e0dd9fb2b/image.png" width="400" height="300"/>
